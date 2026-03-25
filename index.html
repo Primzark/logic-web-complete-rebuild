@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logic Web — Votre partenaire digital &amp; IT au Havre</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- SKIP NAVIGATION -->
+  <a href="#main-content" class="skip-nav">Aller au contenu principal</a>
+
+  <!-- SCROLL PROGRESS BAR -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="section-indicator" id="sectionIndicator">
+    <div class="section-indicator-dot"></div>
+    <span class="section-indicator-label" id="sectionLabel"></span>
+  </div>
+
+  <nav class="nav" id="mainNav">
+    <a href="#" class="nav-logo" data-nav="home"><span>/</span> LogicWeb</a>
+    <ul class="nav-links">
+      <li><a href="#" data-nav="home">Accueil</a></li>
+      <li><a href="#services" data-nav="services" data-nav-match="services">Services</a></li>
+      <li><a href="#references" data-nav="references">Références</a></li>
+      <li><a href="#about" data-nav="about">À propos</a></li>
+      <li><a href="#contact" class="nav-cta" data-nav="contact">Demander un devis</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" type="button" data-theme-toggle aria-label="Changer de thème" title="Changer de thème">
+      <div class="theme-toggle-icon">
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(245,242,235,.7)" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(245,242,235,.85)" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </div>
+    </button>
+    <button class="nav-burger" id="burger" type="button" aria-label="Menu de navigation" aria-controls="mobileMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#" data-nav="home">Accueil</a>
+    <a href="#services" data-nav="services" data-nav-match="services">Services</a>
+    <a href="#references" data-nav="references">Références</a>
+    <a href="#about" data-nav="about">À propos</a>
+    <a href="#contact" data-nav="contact">Contact</a>
+    <button class="mobile-theme-toggle" type="button" data-theme-toggle>
+      <svg id="mobileThemeIcon" viewBox="0 0 24 24" fill="none" stroke="rgba(245,242,235,.7)" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <span id="mobileThemeLabel">Mode sombre</span>
+    </button>
+  </div>
+
+  <!-- ===================== HOME ===================== -->
+  <main id="main-content">
+  <div class="page active" id="page-home">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="hero-label">Le Havre &amp; Normandie</div>
+        <h1>SOLUTIONS DIGITALES &amp; IT POUR LES ENTREPRISES LOCALES.</h1>
+        <p class="hero-sub">Logic Web conçoit des sites web, des outils métier sur mesure et un accompagnement informatique fiable pour les PME et professionnels de la région havraise.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary btn-magnetic" data-nav="contact"><span class="btn-magnetic-inner">Demander un devis <span>→</span></span></a>
+          <a href="#services" class="btn-secondary btn-magnetic" data-nav="services"><span class="btn-magnetic-inner">Découvrir nos services</span></a>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="hero-stat-num" data-count="15" data-suffix="+">0</div><div class="hero-stat-label">Années d'expertise</div></div>
+          <div class="hero-stat"><div class="hero-stat-num" data-count="200" data-suffix="+">0</div><div class="hero-stat-label">Projets livrés</div></div>
+          <div class="hero-stat"><div class="hero-stat-num" data-count="100" data-suffix="%">0</div><div class="hero-stat-label">Local &amp; accessible</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-frame"></div>
+      </div>
+      <div class="hero-scroll"><span>Découvrir</span><div class="scroll-dot"></div></div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <div class="trust-strip" data-section-name="Confiance">
+      <div class="trust-item"><div class="trust-icon">✓</div> Entreprise locale au Havre</div>
+      <div class="trust-item"><div class="trust-icon">✓</div> Approche sur mesure</div>
+      <div class="trust-item"><div class="trust-icon">✓</div> Organisme de formation</div>
+      <div class="trust-item"><div class="trust-icon">✓</div> Support &amp; maintenance</div>
+      <div class="trust-item"><div class="trust-icon">✓</div> Interlocuteur unique</div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="section services" id="sec-services" data-section-name="Services">
+      <div class="reveal">
+        <div class="section-label">Ce que nous faisons</div>
+        <div class="section-title">Des solutions concrètes pour chaque besoin numérique</div>
+        <p class="section-desc">Nous accompagnons les entreprises locales dans leur transformation digitale avec des services adaptés à leur réalité terrain.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon">🌐</div>
+          <h3>Création de sites web</h3>
+          <p>Sites vitrines, catalogues et e-commerce conçus pour convertir vos visiteurs en clients. Design moderne, responsive et optimisé pour le référencement local.</p>
+          <a href="#svc-web" class="service-link" data-nav="svc-web">En savoir plus <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.5"/></svg></a>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon">⚙️</div>
+          <h3>Logiciels &amp; outils métier</h3>
+          <p>Applications sur mesure pour remplacer vos fichiers Excel, automatiser vos processus et centraliser vos données métier dans un outil adapté.</p>
+          <a href="#svc-soft" class="service-link" data-nav="svc-soft">En savoir plus <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.5"/></svg></a>
+        </div>
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon">🔒</div>
+          <h3>Support IT &amp; sécurité</h3>
+          <p>Maintenance, réseau, sauvegarde et sécurité. Nous assurons la fiabilité de votre infrastructure pour que vous puissiez vous concentrer sur votre métier.</p>
+          <a href="#svc-it" class="service-link" data-nav="svc-it">En savoir plus <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.5"/></svg></a>
+        </div>
+        <div class="service-card reveal reveal-delay-4">
+          <div class="service-icon">📚</div>
+          <h3>Formation professionnelle</h3>
+          <p>Sessions individuelles ou en groupe pour maîtriser les outils numériques, bureautiques et métier. Formations adaptées à votre niveau et vos objectifs.</p>
+          <a href="#svc-formation" class="service-link" data-nav="svc-formation">En savoir plus <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.5"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMS WE SOLVE -->
+    <section class="section problems" data-section-name="Vos enjeux">
+      <div class="reveal">
+        <div class="section-label section-label--accent">Vos enjeux, nos réponses</div>
+        <div class="section-title light">Nous comprenons les défis des entreprises locales</div>
+      </div>
+      <div class="problems-grid">
+        <div class="problem-card reveal reveal-delay-1">
+          <div class="problem-num">01</div>
+          <h3>Votre site ne reflète plus votre entreprise</h3>
+          <p>Un site daté ou absent vous fait perdre des clients potentiels. Nous créons des présences web modernes qui inspirent confiance dès le premier regard.</p>
+        </div>
+        <div class="problem-card reveal reveal-delay-2">
+          <div class="problem-num">02</div>
+          <h3>Vos outils internes vous ralentissent</h3>
+          <p>Fichiers Excel, double saisie, processus manuels — nous développons des solutions sur mesure qui simplifient votre quotidien opérationnel.</p>
+        </div>
+        <div class="problem-card reveal reveal-delay-3">
+          <div class="problem-num">03</div>
+          <h3>Votre informatique n'est pas fiable</h3>
+          <p>Pannes réseau, données non sauvegardées, postes obsolètes. Nous sécurisons votre infrastructure et assurons la continuité de votre activité.</p>
+        </div>
+        <div class="problem-card reveal reveal-delay-4">
+          <div class="problem-num">04</div>
+          <h3>Vos équipes manquent de compétences digitales</h3>
+          <p>Nous formons vos collaborateurs aux outils essentiels pour gagner en efficacité, en autonomie et en confiance avec le numérique.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section process" data-section-name="Notre méthode">
+      <div class="reveal">
+        <div class="section-label">Notre méthode</div>
+        <div class="section-title">Un accompagnement clair, du premier échange à la livraison</div>
+      </div>
+      <div class="process-grid">
+        <div class="process-step reveal reveal-delay-1">
+          <div class="step-num">1</div>
+          <h3>Écoute &amp; analyse</h3>
+          <p>Nous échangeons pour comprendre votre activité, vos besoins et vos contraintes.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="step-num">2</div>
+          <h3>Recommandation</h3>
+          <p>Nous proposons une solution adaptée avec un périmètre, un planning et un budget clairs.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="step-num">3</div>
+          <h3>Réalisation</h3>
+          <p>Nous concevons, développons et déployons votre projet avec des points réguliers.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-4">
+          <div class="step-num">4</div>
+          <h3>Suivi &amp; évolution</h3>
+          <p>Nous restons disponibles pour la maintenance, les ajustements et l'évolution de votre projet.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERENCES -->
+    <section class="section references" id="sec-ref" data-section-name="Références">
+      <div class="reveal">
+        <div class="section-label">Nos réalisations</div>
+        <div class="section-title">Des projets concrets pour des entreprises locales</div>
+        <p class="section-desc">Chaque projet est une collaboration sur mesure. Voici quelques exemples de notre travail récent.</p>
+      </div>
+      <div class="ref-grid">
+        <div class="ref-card reveal reveal-delay-1">
+          <div class="ref-img"><div class="ref-img-inner">M</div><div class="ref-tag">Site web</div></div>
+          <div class="ref-body">
+            <h3>Menuiserie Lefebvre</h3>
+            <p>Refonte complète du site vitrine avec galerie de réalisations, formulaire de devis et optimisation SEO locale pour un artisan du Havre.</p>
+            <div class="ref-services"><span>Site vitrine</span><span>SEO local</span><span>Responsive</span></div>
+          </div>
+        </div>
+        <div class="ref-card reveal reveal-delay-2">
+          <div class="ref-img"><div class="ref-img-inner">T</div><div class="ref-tag">Outil métier</div></div>
+          <div class="ref-body">
+            <h3>TransNormandie Logistics</h3>
+            <p>Développement d'un outil de suivi des expéditions et de facturation automatisée pour une PME de transport en Seine-Maritime.</p>
+            <div class="ref-services"><span>Application web</span><span>Automatisation</span><span>Dashboard</span></div>
+          </div>
+        </div>
+        <div class="ref-card reveal reveal-delay-3">
+          <div class="ref-img"><div class="ref-img-inner">C</div><div class="ref-tag">IT &amp; sécurité</div></div>
+          <div class="ref-body">
+            <h3>Cabinet Marais Associés</h3>
+            <p>Mise en place d'une infrastructure réseau sécurisée, plan de sauvegarde et migration vers de nouveaux postes pour un cabinet d'expertise comptable.</p>
+            <div class="ref-services"><span>Réseau</span><span>Sauvegarde</span><span>Migration</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section why" data-section-name="Pourquoi Logic Web">
+      <div class="reveal">
+        <div class="section-label">Pourquoi Logic Web</div>
+        <div class="section-title">Un partenaire digital de confiance, près de chez vous</div>
+      </div>
+      <div class="why-grid">
+        <div class="why-item reveal reveal-delay-1">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <div><h4>Local &amp; accessible</h4><p>Basés au Havre, nous intervenons en proximité. Un interlocuteur direct, réactif et disponible.</p></div>
+        </div>
+        <div class="why-item reveal reveal-delay-2">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><h4>Fiable &amp; sécurisé</h4><p>Infrastructure robuste, sauvegardes, sécurité. Nous protégeons vos données et votre activité.</p></div>
+        </div>
+        <div class="why-item reveal reveal-delay-3">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+          <div><h4>Sur mesure</h4><p>Pas de solutions génériques. Chaque projet est conçu pour répondre à vos besoins réels.</p></div>
+        </div>
+        <div class="why-item reveal reveal-delay-4">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><h4>Accompagnement complet</h4><p>De la conception à la maintenance, en passant par la formation. Nous restons à vos côtés.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section cta-final" data-section-name="Contact">
+      <div class="reveal">
+        <div class="section-label section-label--center">Parlons de votre projet</div>
+        <div class="section-title light text-center">Prêt à donner un nouvel élan à votre présence digitale ?</div>
+        <p class="section-desc light section-desc--centered">Contactez-nous pour un premier échange gratuit et sans engagement. Nous étudierons ensemble la meilleure solution pour votre entreprise.</p>
+      </div>
+      <div class="cta-actions reveal reveal-delay-1">
+        <a href="#contact" class="btn-primary btn-magnetic" data-nav="contact"><span class="btn-magnetic-inner">Demander un devis <span>→</span></span></a>
+        <a href="tel:+33235000000" class="btn-secondary btn-magnetic"><span class="btn-magnetic-inner">Nous appeler</span></a>
+      </div>
+      <div class="cta-phone reveal reveal-delay-2">Ou appelez-nous directement : <a href="tel:+33235000000">02 35 00 00 00</a></div>
+    </section>
+
+  </div>
+
+  <!-- ===================== SERVICES ===================== -->
+  <div class="page" id="page-services">
+    <section class="svc-hero">
+      <div class="section-label">Nos services</div>
+      <h1 class="section-title light page-hero-title page-hero-title--wide">Des solutions pour chaque dimension de votre activité numérique</h1>
+      <p class="section-desc light page-hero-desc page-hero-desc--wide">Logic Web couvre l'ensemble de vos besoins digitaux et informatiques, avec une approche toujours adaptée à la réalité de votre entreprise.</p>
+    </section>
+    <div class="svc-content">
+      <div class="services-grid services-grid--spacious">
+        <div class="service-card">
+          <div class="service-icon">🌐</div>
+          <h3>Création de sites web</h3>
+          <p>Sites vitrines, catalogues, e-commerce. Conception moderne, responsive et optimisée pour le référencement local des entreprises havraises.</p>
+          <a href="#svc-web" class="service-link" data-nav="svc-web">Voir le détail <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.5"/></svg></a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3>Logiciels &amp; outils métier</h3>
+          <p>Applications sur mesure, dashboards, automatisation de processus. Remplacez Excel par un outil pensé pour votre métier.</p>
+          <a href="#svc-soft" class="service-link" data-nav="svc-soft">Voir le détail <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.5"/></svg></a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔒</div>
+          <h3>Support IT &amp; sécurité</h3>
+          <p>Maintenance, réseau, sauvegarde, sécurité. Nous assurons la fiabilité et la continuité de votre infrastructure informatique.</p>
+          <a href="#svc-it" class="service-link" data-nav="svc-it">Voir le détail <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.5"/></svg></a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📚</div>
+          <h3>Formation professionnelle</h3>
+          <p>Sessions individuelles ou collectives sur les outils bureautiques, numériques et métier. Adaptées à votre niveau.</p>
+          <a href="#svc-formation" class="service-link" data-nav="svc-formation">Voir le détail <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.5"/></svg></a>
+        </div>
+      </div>
+      <div class="page-cta">
+        <p class="page-cta-copy page-cta-copy--muted">Besoin d'aide pour identifier la bonne solution ?</p>
+        <a href="#contact" class="btn-primary btn-primary--olive" data-nav="contact">Discutons de votre projet →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SVC: WEB ===================== -->
+  <div class="page" id="page-svc-web">
+    <section class="svc-hero">
+      <div class="section-label">Création de sites web</div>
+      <h1 class="section-title light page-hero-title">Un site web qui travaille pour votre entreprise</h1>
+      <p class="section-desc light page-hero-desc">Nous concevons des sites modernes, rapides et optimisés pour convertir vos visiteurs en clients — avec une attention particulière au référencement local.</p>
+    </section>
+    <div class="svc-content">
+      <div class="svc-section">
+        <h2>Pour qui ?</h2>
+        <p>Artisans, commerçants, professions libérales, PME, associations — toute entreprise ou organisation de la région havraise qui souhaite une présence en ligne professionnelle et efficace.</p>
+      </div>
+      <div class="svc-section">
+        <h2>Ce que nous proposons</h2>
+        <div class="svc-features">
+          <div class="svc-feature"><h4>Site vitrine</h4><p>Présentation claire de votre activité avec des pages structurées et un design soigné.</p></div>
+          <div class="svc-feature"><h4>Site catalogue</h4><p>Mise en valeur de vos produits ou services avec fiches détaillées et navigation intuitive.</p></div>
+          <div class="svc-feature"><h4>E-commerce</h4><p>Boutique en ligne complète avec gestion des commandes, paiement sécurisé et suivi.</p></div>
+          <div class="svc-feature"><h4>Site administrable</h4><p>Interface simple pour gérer vos contenus, actualités et pages en autonomie.</p></div>
+          <div class="svc-feature"><h4>Responsive design</h4><p>Votre site s'adapte parfaitement à tous les écrans — mobile, tablette, ordinateur.</p></div>
+          <div class="svc-feature"><h4>SEO local</h4><p>Optimisation pour apparaître dans les recherches locales au Havre et en Normandie.</p></div>
+        </div>
+      </div>
+      <div class="svc-section">
+        <h2>Questions fréquentes</h2>
+        <div class="faq-list">
+          <div class="faq-item"><button class="faq-q" type="button" data-faq-trigger aria-expanded="false"><span>Combien de temps prend la création d'un site ?</span><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a" data-faq-panel><p>En général, comptez entre 3 et 8 semaines selon la complexité. Nous définissons ensemble un planning précis dès le début du projet.</p></div></div>
+          <div class="faq-item"><button class="faq-q" type="button" data-faq-trigger aria-expanded="false"><span>Puis-je modifier mon site moi-même ?</span><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a" data-faq-panel><p>Oui. Nous livrons un site administrable avec une interface simple et une formation pour vous rendre autonome sur les modifications courantes.</p></div></div>
+          <div class="faq-item"><button class="faq-q" type="button" data-faq-trigger aria-expanded="false"><span>Proposez-vous la maintenance après livraison ?</span><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a" data-faq-panel><p>Absolument. Nous proposons des contrats de maintenance qui incluent les mises à jour, la sécurité et le support technique.</p></div></div>
+          <div class="faq-item"><button class="faq-q" type="button" data-faq-trigger aria-expanded="false"><span>Pouvez-vous refondre un site existant ?</span><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a" data-faq-panel><p>Oui, la refonte est l'un de nos services les plus demandés. Nous reprenons votre contenu et créons une nouvelle version moderne et performante.</p></div></div>
+        </div>
+      </div>
+      <div class="page-cta">
+        <p class="page-cta-copy">Prêt à créer votre nouveau site web ?</p>
+        <a href="#contact" class="btn-primary btn-primary--olive" data-nav="contact">Discutons de votre projet →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SVC: SOFTWARE ===================== -->
+  <div class="page" id="page-svc-soft">
+    <section class="svc-hero">
+      <div class="section-label">Logiciels &amp; outils métier</div>
+      <h1 class="section-title light page-hero-title">Des outils conçus pour votre façon de travailler</h1>
+      <p class="section-desc light page-hero-desc">Quand les logiciels du marché ne correspondent pas à vos besoins, nous développons des solutions sur mesure qui s'adaptent à votre métier.</p>
+    </section>
+    <div class="svc-content">
+      <div class="svc-section">
+        <h2>Les problèmes que nous résolvons</h2>
+        <div class="svc-features">
+          <div class="svc-feature"><h4>Fichiers Excel ingérables</h4><p>Vos tableaux sont devenus trop complexes, fragiles et difficiles à partager.</p></div>
+          <div class="svc-feature"><h4>Tâches manuelles répétitives</h4><p>Saisie en double, copier-coller, processus chronophages qui pourraient être automatisés.</p></div>
+          <div class="svc-feature"><h4>Logiciels inadaptés</h4><p>Les outils du marché ne correspondent pas à votre façon de travailler.</p></div>
+          <div class="svc-feature"><h4>Manque de visibilité</h4><p>Vous n'avez pas de tableau de bord clair pour piloter votre activité.</p></div>
+        </div>
+      </div>
+      <div class="svc-section">
+        <h2>Ce que nous développons</h2>
+        <p>Outils de gestion internes, dashboards, interfaces de saisie, automatisation de workflows, applications web métier — chaque solution est pensée pour simplifier votre quotidien et faire gagner du temps à vos équipes.</p>
+      </div>
+      <div class="page-cta">
+        <p class="page-cta-copy">Parlons de vos besoins métier</p>
+        <a href="#contact" class="btn-primary btn-primary--olive" data-nav="contact">Prendre contact →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SVC: IT ===================== -->
+  <div class="page" id="page-svc-it">
+    <section class="svc-hero">
+      <div class="section-label">Support IT &amp; sécurité</div>
+      <h1 class="section-title light page-hero-title">Une infrastructure fiable pour travailler sereinement</h1>
+      <p class="section-desc light page-hero-desc">Nous assurons la maintenance, la sécurité et la continuité de votre environnement informatique pour que vous puissiez vous concentrer sur votre métier.</p>
+    </section>
+    <div class="svc-content">
+      <div class="svc-section">
+        <h2>Nos domaines d'intervention</h2>
+        <div class="svc-features">
+          <div class="svc-feature"><h4>Support &amp; maintenance</h4><p>Assistance technique réactive, dépannage, mise à jour et gestion de vos équipements.</p></div>
+          <div class="svc-feature"><h4>Réseau &amp; infrastructure</h4><p>Installation, configuration et optimisation de votre réseau local et de vos connexions.</p></div>
+          <div class="svc-feature"><h4>Sauvegarde &amp; protection</h4><p>Plans de sauvegarde automatisés, restauration rapide, protection contre la perte de données.</p></div>
+          <div class="svc-feature"><h4>Sécurité informatique</h4><p>Antivirus, pare-feu, sensibilisation aux risques cyber pour les petites structures.</p></div>
+          <div class="svc-feature"><h4>Postes de travail</h4><p>Déploiement, configuration et gestion de vos postes et environnements de travail.</p></div>
+          <div class="svc-feature"><h4>Audit &amp; conseil</h4><p>État des lieux de votre parc, recommandations d'amélioration, plan d'action priorisé.</p></div>
+        </div>
+      </div>
+      <div class="page-cta">
+        <p class="page-cta-copy">Besoin d'un audit ou d'un support fiable ?</p>
+        <a href="#contact" class="btn-primary btn-primary--olive" data-nav="contact">Demander un diagnostic →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SVC: FORMATION ===================== -->
+  <div class="page" id="page-svc-formation">
+    <section class="svc-hero">
+      <div class="section-label">Formation professionnelle</div>
+      <h1 class="section-title light page-hero-title">Des formations pratiques, adaptées à votre réalité</h1>
+      <p class="section-desc light page-hero-desc">Nous formons vos équipes aux outils numériques et bureautiques avec une pédagogie concrète, orientée résultat et adaptée à chaque niveau.</p>
+    </section>
+    <div class="svc-content">
+      <div class="svc-section">
+        <h2>Thèmes de formation</h2>
+        <div class="svc-features">
+          <div class="svc-feature"><h4>Bureautique</h4><p>Word, Excel, PowerPoint — de l'initiation au perfectionnement, y compris les macros VBA.</p></div>
+          <div class="svc-feature"><h4>Outils numériques</h4><p>Messagerie, collaboration en ligne, gestion de fichiers, sécurité au quotidien.</p></div>
+          <div class="svc-feature"><h4>Internet &amp; web</h4><p>Navigation, recherche, réseaux sociaux professionnels, présence en ligne.</p></div>
+          <div class="svc-feature"><h4>Logiciels métier</h4><p>Prise en main de vos outils internes ou de solutions spécifiques à votre secteur.</p></div>
+        </div>
+      </div>
+      <div class="svc-section">
+        <h2>Formats disponibles</h2>
+        <p>Sessions individuelles ou en groupe, sur site ou à distance. Chaque programme est adapté à vos objectifs, votre planning et le niveau de vos collaborateurs. Organisme de formation enregistré.</p>
+      </div>
+      <div class="page-cta">
+        <p class="page-cta-copy">Besoin d'un programme de formation ?</p>
+        <a href="#contact" class="btn-primary btn-primary--olive" data-nav="contact">Nous contacter →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== REFERENCES ===================== -->
+  <div class="page" id="page-references">
+    <section class="svc-hero">
+      <div class="section-label">Références</div>
+      <h1 class="section-title light page-hero-title">Des projets concrets, des résultats mesurables</h1>
+      <p class="section-desc light page-hero-desc">Découvrez comment nous avons accompagné des entreprises locales dans leur transformation digitale et informatique.</p>
+    </section>
+    <div class="svc-content">
+      <div class="ref-grid ref-grid--flush">
+        <div class="ref-card">
+          <div class="ref-img"><div class="ref-img-inner">M</div><div class="ref-tag">Site web</div></div>
+          <div class="ref-body">
+            <h3>Menuiserie Lefebvre</h3>
+            <p>Refonte complète du site vitrine. Galerie de réalisations, formulaire de devis en ligne et référencement local optimisé.</p>
+            <div class="ref-services"><span>Site vitrine</span><span>SEO</span><span>Responsive</span></div>
+          </div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-img"><div class="ref-img-inner">T</div><div class="ref-tag">Outil métier</div></div>
+          <div class="ref-body">
+            <h3>TransNormandie Logistics</h3>
+            <p>Application web de suivi des expéditions avec facturation automatisée et tableau de bord en temps réel.</p>
+            <div class="ref-services"><span>Application web</span><span>Automatisation</span><span>Dashboard</span></div>
+          </div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-img"><div class="ref-img-inner">C</div><div class="ref-tag">IT &amp; sécurité</div></div>
+          <div class="ref-body">
+            <h3>Cabinet Marais Associés</h3>
+            <p>Infrastructure réseau sécurisée, plan de sauvegarde complet et migration de 25 postes pour un cabinet comptable.</p>
+            <div class="ref-services"><span>Réseau</span><span>Sauvegarde</span><span>Migration</span></div>
+          </div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-img"><div class="ref-img-inner">P</div><div class="ref-tag">E-commerce</div></div>
+          <div class="ref-body">
+            <h3>Pâtisserie Saint-Roch</h3>
+            <p>Création d'une boutique en ligne avec click &amp; collect pour une pâtisserie artisanale du centre-ville.</p>
+            <div class="ref-services"><span>E-commerce</span><span>Click &amp; collect</span><span>Design</span></div>
+          </div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-img"><div class="ref-img-inner">A</div><div class="ref-tag">Formation</div></div>
+          <div class="ref-body">
+            <h3>Association Horizon Jeunes</h3>
+            <p>Programme de formation bureautique pour 12 collaborateurs : Excel avancé, outils collaboratifs et sécurité numérique.</p>
+            <div class="ref-services"><span>Formation</span><span>Excel</span><span>Sécurité</span></div>
+          </div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-img"><div class="ref-img-inner">D</div><div class="ref-tag">Outil métier</div></div>
+          <div class="ref-body">
+            <h3>Dupont Immobilier</h3>
+            <p>Outil de gestion des mandats et de suivi client sur mesure, remplaçant un système de fichiers Excel éclaté.</p>
+            <div class="ref-services"><span>Application web</span><span>CRM</span><span>Formation</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="page-cta">
+        <a href="#contact" class="btn-primary btn-primary--olive" data-nav="contact">Discutons de votre projet →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== ABOUT ===================== -->
+  <div class="page" id="page-about">
+    <section class="svc-hero">
+      <div class="section-label">À propos</div>
+      <h1 class="section-title light page-hero-title">Votre partenaire digital au Havre depuis plus de 15 ans</h1>
+      <p class="section-desc light page-hero-desc">Logic Web est une entreprise locale dédiée à l'accompagnement numérique et informatique des professionnels et PME de la région havraise.</p>
+    </section>
+    <div class="svc-content">
+      <div class="svc-section">
+        <h2>Qui sommes-nous</h2>
+        <p>Logic Web est né d'une conviction simple : les entreprises locales méritent un accompagnement digital de qualité, accessible et pragmatique. Depuis nos débuts, nous travaillons exclusivement avec des professionnels et des PME — nous comprenons leurs contraintes, leur rythme et leurs priorités.</p>
+        <p>Nous ne sommes pas un grand groupe. Nous sommes un partenaire de proximité, avec un interlocuteur direct et une réactivité que les grandes structures ne peuvent pas offrir.</p>
+      </div>
+      <div class="svc-section">
+        <h2>Notre approche</h2>
+        <div class="about-values">
+          <div class="about-value">
+            <h4>Écoute avant tout</h4>
+            <p>Chaque projet commence par une compréhension approfondie de votre activité, vos besoins et vos contraintes. Pas de solution toute faite.</p>
+          </div>
+          <div class="about-value">
+            <h4>Pragmatisme</h4>
+            <p>Nous privilégions les solutions qui fonctionnent dans la vraie vie — pas les technologies à la mode qui compliquent plus qu'elles ne simplifient.</p>
+          </div>
+          <div class="about-value">
+            <h4>Engagement dans la durée</h4>
+            <p>Un projet ne s'arrête pas à la livraison. Nous restons disponibles pour la maintenance, l'évolution et le support de vos solutions.</p>
+          </div>
+          <div class="about-value">
+            <h4>Transparence</h4>
+            <p>Budget clair, planning respecté, communication directe. Vous savez toujours où en est votre projet et ce que vous payez.</p>
+          </div>
+        </div>
+      </div>
+      <div class="svc-section">
+        <h2>Zone d'intervention</h2>
+        <p>Basés au Havre, nous intervenons principalement dans l'agglomération havraise et le département de la Seine-Maritime. Nos prestations de développement web et logiciel sont réalisables à distance pour des clients partout en Normandie.</p>
+      </div>
+      <div class="page-cta">
+        <p class="page-cta-copy">Envie d'en savoir plus ?</p>
+        <a href="#contact" class="btn-primary btn-primary--olive" data-nav="contact">Prendre contact →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== CONTACT ===================== -->
+  <div class="page" id="page-contact">
+    <section class="contact-hero">
+      <div class="section-label">Contact</div>
+      <h1 class="section-title light page-hero-title">Parlons de votre projet</h1>
+      <p class="section-desc light page-hero-desc">Premier échange gratuit et sans engagement. Décrivez-nous votre besoin et nous vous recontactons rapidement.</p>
+    </section>
+    <div class="contact-grid">
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contact-name">Nom complet</label>
+            <input id="contact-name" name="name" type="text" placeholder="Votre nom" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-company">Entreprise</label>
+            <input id="contact-company" name="company" type="text" placeholder="Nom de votre entreprise">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" placeholder="votre@email.fr" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-phone">Téléphone</label>
+            <input id="contact-phone" name="phone" type="tel" placeholder="06 00 00 00 00">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="contact-project-type">Type de projet</label>
+          <select id="contact-project-type" name="project_type">
+            <option value="">Sélectionnez un service</option>
+            <option>Création de site web</option>
+            <option>Logiciel / outil métier</option>
+            <option>Support IT &amp; sécurité</option>
+            <option>Formation</option>
+            <option>Autre / Je ne sais pas encore</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="contact-message">Votre message</label>
+          <textarea id="contact-message" name="message" placeholder="Décrivez brièvement votre besoin, vos objectifs et votre contexte..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary btn-primary--olive contact-submit">Envoyer ma demande →</button>
+      </form>
+      <div class="contact-info">
+        <h3>Coordonnées directes</h3>
+        <p>Vous préférez nous contacter directement ? N'hésitez pas, nous sommes disponibles pour un premier échange par téléphone ou par email.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><h4>Téléphone</h4><p><a href="tel:+33235000000" class="contact-inline-link">02 35 00 00 00</a></p></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><h4>Email</h4><p><a href="mailto:contact@logic-web.net" class="contact-inline-link">contact@logic-web.net</a></p></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <div><h4>Zone d'intervention</h4><p>Le Havre &amp; agglomération, Seine-Maritime, Normandie</p></div>
+        </div>
+        <div class="what-next">
+          <h4>Que se passe-t-il après votre message ?</h4>
+          <div class="what-next-steps">
+            <div class="what-next-step"><span>1</span> Nous étudions votre demande sous 24h ouvrées</div>
+            <div class="what-next-step"><span>2</span> Nous vous recontactons pour un premier échange</div>
+            <div class="what-next-step"><span>3</span> Nous vous proposons une solution adaptée et un devis clair</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </main>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Retour en haut">
+    <svg viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo footer-brand-link" data-nav="home"><span>/</span> LogicWeb</a>
+        <p>Solutions digitales &amp; informatiques pour les entreprises du Havre et de Normandie. Votre partenaire local depuis plus de 15 ans.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#" data-nav="home">Accueil</a></li>
+          <li><a href="#services" data-nav="services" data-nav-match="services">Services</a></li>
+          <li><a href="#references" data-nav="references">Références</a></li>
+          <li><a href="#about" data-nav="about">À propos</a></li>
+          <li><a href="#contact" data-nav="contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="#svc-web" data-nav="svc-web">Création de sites web</a></li>
+          <li><a href="#svc-soft" data-nav="svc-soft">Logiciels sur mesure</a></li>
+          <li><a href="#svc-it" data-nav="svc-it">Support IT &amp; sécurité</a></li>
+          <li><a href="#svc-formation" data-nav="svc-formation">Formation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+33235000000">02 35 00 00 00</a></li>
+          <li><a href="mailto:contact@logic-web.net">contact@logic-web.net</a></li>
+          <li><span class="footer-location">Le Havre, Normandie</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Logic Web. Tous droits réservés.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
