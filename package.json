@@ -1,0 +1,22 @@
+{
+  "name": "logic-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "preview:php": "php -S 127.0.0.1:8080 router.php"
+  },
+  "dependencies": {
+    "embla-carousel-react": "^8.6.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^5.4.21"
+  }
+}

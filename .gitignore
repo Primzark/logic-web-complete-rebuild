@@ -1,3 +1,5 @@
 node_modules
 dist
 .DS_Store
+storage/contact-submissions/*.json
+storage/rate-limits/*.json
