@@ -8,43 +8,43 @@ export default function Privacy() {
   return (
     <>
       <PageMeta
-        title={`Politique de confidentialite | ${company.name}`}
-        description="Cadre de traitement des donnees collectees via le formulaire de contact du site Logic Web."
+        title={`Politique de confidentialité | ${company.name}`}
+        description="Cadre de traitement des données collectées via le formulaire de contact du site Logic Web."
         canonicalPath="/politique-confidentialite"
       />
       <PageHero
-        label="Politique de confidentialite"
-        title="Comment les donnees sont traitees"
-        description="Version simple, exploitable et adaptee au formulaire de contact actuellement mis en place dans le site."
+        label="Politique de confidentialité"
+        title="Comment les données sont traitées"
+        description="Version simple, exploitable et adaptée au formulaire de contact actuellement mis en place dans le site."
         image={brandMedia.pageHeroes.privacy}
       />
       <div className="svc-content page-shell page-shell--simple legal-page">
-        <section className="svc-section" data-section-name="Donnees collectees">
+        <section className="svc-section" data-section-name="Données collectées">
           <Reveal>
-            <h2>Donnees collectees</h2>
+            <h2>Données collectées</h2>
             <p>
-              Le site collecte uniquement les donnees necessaires au traitement d’une demande de contact :
-              nom, entreprise, email, telephone, type de projet et message.
+              Le site collecte uniquement les données nécessaires au traitement d’une demande de contact :
+              nom, entreprise, email, téléphone, type de projet et message.
             </p>
           </Reveal>
         </section>
 
-        <section className="svc-section" data-section-name="Finalite">
+        <section className="svc-section" data-section-name="Finalité">
           <Reveal>
-            <h2>Finalite du traitement</h2>
+            <h2>Finalité du traitement</h2>
             <p>
-              Ces informations sont utilisees uniquement pour analyser votre demande, vous recontacter et
-              proposer la suite la plus adaptee. Elles ne sont pas vendues ni cedées a des tiers.
+              Ces informations sont utilisées uniquement pour analyser votre demande, vous recontacter et
+              proposer la suite la plus adaptée. Elles ne sont pas vendues ni cédées à des tiers.
             </p>
           </Reveal>
         </section>
 
         <section className="svc-section" data-section-name="Conservation">
           <Reveal>
-            <h2>Duree de conservation</h2>
+            <h2>Durée de conservation</h2>
             <p>
-              Les demandes sont conservees le temps necessaire a leur traitement commercial et administratif.
-              Une purge reguliere doit etre mise en place dans le cadre de l’exploitation finale.
+              Les demandes sont conservées le temps nécessaire à leur traitement commercial et administratif.
+              Une purge régulière doit être mise en place dans le cadre de l’exploitation finale.
             </p>
           </Reveal>
         </section>
@@ -53,7 +53,7 @@ export default function Privacy() {
           <Reveal>
             <h2>Vos droits</h2>
             <p>
-              Vous pouvez demander l’acces, la rectification ou la suppression de vos donnees en ecrivant a
+              Vous pouvez demander l’accès, la rectification ou la suppression de vos données en écrivant à
               <a href={`mailto:${company.email}`}> {company.email}</a>.
             </p>
           </Reveal>

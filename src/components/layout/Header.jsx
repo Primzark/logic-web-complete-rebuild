@@ -86,8 +86,8 @@ export default function Header({
       <button
         className="theme-toggle"
         type="button"
-        aria-label="Changer de theme"
-        title="Changer de theme"
+        aria-label="Changer de thème"
+        title="Changer de thème"
         onClick={onToggleTheme}
       >
         <div className="theme-toggle-icon">

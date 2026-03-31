@@ -32,70 +32,70 @@ export const company = {
 export const primaryNavigation = [
   { label: 'Accueil', path: '/' },
   { label: 'Services', path: '/services' },
-  { label: 'References', path: '/references' },
-  { label: 'A propos', path: '/a-propos' },
+  { label: 'Références', path: '/references' },
+  { label: 'À propos', path: '/a-propos' },
   { label: 'Demander un devis', path: '/contact', cta: true }
 ];
 
 export const trustItems = [
   'Entreprise locale au Havre',
   'Sites web & outils sur mesure',
-  'Support IT & securite',
+  'Support IT & sécurité',
   'Formation professionnelle',
   'Interlocuteur unique',
-  'Centre de formation agree',
-  'Reseau, maintenance & sauvegarde'
+  'Centre de formation agréé',
+  'Réseau, maintenance & sauvegarde'
 ];
 
 export const heroStats = [
-  { value: 4, suffix: '', label: 'Expertises cles' },
+  { value: 4, suffix: '', label: 'Expertises clés' },
   { value: 1, suffix: '', label: 'Interlocuteur unique' },
-  { value: 2017, suffix: '', label: 'Structure immatriculee' }
+  { value: 2017, suffix: '', label: 'Structure immatriculée' }
 ];
 
 export const homeProblems = [
   {
     number: '01',
-    title: 'Votre site ne reflète plus votre niveau d’exigence',
+    title: 'Votre site ne reflète plus votre niveau d’exigence',
     text:
-      'Une image datée, un discours flou ou un parcours de contact mal construit font perdre de la credibilite avant meme le premier echange.'
+      'Une image datée, un discours flou ou un parcours de contact mal construit peuvent faire perdre de la crédibilité avant même le premier échange.'
   },
   {
     number: '02',
     title: 'Vos outils internes deviennent un frein',
     text:
-      'Tableaux disperses, double saisie, informations difficiles a retrouver : la charge operationnelle augmente sans vraie valeur ajoutee.'
+      'Tableaux dispersés, double saisie, informations difficiles à retrouver : la charge opérationnelle augmente sans vraie valeur ajoutée.'
   },
   {
     number: '03',
-    title: 'Votre environnement IT manque de fiabilite',
+    title: 'Votre environnement IT manque de fiabilité',
     text:
-      'Incidents recurrents, sauvegardes peu claires, reseau instable ou parc heterogene : le quotidien devient plus fragile et plus couteux.'
+      'Incidents récurrents, sauvegardes peu claires, réseau instable ou parc hétérogène : le quotidien devient plus fragile et plus coûteux.'
   },
   {
     number: '04',
-    title: 'Vos equipes ont besoin de plus d’autonomie numerique',
+    title: 'Vos équipes ont besoin de plus d’autonomie numérique',
     text:
-      'Les outils sont la, mais ils sont sous-utilises. Une formation ciblee permet d’ameliorer les usages sans alourdir les processus.'
+      'Les outils sont là, mais ils sont sous-utilisés. Une formation ciblée permet d’améliorer les usages sans alourdir les processus.'
   }
 ];
 
 export const processSteps = [
   {
-    title: 'Ecoute & cadrage',
-    text: 'Comprendre votre activite, vos contraintes, vos priorites et le niveau reel d’urgence.'
+    title: 'Écoute & cadrage',
+    text: 'Comprendre votre activité, vos contraintes, vos priorités et le niveau réel d’urgence.'
   },
   {
     title: 'Recommandation',
-    text: 'Structurer une solution adaptée, avec une trajectoire claire, un perimetre lisible et les bons arbitrages.'
+    text: 'Structurer une solution adaptée, avec une trajectoire claire, un périmètre lisible et les bons arbitrages.'
   },
   {
     title: 'Production',
-    text: 'Concevoir, integrer et faire avancer le projet avec des points reguliers et des decisions documentees.'
+    text: 'Concevoir, intégrer et faire avancer le projet avec des points réguliers et des décisions documentées.'
   },
   {
-    title: 'Suivi & evolution',
-    text: 'Faire vivre le site, l’outil ou l’environnement IT dans la duree, sans rupture apres la livraison.'
+    title: 'Suivi & évolution',
+    text: 'Faire vivre le site, l’outil ou l’environnement IT dans la durée, sans rupture après la livraison.'
   }
 ];
 
@@ -104,44 +104,44 @@ export const referenceCases = [
     title: 'Menuiserie artisanale au Havre',
     tag: 'Site web',
     summary:
-      'Refonte d’un site vitrine avec portfolio, parcours devis plus clair et contenu pense pour le SEO local.',
+      'Refonte d’un site vitrine avec portfolio, parcours devis plus clair et contenu pensé pour le SEO local.',
     services: ['Site vitrine', 'SEO local', 'Responsive'],
     image: brandMedia.referenceCases.siteWeb
   },
   {
     title: 'PME logistique en Seine-Maritime',
-    tag: 'Outil metier',
+    tag: 'Outil métier',
     summary:
-      'Interface interne pour suivre les operations et centraliser des donnees auparavant gerees dans plusieurs fichiers.',
+      'Interface interne pour suivre les opérations et centraliser des données auparavant gérées dans plusieurs fichiers.',
     services: ['Application web', 'Automatisation', 'Tableau de bord'],
     image: brandMedia.referenceCases.outilMetier
   },
   {
-    title: 'Cabinet de conseil regional',
-    tag: 'IT & securite',
+    title: 'Cabinet de conseil régional',
+    tag: 'IT & sécurité',
     summary:
-      'Audit d’infrastructure, reprise des sauvegardes et fiabilisation des acces pour un environnement plus stable.',
-    services: ['Reseau', 'Sauvegarde', 'Securite'],
+      'Audit d’infrastructure, reprise des sauvegardes et fiabilisation des accès pour un environnement plus stable.',
+    services: ['Réseau', 'Sauvegarde', 'Sécurité'],
     image: brandMedia.referenceCases.itSecurite
   },
   {
-    title: 'Commerce de proximite',
-    tag: 'Presence digitale',
+    title: 'Commerce de proximité',
+    tag: 'Présence digitale',
     summary:
-      'Reconstruction d’une presence web plus premium avec pages service, demandes de contact et contenu administrable.',
+      'Reconstruction d’une présence web plus premium avec pages service, demandes de contact et contenu administrable.',
     services: ['Refonte', 'Contenu', 'UX'],
     image: brandMedia.referenceCases.presenceDigitale
   },
   {
-    title: 'Equipe administrative multi-sites',
+    title: 'Équipe administrative multi-sites',
     tag: 'Formation',
     summary:
-      'Sessions ciblees autour d’Excel, des usages numeriques et de l’organisation de l’information pour gagner en autonomie.',
+      'Sessions ciblées autour d’Excel, des usages numériques et de l’organisation de l’information pour gagner en autonomie.',
     services: ['Formation', 'Excel', 'Organisation'],
     image: brandMedia.referenceCases.formation
   },
   {
-    title: 'Activite de service B2B',
+    title: 'Activité de service B2B',
     tag: 'Logiciel',
     summary:
       'Structuration d’un outil sur mesure pour suivre les dossiers, la relation client et la production interne.',
@@ -154,22 +154,22 @@ export const whyChooseUs = [
   {
     title: 'Ancrage local',
     text:
-      'Le Havre et son tissu de petites structures exigent de la proximite, de la clarte et des reponses qui restent proportionnees.'
+      'Le Havre et son tissu de petites structures exigent de la proximité, de la clarté et des réponses qui restent proportionnées.'
   },
   {
     title: 'Lecture transversale',
     text:
-      'Web, logiciel, support IT et formation sont traites comme un ensemble coherent, pas comme des silos qui s’ignorent.'
+      'Web, logiciel, support IT et formation sont traités comme un ensemble cohérent, pas comme des silos qui s’ignorent.'
   },
   {
     title: 'Pragmatisme',
     text:
-      'Les recommandations privilegient l’utilite et la maintenabilite. Pas de stack lourde ou d’effet de mode sans raison.'
+      'Les recommandations privilégient l’utilité et la maintenabilité. Pas de stack lourde ou d’effet de mode sans raison.'
   },
   {
     title: 'Relation durable',
     text:
-      'Le projet est pense pour durer, avec un interlocuteur unique capable de faire evoluer l’existant plutot que de tout refaire.'
+      'Le projet est pensé pour durer, avec un interlocuteur unique capable de faire évoluer l’existant plutôt que de tout refaire.'
   }
 ];
 
@@ -177,71 +177,71 @@ export const legacyScope = [
   {
     title: 'Site Internet',
     text:
-      'Creation, refonte, site vitrine, e-commerce, intranet, site institutionnel, evenementiel, immobilier, newsletter et emailing.'
+      'Création, refonte, site vitrine, e-commerce, intranet, site institutionnel, événementiel, immobilier, newsletter et emailing.'
   },
   {
     title: 'Logiciel sur mesure',
     text:
-      'Applications metier, bases de donnees, hebergement des composants, maintenance et formation au logiciel.'
+      'Applications métier, bases de données, hébergement des composants, maintenance et formation au logiciel.'
   },
   {
     title: 'Formation',
     text:
-      'Centre de formation agree, sessions individuelles ou groupees, bureautique, Internet, Excel, Access, VBA et VB.NET.'
+      'Centre de formation agréé, sessions individuelles ou groupées, bureautique, Internet, Excel, Access, VBA et VB.NET.'
   },
   {
-    title: 'Reseau',
+    title: 'Réseau',
     text:
-      'Reseau local, reseau etendu, Wi-Fi, VPN, messagerie, routeurs et maintenance reseau pour petites structures.'
+      'Réseau local, réseau étendu, Wi-Fi, VPN, messagerie, routeurs et maintenance réseau pour petites structures.'
   },
   {
     title: 'Maintenance',
     text:
-      'Depannage materiel et logiciel, assistance telephonique, telemaintenance, interventions sur site et suivi preventif.'
+      'Dépannage matériel et logiciel, assistance téléphonique, télémaintenance, interventions sur site et suivi préventif.'
   },
   {
     title: 'Protection',
     text:
-      'Sauvegarde, restauration, cryptage des donnees, antivirus, anti-spywares et logique de continuite d activite.'
+      'Sauvegarde, restauration, cryptage des données, antivirus, anti-spywares et logique de continuité d’activité.'
   }
 ];
 
 export const aboutValues = [
   {
-    title: 'Ecoute avant tout',
+    title: 'Écoute avant tout',
     text:
-      'Chaque mission part de votre activite reelle. Les besoins sont reformules clairement avant de proposer une solution.'
+      'Chaque mission part de votre activité réelle. Les besoins sont reformulés clairement avant de proposer une solution.'
   },
   {
-    title: 'Solutions proportionnees',
+    title: 'Solutions proportionnées',
     text:
-      'Une petite structure n’a pas besoin d’une complexite de grand groupe. La bonne architecture est celle qui tient dans le temps.'
+      'Une petite structure n’a pas besoin d’une complexité de grand groupe. La bonne architecture est celle qui tient dans le temps.'
   },
   {
-    title: 'Clarte de la relation',
+    title: 'Clarté de la relation',
     text:
-      'Un perimetre comprehensible, des arbitrages explicites et des points de passage clairs pendant toute la production.'
+      'Un périmètre compréhensible, des arbitrages explicites et des points de passage clairs pendant toute la production.'
   },
   {
     title: 'Accompagnement complet',
     text:
-      'Le site, l’outil, le support et la formation peuvent etre traites dans un continuum pour eviter les ruptures.'
+      'Le site, l’outil, le support et la formation peuvent être traités dans un continuum pour éviter les ruptures.'
   }
 ];
 
 export const aboutLegacySections = [
   {
-    title: 'Perimetre historique',
+    title: 'Périmètre historique',
     paragraphs: [
-      'Le site historique de Logic Web presentait deja un perimetre large : creation de sites Internet, logiciels sur mesure, reseaux, maintenance, protection des donnees et formation.',
-      'La version actuelle conserve cette realite de terrain, avec une lecture plus claire : le reseau, la maintenance et la protection sont desormais regroupes dans une offre support IT plus simple a comprendre.'
+      'Le site historique de Logic Web présentait déjà un périmètre large : création de sites Internet, logiciels sur mesure, réseaux, maintenance, protection des données et formation.',
+      'La version actuelle conserve cette réalité de terrain, avec une lecture plus claire : le réseau, la maintenance et la protection sont désormais regroupés dans une offre de support IT plus simple à comprendre.'
     ]
   },
   {
-    title: 'Accessibilite & standards',
+    title: 'Accessibilité & standards',
     paragraphs: [
-      'L ancien site mettait deja en avant une attention reelle a l accessibilite et au respect des standards du web. Cet engagement reste pertinent aujourd hui : lisibilite, structure claire et socle technique propre.',
-      'L objectif reste le meme : rendre l information facile a consulter, a indexer et a faire evoluer, sans complexite gratuite.'
+      'L’ancien site mettait déjà en avant une attention réelle à l’accessibilité et au respect des standards du web. Cet engagement reste pertinent aujourd’hui : lisibilité, structure claire et socle technique propre.',
+      'L’objectif reste le même : rendre l’information facile à consulter, à indexer et à faire évoluer, sans complexité gratuite.'
     ]
   }
 ];
@@ -253,7 +253,7 @@ export const contactDetails = [
     href: 'mailto:contact@logic-web.net'
   },
   {
-    title: 'Telephone',
+    title: 'Téléphone',
     body: '02 35 44 66 81',
     href: 'tel:+33235446681'
   },
@@ -262,15 +262,15 @@ export const contactDetails = [
     body: 'Le Havre, Sainte-Adresse, Seine-Maritime et Normandie'
   },
   {
-    title: 'Premier echange',
-    body: 'Sur site ou a distance selon le projet, avec retour sous 24h ouvrées'
+    title: 'Premier échange',
+    body: 'Sur site ou à distance selon le projet, avec retour sous 24 h ouvrées'
   }
 ];
 
 export const contactProjectOptions = [
-  'Creation de site web',
-  'Logiciel / outil metier',
-  'Support IT & securite',
+  'Création de site web',
+  'Logiciel / outil métier',
+  'Support IT & sécurité',
   'Formation',
   'Autre / cadrage initial'
 ];
@@ -281,6 +281,6 @@ export const footerServices = services.map((service) => ({
 }));
 
 export const footerLinks = [
-  { label: 'Mentions legales', path: '/mentions-legales' },
-  { label: 'Politique de confidentialite', path: '/politique-confidentialite' }
+  { label: 'Mentions légales', path: '/mentions-legales' },
+  { label: 'Politique de confidentialité', path: '/politique-confidentialite' }
 ];

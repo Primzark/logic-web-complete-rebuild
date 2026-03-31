@@ -54,7 +54,7 @@ export default function ServiceTemplate({ service }) {
         image={service.heroImage}
       />
       <div className="svc-content page-shell page-shell--simple">
-        <nav className="breadcrumbs" aria-label="Fil d’ariane">
+        <nav className="breadcrumbs" aria-label="Fil d’Ariane">
           <Link to="/">Accueil</Link>
           <span>/</span>
           <Link to="/services">Services</Link>
@@ -62,7 +62,7 @@ export default function ServiceTemplate({ service }) {
           <span>{service.shortTitle}</span>
         </nav>
 
-        <section className="svc-section" data-section-name="Presentation">
+        <section className="svc-section" data-section-name="Présentation">
           <Reveal>
             <h2>{service.overview.title}</h2>
             {service.overview.paragraphs.map((paragraph) => (
@@ -95,7 +95,7 @@ export default function ServiceTemplate({ service }) {
         </section>
 
         {service.legacyCoverageGroups?.length ? (
-          <section className="svc-section" data-section-name="Perimetre detaille">
+          <section className="svc-section" data-section-name="Périmètre détaillé">
             <Reveal>
               <h2>{service.legacyCoverageTitle}</h2>
               {service.legacyCoverageIntro ? <p>{service.legacyCoverageIntro}</p> : null}
@@ -118,7 +118,7 @@ export default function ServiceTemplate({ service }) {
         {service.faq?.length ? (
           <section className="svc-section" data-section-name="FAQ">
             <Reveal>
-              <h2>Questions frequentes</h2>
+              <h2>Questions fréquentes</h2>
             </Reveal>
             <FAQAccordion items={service.faq} />
           </section>

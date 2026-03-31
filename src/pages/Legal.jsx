@@ -9,20 +9,20 @@ export default function Legal() {
   return (
     <>
       <PageMeta
-        title={`Mentions legales | ${company.name}`}
-        description="Informations legales, editeur du site et cadre de publication du site Logic Web."
+        title={`Mentions légales | ${company.name}`}
+        description="Informations légales, éditeur du site et cadre de publication du site Logic Web."
         canonicalPath="/mentions-legales"
       />
       <PageHero
-        label="Mentions legales"
-        title="Informations legales du site"
-        description="Retrouvez ici les principales informations societaires et editoriales relatives au site Logic Web."
+        label="Mentions légales"
+        title="Informations légales du site"
+        description="Retrouvez ici les principales informations légales et éditoriales relatives au site Logic Web."
         image={brandMedia.pageHeroes.legal}
       />
       <div className="svc-content page-shell page-shell--simple legal-page">
-        <section className="svc-section" data-section-name="Editeur">
+        <section className="svc-section" data-section-name="Éditeur">
           <Reveal>
-            <h2>Editeur du site</h2>
+            <h2>Éditeur du site</h2>
             <div className="legal-grid">
               <div className="legal-item">
                 <span>Raison sociale</span>
@@ -74,23 +74,23 @@ export default function Legal() {
           </Reveal>
         </section>
 
-        <section className="svc-section" data-section-name="Hebergement">
+        <section className="svc-section" data-section-name="Hébergement">
           <Reveal>
-            <h2>Hebergement</h2>
+            <h2>Hébergement</h2>
             <p>
-              Les informations d’hebergement definitives du site doivent etre completees avant mise en ligne si
-              l’hebergeur retenu differe de l’infrastructure actuellement utilisee.
+              Les informations d’hébergement définitives du site doivent être complétées avant mise en ligne si
+              l’hébergeur retenu diffère de l’infrastructure actuellement utilisée.
             </p>
           </Reveal>
         </section>
 
-        <section className="svc-section" data-section-name="Propriete intellectuelle">
+        <section className="svc-section" data-section-name="Propriété intellectuelle">
           <Reveal>
-            <h2>Propriete intellectuelle</h2>
+            <h2>Propriété intellectuelle</h2>
             <p>
               L’ensemble des contenus du site, sa structure, ses textes, ses visuels et ses composants
-              graphiques sont proteges par le droit d’auteur. Toute reproduction totale ou partielle est
-              interdite sans autorisation prealable.
+              graphiques sont protégés par le droit d’auteur. Toute reproduction totale ou partielle est
+              interdite sans autorisation préalable.
             </p>
           </Reveal>
         </section>
@@ -98,7 +98,7 @@ export default function Legal() {
         <CTASection
           mode="compact"
           copy="Besoin d’un point de contact direct ?"
-          primary={{ href: `mailto:${company.email}`, label: 'Ecrire a Logic Web →' }}
+          primary={{ href: `mailto:${company.email}`, label: 'Écrire à Logic Web →' }}
         />
       </div>
     </>

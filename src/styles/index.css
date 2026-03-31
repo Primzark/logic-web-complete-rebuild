@@ -20,7 +20,7 @@ main {
 }
 
 .page-shell--simple {
-  background: var(--cream);
+  background: var(--page-bg);
 }
 
 .breadcrumbs {
@@ -41,6 +41,57 @@ main {
   color: var(--accent);
 }
 
+.breadcrumbs a:visited,
+.nav-links a:visited,
+.mobile-menu a:visited,
+.footer-links a:visited,
+.footer-bottom-links a:visited,
+.service-link:visited,
+.contact-policy a:visited,
+.contact-inline-note a:visited,
+.contact-inline-link:visited,
+.cta-phone a:visited {
+  color: inherit;
+}
+
+.nav-cta:visited {
+  color: var(--off-white) !important;
+}
+
+.nav-links a:visited {
+  color: var(--text-on-dark-soft);
+}
+
+.nav-links a.active-link:visited,
+.nav-links a[aria-current='page']:visited {
+  color: var(--text-on-dark);
+}
+
+.mobile-menu a:visited {
+  color: var(--text-on-dark);
+}
+
+.mobile-menu a.active-link:visited {
+  color: var(--accent);
+}
+
+.footer-links a:visited {
+  color: var(--text-on-dark-muted);
+}
+
+.footer-links a.active-link:visited,
+.footer-links a[aria-current='page']:visited {
+  color: var(--text-on-dark);
+}
+
+.footer-bottom-links a:visited {
+  color: var(--text-on-dark-faint);
+}
+
+.cta-phone a:visited {
+  color: var(--text-on-dark);
+}
+
 .hidden-honeypot {
   position: absolute;
   left: -9999px;
@@ -51,6 +102,10 @@ main {
 .field-error {
   font-size: 0.75rem;
   color: var(--accent-strong);
+}
+
+[data-theme='dark'] .field-error {
+  color: var(--accent-light);
 }
 
 .form-status {
@@ -68,6 +123,18 @@ main {
 .form-status--error {
   background: rgba(var(--accent-strong-rgb), 0.12);
   color: var(--accent-strong);
+}
+
+[data-theme='dark'] .form-status--loading {
+  background: rgba(var(--accent-rgb), 0.14);
+  color: var(--text-on-dark);
+  border: 1px solid rgba(var(--accent-rgb), 0.18);
+}
+
+[data-theme='dark'] .form-status--error {
+  background: rgba(var(--accent-strong-rgb), 0.18);
+  color: var(--text-on-dark);
+  border: 1px solid rgba(var(--accent-strong-rgb), 0.2);
 }
 
 .contact-policy {
@@ -171,8 +238,9 @@ main {
 }
 
 .btn-primary:disabled,
+.btn-secondary:disabled,
 .btn-primary[aria-disabled='true'] {
-  opacity: 0.75;
+  opacity: 0.72;
   cursor: progress;
   pointer-events: none;
 }

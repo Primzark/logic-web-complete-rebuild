@@ -36,8 +36,8 @@ export default function ServicesShowcase() {
       <div className="services-showcase-head">
         <SectionIntro
           label="Ce que nous faisons"
-          title="Des solutions concretes pour chaque besoin numerique"
-          description="Nous accompagnons les entreprises locales avec une offre claire, progressive et reliee a leurs enjeux operationnels."
+          title="Des solutions concrètes pour chaque besoin numérique"
+          description="Nous accompagnons les entreprises locales avec une offre claire, progressive et reliée à leurs enjeux opérationnels."
         />
         <div className="carousel-controls" aria-label="Navigation des services">
           <span className="carousel-count" aria-live="polite">
@@ -48,7 +48,7 @@ export default function ServicesShowcase() {
             className="carousel-control"
             onClick={goToPrevious}
             disabled={!canGoPrevious}
-            aria-label="Voir le service precedent"
+            aria-label="Voir le service précédent"
           >
             <span aria-hidden="true">←</span>
           </button>
@@ -106,9 +106,9 @@ export default function ServicesShowcase() {
 
       <div className="services-coverflow-footer">
         <p className="services-coverflow-hint">
-          Glissez ou utilisez les fleches pour parcourir les offres.
+          Glissez ou utilisez les flèches pour parcourir les offres.
         </p>
-        <div className="carousel-dots" aria-label="Selection d un service">
+        <div className="carousel-dots" aria-label="Sélection d’un service">
           {services.map((service, index) => (
             <button
               key={service.slug}

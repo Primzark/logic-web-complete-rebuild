@@ -22,9 +22,12 @@ logic-web/
 ├─ api/
 │  └─ contact.php
 ├─ public/
-│  ├─ favicon.svg
-│  ├─ og-logic-web.svg
+│  ├─ branding/
+│  │  └─ logic-web/
+│  │     ├─ icons/
+│  │     └─ logos/
 │  ├─ robots.txt
+│  ├─ site.webmanifest
 │  └─ sitemap.xml
 ├─ src/
 │  ├─ components/

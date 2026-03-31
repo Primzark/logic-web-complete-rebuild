@@ -25,7 +25,7 @@ export default function WhyChooseUsSection() {
     <section className="section why" data-section-name="Pourquoi Logic Web">
       <SectionIntro
         label="Pourquoi Logic Web"
-        title="Un partenaire digital de confiance, ancre localement et concu pour durer"
+        title="Un partenaire digital de confiance, ancré localement et conçu pour durer"
       />
       <div className="why-grid">
         {whyChooseUs.map((item, index) => (

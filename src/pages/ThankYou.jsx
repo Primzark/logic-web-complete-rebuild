@@ -21,27 +21,27 @@ export default function ThankYou() {
       />
       <PageHero
         className="contact-hero"
-        label="Message envoye"
-        title="Merci, votre demande a bien ete transmise"
-        description="La page de remerciement fait maintenant partie du parcours normal du site, avec un chemin clair apres soumission."
+        label="Message envoyé"
+        title="Merci, votre demande a bien été transmise"
+        description="La page de remerciement fait maintenant partie du parcours normal du site, avec un chemin clair après soumission."
         image={brandMedia.pageHeroes.thankYou}
       />
       <div className="svc-content page-shell page-shell--simple">
         <Reveal className="thanks-copy">
           <p>
             {requesterName ? `${requesterName}, ` : ''}
-            nous avons bien recu votre message
+            nous avons bien reçu votre message
             {projectType ? ` concernant ${projectType.toLowerCase()}` : ''}.
           </p>
           <p>
-            Logic Web revient vers vous sous 24h ouvrées a l’adresse indiquee si des precisions sont
-            necessaires.
+            Logic Web revient vers vous sous 24 h ouvrées à l’adresse indiquée si des précisions sont
+            nécessaires.
           </p>
         </Reveal>
         <CTASection
           mode="compact"
           copy="Vous souhaitez continuer votre visite ?"
-          primary={{ to: '/', label: 'Retour a l’accueil →' }}
+          primary={{ to: '/', label: 'Retour à l’accueil →' }}
           secondary={{ to: '/services', label: 'Voir les services' }}
         />
       </div>

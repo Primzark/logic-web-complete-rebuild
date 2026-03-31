@@ -9,14 +9,14 @@ export default function Contact() {
     <>
       <PageMeta
         title={`Contact | ${company.name}`}
-        description="Premier echange gratuit et sans engagement pour cadrer un projet web, logiciel, IT ou formation."
+        description="Premier échange gratuit et sans engagement pour cadrer un projet web, logiciel, IT ou formation."
         canonicalPath="/contact"
       />
       <PageHero
         className="contact-hero"
         label="Contact"
         title="Parlons de votre projet"
-        description="Premier echange gratuit et sans engagement. Decrivez votre besoin et Logic Web revient vers vous rapidement."
+        description="Premier échange gratuit et sans engagement. Décrivez votre besoin et Logic Web revient vers vous rapidement."
         image={brandMedia.pageHeroes.contact}
       />
       <ContactFormSection />

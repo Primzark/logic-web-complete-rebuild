@@ -16,7 +16,7 @@ function validate(values) {
   }
 
   if (!values.message.trim() || values.message.trim().length < 20) {
-    errors.message = 'Merci de preciser votre besoin en quelques phrases.';
+    errors.message = 'Merci de préciser votre besoin en quelques phrases.';
   }
 
   return errors;
@@ -60,7 +60,7 @@ export default function ContactFormSection() {
     if (Object.keys(nextErrors).length > 0) {
       setStatus({
         state: 'error',
-        message: 'Le formulaire contient des erreurs. Merci de verifier les champs indiques.'
+        message: 'Le formulaire contient des erreurs. Merci de vérifier les champs indiqués.'
       });
       return;
     }
@@ -84,7 +84,7 @@ export default function ContactFormSection() {
         setErrors(payload.errors || {});
         setStatus({
           state: 'error',
-          message: payload.message || 'Une erreur est survenue. Merci de reessayer.'
+          message: payload.message || 'Une erreur est survenue. Merci de réessayer.'
         });
         return;
       }
@@ -150,12 +150,12 @@ export default function ContactFormSection() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="contact-phone">Telephone</label>
+            <label htmlFor="contact-phone">Téléphone</label>
             <input
               id="contact-phone"
               name="phone"
               type="tel"
-              placeholder="Votre numero"
+              placeholder="Votre numéro"
               value={values.phone}
               onChange={handleChange}
             />
@@ -183,7 +183,7 @@ export default function ContactFormSection() {
             value={values.projectType}
             onChange={handleChange}
           >
-            <option value="">Selectionnez un service</option>
+            <option value="">Sélectionnez un service</option>
             {contactProjectOptions.map((option) => (
               <option key={option} value={option}>
                 {option}
@@ -197,7 +197,7 @@ export default function ContactFormSection() {
           <textarea
             id="contact-message"
             name="message"
-            placeholder="Decrivez votre besoin, votre contexte et les enjeux du projet..."
+            placeholder="Décrivez votre besoin, votre contexte et les enjeux du projet..."
             value={values.message}
             onChange={handleChange}
             required
@@ -220,15 +220,15 @@ export default function ContactFormSection() {
         </Button>
 
         <p className="contact-policy">
-          En envoyant ce formulaire, vous acceptez que vos donnees soient utilisees uniquement pour traiter
-          votre demande. Voir la <Link to="/politique-confidentialite">politique de confidentialite</Link>.
+          En envoyant ce formulaire, vous acceptez que vos données soient utilisées uniquement pour traiter
+          votre demande. Voir la <Link to="/politique-confidentialite">politique de confidentialité</Link>.
         </p>
       </form>
 
       <div className="contact-info">
-        <h3>Coordonnees directes</h3>
+        <h3>Coordonnées directes</h3>
         <p>
-          Vous preferez un premier echange par email ? Logic Web revient vers vous rapidement avec un cadre
+          Vous préférez un premier échange par email ? Logic Web revient vers vous rapidement avec un cadre
           clair, sans pression commerciale inutile.
         </p>
 
@@ -241,7 +241,7 @@ export default function ContactFormSection() {
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                     <polyline points="22,6 12,13 2,6" />
                   </>
-                ) : detail.title === 'Telephone' ? (
+                ) : detail.title === 'Téléphone' ? (
                   <>
                     <path d="M22 16.92v2a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.12 3.18 2 2 0 0 1 4.11 1h2a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.1 8.91a16 16 0 0 0 8 8l1.27-1.26a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                   </>
@@ -274,16 +274,16 @@ export default function ContactFormSection() {
         ))}
 
         <div className="what-next">
-          <h4>Que se passe-t-il apres votre message ?</h4>
+          <h4>Que se passe-t-il après votre message ?</h4>
           <div className="what-next-steps">
             <div className="what-next-step">
-              <span>1</span> Analyse rapide de votre demande sous 24h ouvrées.
+              <span>1</span> Analyse rapide de votre demande sous 24 h ouvrées.
             </div>
             <div className="what-next-step">
-              <span>2</span> Retour email pour organiser le premier echange et clarifier le besoin.
+              <span>2</span> Retour par email pour organiser le premier échange et clarifier le besoin.
             </div>
             <div className="what-next-step">
-              <span>3</span> Proposition d’une suite adaptee : cadrage, recommandation ou devis.
+              <span>3</span> Proposition d’une suite adaptée : cadrage, recommandation ou devis.
             </div>
           </div>
         </div>

@@ -33,7 +33,7 @@ export default function PageMeta({
   title,
   description,
   canonicalPath,
-  image = '/og-logic-web.svg',
+  image = '/branding/logic-web/logos/logic-web-primary-logo.png',
   schema
 }) {
   const location = useLocation();
@@ -42,6 +42,8 @@ export default function PageMeta({
     const siteUrl = import.meta.env.VITE_SITE_URL || DEFAULT_SITE_URL;
     const canonicalUrl = `${siteUrl}${canonicalPath || location.pathname}`;
     const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+    const socialIconPath = '/branding/logic-web/icons/logic-web-icon-512.png';
+    const socialIconUrl = `${siteUrl}${socialIconPath}`;
 
     document.title = title;
 
@@ -65,9 +67,29 @@ export default function PageMeta({
       property: 'og:image',
       content: imageUrl
     });
+    upsertMeta('meta[property="og:image:alt"]', {
+      property: 'og:image:alt',
+      content: 'Logic Web'
+    });
+    upsertMeta('meta[name="twitter:title"]', {
+      name: 'twitter:title',
+      content: title
+    });
+    upsertMeta('meta[name="twitter:description"]', {
+      name: 'twitter:description',
+      content: description
+    });
     upsertMeta('meta[name="twitter:card"]', {
       name: 'twitter:card',
-      content: 'summary_large_image'
+      content: 'summary'
+    });
+    upsertMeta('meta[name="twitter:image"]', {
+      name: 'twitter:image',
+      content: socialIconUrl
+    });
+    upsertMeta('meta[name="twitter:image:alt"]', {
+      name: 'twitter:image:alt',
+      content: 'Logic Web'
     });
     upsertLink('link[rel="canonical"]', {
       rel: 'canonical',

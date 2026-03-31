@@ -34,8 +34,8 @@ export default function ReferenceCarousel({ references }) {
   return (
     <div className="reference-carousel">
       <div className="reference-carousel-head">
-        <p className="reference-carousel-hint">Glissez, balayez ou utilisez les fleches pour parcourir les cas.</p>
-        <div className="carousel-controls" aria-label="Navigation des references">
+        <p className="reference-carousel-hint">Glissez, balayez ou utilisez les flèches pour parcourir les cas.</p>
+        <div className="carousel-controls" aria-label="Navigation des références">
           <span className="carousel-count" aria-live="polite">
             {formatSlideNumber(activeIndex + 1)} / {formatSlideNumber(references.length)}
           </span>
@@ -44,7 +44,7 @@ export default function ReferenceCarousel({ references }) {
             className="carousel-control"
             onClick={goToPrevious}
             disabled={!canGoPrevious}
-            aria-label="Voir la reference precedente"
+            aria-label="Voir la référence précédente"
           >
             <span aria-hidden="true">←</span>
           </button>
@@ -53,7 +53,7 @@ export default function ReferenceCarousel({ references }) {
             className="carousel-control"
             onClick={goToNext}
             disabled={!canGoNext}
-            aria-label="Voir la reference suivante"
+            aria-label="Voir la référence suivante"
           >
             <span aria-hidden="true">→</span>
           </button>
@@ -64,7 +64,7 @@ export default function ReferenceCarousel({ references }) {
         ref={viewportRef}
         className={`reference-carousel-shell ${isDragging ? 'is-dragging' : ''}`}
         role="region"
-        aria-label="References anonymisees Logic Web"
+        aria-label="Références anonymisées Logic Web"
         aria-roledescription="carousel"
         tabIndex={0}
         onKeyDown={onViewportKeyDown}
@@ -102,7 +102,7 @@ export default function ReferenceCarousel({ references }) {
           <span className="reference-carousel-tag">{activeReference.tag}</span>
           <strong>{activeReference.title}</strong>
         </div>
-        <div className="carousel-dots" aria-label="Selection d une reference">
+        <div className="carousel-dots" aria-label="Sélection d’une référence">
           {references.map((reference, index) => (
             <button
               key={reference.title}

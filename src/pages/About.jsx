@@ -9,13 +9,13 @@ export default function About() {
   return (
     <>
       <PageMeta
-        title={`A propos | ${company.name}`}
+        title={`À propos | ${company.name}`}
         description="Logic Web accompagne les petites structures avec une approche locale, pragmatique et durable."
         canonicalPath="/a-propos"
       />
       <PageHero
-        label="A propos"
-        title="Un partenaire digital local, concu pour les besoins reels des petites structures"
+        label="À propos"
+        title="Un partenaire digital local, conçu pour les besoins réels des petites structures"
         description="Logic Web accompagne les entreprises, artisans et structures locales avec une approche pragmatique, lisible et durable."
         image={brandMedia.pageHeroes.about}
       />
@@ -24,12 +24,12 @@ export default function About() {
           <Reveal>
             <h2>Qui sommes-nous</h2>
             <p>
-              Logic Web agit comme prestataire informatique et digital de proximite pour les entreprises,
-              artisans, professions liberales et petites structures du Havre et de ses environs.
+              Logic Web agit comme prestataire informatique et digital de proximité pour les entreprises,
+              artisans, professions libérales et petites structures du Havre et de ses environs.
             </p>
             <p>
-              L’objectif n’est pas de promettre une transformation abstraite, mais d’ameliorer concretement
-              les outils, la presence web et l’environnement numerique au quotidien.
+              L’objectif n’est pas de promettre une transformation abstraite, mais d’améliorer concrètement
+              les outils, la présence web et l’environnement numérique au quotidien.
             </p>
           </Reveal>
         </section>
@@ -63,8 +63,8 @@ export default function About() {
           <Reveal>
             <h2>Zone d’intervention</h2>
             <p>
-              Bases a Sainte-Adresse, Logic Web intervient prioritairement au Havre et dans son agglomeration,
-              avec une partie des prestations realisable a distance a l’echelle de la Normandie.
+              Basé à Sainte-Adresse, Logic Web intervient prioritairement au Havre et dans son agglomération,
+              avec une partie des prestations réalisables à distance à l’échelle de la Normandie.
             </p>
             <div className="about-credentials">
               <div className="about-credential">
@@ -85,7 +85,7 @@ export default function About() {
 
         <CTASection
           mode="compact"
-          copy="Besoin d’un partenaire local, capable d’executer sans surcompliquer ?"
+          copy="Besoin d’un partenaire local, capable d’exécuter sans surcompliquer ?"
           primary={{ to: '/contact', label: 'Prendre contact →' }}
         />
       </div>

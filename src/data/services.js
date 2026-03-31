@@ -5,19 +5,19 @@ export const services = [
     slug: 'creation-sites-web',
     path: '/creation-sites-web',
     icon: '🌐',
-    title: 'Creation de sites web',
-    shortTitle: 'Creation de sites web',
+    title: 'Création de sites web',
+    shortTitle: 'Création de sites web',
     excerpt:
-      'Sites vitrines, catalogues et e-commerce concus pour clarifier votre offre, rassurer vos prospects et soutenir votre referencement local.',
+      'Sites vitrines, catalogues et e-commerce conçus pour clarifier votre offre, rassurer vos prospects et soutenir votre référencement local.',
     heroTitle: 'Un site web qui travaille vraiment pour votre entreprise',
     heroDescription:
-      'Logic Web conçoit des sites sobres, rapides et administrables pour les artisans, TPE, professions liberales et PME du Havre et de Normandie.',
+      'Logic Web conçoit des sites sobres, rapides et administrables pour les artisans, TPE, professions libérales et PME du Havre et de Normandie.',
     heroImage: brandMedia.pageHeroes.web,
     overview: {
       title: 'Pour qui ?',
       paragraphs: [
-        'Pour les entreprises qui veulent une presence en ligne claire, credibile et facile a faire evoluer sans se retrouver enfermees dans un outil rigide.',
-        'Nous intervenons aussi bien sur une creation complete que sur une refonte, une remise a plat du contenu ou un cadrage plus propre de votre parcours de contact.'
+        'Pour les entreprises qui veulent une présence en ligne claire, crédible et facile à faire évoluer, sans se retrouver enfermées dans un outil rigide.',
+        'Nous intervenons aussi bien sur une création complète que sur une refonte, une remise à plat du contenu ou un cadrage plus propre de votre parcours de contact.'
       ]
     },
     featuresTitle: 'Ce que nous livrons',
@@ -25,86 +25,86 @@ export const services = [
       {
         title: 'Site vitrine premium',
         description:
-          'Un site sobre, responsive et structure autour de vos messages clefs, avec une hierarchie claire et une image plus haut de gamme.'
+          'Un site sobre, responsive et structuré autour de vos messages clés, avec une hiérarchie claire et une image plus haut de gamme.'
       },
       {
         title: 'Site catalogue',
         description:
-          'Des pages de services, produits ou realisations faciles a parcourir, avec un contenu organise pour la prise de contact.'
+          'Des pages de services, produits ou réalisations faciles à parcourir, avec un contenu organisé pour la prise de contact.'
       },
       {
         title: 'E-commerce ou click and collect',
         description:
-          'Une base simple a faire evoluer si votre activite a besoin de vendre, reserver ou encaisser en ligne.'
+          'Une base simple à faire évoluer si votre activité a besoin de vendre, réserver ou encaisser en ligne.'
       },
       {
         title: 'Back-office administrable',
         description:
-          'Une structure prevue pour faire vivre le site, publier de nouvelles pages ou mettre a jour vos contenus sans friction.'
+          'Une structure prévue pour faire vivre le site, publier de nouvelles pages ou mettre à jour vos contenus sans friction.'
       },
       {
         title: 'SEO local',
         description:
-          'Des contenus, balises et parcours internes penses pour le Havre, la Seine-Maritime et les recherches de proximite.'
+          'Des contenus, balises et parcours internes pensés pour le Havre, la Seine-Maritime et les recherches de proximité.'
       },
       {
-        title: 'Maintenance et evolutions',
+        title: 'Maintenance et évolutions',
         description:
-          'Le site ne s’arrete pas a la mise en ligne. Logic Web peut rester present pour les ajustements, mises a jour et evolutions.'
+          'Le site ne s’arrête pas à la mise en ligne. Logic Web peut rester présent pour les ajustements, mises à jour et évolutions.'
       }
     ],
     highlight: {
       title: 'Ce que vous gagnez',
       paragraphs: [
-        'Un site plus clair pour vos visiteurs, plus simple a maintenir pour votre equipe, et mieux structure pour vos prochaines actions commerciales.',
-        'Le projet reste dimensionne a votre besoin reel : pas de surcouche technique inutile, pas d’experience gadget qui alourdit l’ensemble.'
+        'Un site plus clair pour vos visiteurs, plus simple à maintenir pour votre équipe, et mieux structuré pour vos prochaines actions commerciales.',
+        'Le projet reste dimensionné à votre besoin réel : pas de surcouche technique inutile, pas d’expérience gadget qui alourdit l’ensemble.'
       ]
     },
-    legacyCoverageTitle: 'Perimetre detaille issu de l offre historique',
+    legacyCoverageTitle: 'Périmètre détaillé issu de l’offre historique',
     legacyCoverageIntro:
-      'Le site historique detaillait un accompagnement tres complet autour de la creation et de la refonte de sites Internet. Les points ci-dessous ont ete conserves pour restituer tout le perimetre de Logic Web.',
+      'Le site historique détaillait un accompagnement très complet autour de la création et de la refonte de sites Internet. Les points ci-dessous ont été conservés pour restituer tout le périmètre de Logic Web.',
     legacyCoverageGroups: [
       {
         title: 'Gestion de projet',
         items: [
           'Cahier des charges et analyse des besoins',
           'Plan du site et arborescence',
-          'Etude du positionnement et analyse de la concurrence',
-          'Aide a la redaction des contenus'
+          'Étude du positionnement et analyse de la concurrence',
+          'Aide à la rédaction des contenus'
         ]
       },
       {
-        title: 'Identite visuelle',
+        title: 'Identité visuelle',
         items: [
-          'Etude de la charte graphique existante',
-          'Creation de la charte graphique',
-          'Proposition et creation de logo',
-          'Declinaisons de maquette pour valider la bonne direction'
+          'Étude de la charte graphique existante',
+          'Création de la charte graphique',
+          'Proposition et création de logo',
+          'Déclinaisons de maquette pour valider la bonne direction'
         ]
       },
       {
         title: 'Types de sites',
         items: [
           'Site vitrine, e-commerce, intranet et site institutionnel',
-          'Site evenementiel ou immobilier selon le contexte',
-          'Site statique ou dynamique selon le niveau d autonomie souhaite'
+          'Site événementiel ou immobilier selon le contexte',
+          'Site statique ou dynamique selon le niveau d’autonomie souhaité'
         ]
       },
       {
-        title: 'Hebergement & exploitation',
+        title: 'Hébergement & exploitation',
         items: [
           'Achat du nom de domaine',
-          'Creation d adresses mail professionnelles',
-          'Sauvegarde des donnees',
-          'Serveur professionnel a bande passante garantie'
+          'Création d’adresses mail professionnelles',
+          'Sauvegarde des données',
+          'Serveur professionnel à bande passante garantie'
         ]
       },
       {
-        title: 'Referencement & diffusion',
+        title: 'Référencement & diffusion',
         items: [
-          'Recherche de mots-cles pertinents',
-          'Positionnement, veille concurrentielle et outils de mesure d audience',
-          'Netlinking, reseaux sociaux, buzz marketing et liens commerciaux',
+          'Recherche de mots-clés pertinents',
+          'Positionnement, veille concurrentielle et outils de mesure d’audience',
+          'Netlinking, réseaux sociaux, buzz marketing et liens commerciaux',
           'Newsletter et emailing'
         ]
       }
@@ -118,17 +118,17 @@ export const services = [
       {
         question: 'Pouvez-vous reprendre un site existant ?',
         answer:
-          'Oui. Une refonte peut conserver le contenu utile, repartir sur une structure plus saine et remettre a niveau le design, la navigation et le SEO.'
+          'Oui. Une refonte peut conserver le contenu utile, repartir sur une structure plus saine et remettre à niveau le design, la navigation et le SEO.'
       },
       {
-        question: 'Le site sera-t-il facile a faire evoluer ?',
+        question: 'Le site sera-t-il facile à faire évoluer ?',
         answer:
-          'Oui. La structure du site est pensee pour faire evoluer les pages, les contenus et les sections sans repartir de zero a chaque modification.'
+          'Oui. La structure du site est pensée pour faire évoluer les pages, les contenus et les sections sans repartir de zéro à chaque modification.'
       },
       {
         question: 'La maintenance est-elle incluse ?',
         answer:
-          'La maintenance peut etre prevue des le depart selon le niveau d’accompagnement souhaite : mises a jour, petites corrections, nouveaux blocs et suivi.'
+          'La maintenance peut être prévue dès le départ selon le niveau d’accompagnement souhaité : mises à jour, petites corrections, nouveaux blocs et suivi.'
       }
     ],
     cta: 'Discutons de votre site'
@@ -138,18 +138,18 @@ export const services = [
     path: '/logiciels-sur-mesure',
     icon: '⚙️',
     title: 'Logiciels sur mesure',
-    shortTitle: 'Logiciels & outils metier',
+    shortTitle: 'Logiciels & outils métier',
     excerpt:
-      'Applications web, interfaces internes et automatisations concues pour remplacer les fichiers disperses et fluidifier vos operations.',
-    heroTitle: 'Des outils concus pour votre maniere de travailler',
+      'Applications web, interfaces internes et automatisations conçues pour remplacer les fichiers dispersés et fluidifier vos opérations.',
+    heroTitle: 'Des outils conçus pour votre manière de travailler',
     heroDescription:
       'Quand Excel, les copier-coller et les outils standard deviennent un frein, Logic Web construit une solution plus simple, plus fiable et plus lisible.',
     heroImage: brandMedia.pageHeroes.software,
     overview: {
-      title: 'Les problemes que nous traitons',
+      title: 'Les problèmes que nous traitons',
       paragraphs: [
-        'Tableaux devenus ingouvernables, double saisie, manque de visibilite sur l’activite, suivi de dossiers disperse ou besoin de centraliser l’information.',
-        'Le bon outil n’est pas necessairement le plus complexe. L’objectif est de concevoir une base vraiment utile a l’equipe et compatible avec votre rythme.'
+        'Tableaux devenus ingouvernables, double saisie, manque de visibilité sur l’activité, suivi de dossiers dispersé ou besoin de centraliser l’information.',
+        'Le bon outil n’est pas nécessairement le plus complexe. L’objectif est de concevoir une base vraiment utile à l’équipe et compatible avec votre rythme.'
       ]
     },
     featuresTitle: 'Ce que nous pouvons mettre en place',
@@ -157,77 +157,77 @@ export const services = [
       {
         title: 'Interfaces de saisie',
         description:
-          'Des ecrans simples pour enregistrer des dossiers, des commandes, des interventions ou tout autre flux metier.'
+          'Des écrans simples pour enregistrer des dossiers, des commandes, des interventions ou tout autre flux métier.'
       },
       {
         title: 'Tableaux de bord',
         description:
-          'Une vue claire sur l’avancement, les volumes, les retards, les indicateurs ou les operations en cours.'
+          'Une vue claire sur l’avancement, les volumes, les retards, les indicateurs ou les opérations en cours.'
       },
       {
         title: 'Automatisations',
         description:
-          'Generation de documents, consolidation de donnees, notifications ou reduction des taches repetitives.'
+          'Génération de documents, consolidation de données, notifications ou réduction des tâches répétitives.'
       },
       {
         title: 'Outils collaboratifs internes',
         description:
-          'Une base partagee par plusieurs personnes pour travailler sur une meme information sans fichiers concurrents.'
+          'Une base partagée par plusieurs personnes pour travailler sur une même information sans fichiers concurrents.'
       },
       {
-        title: 'Portails web metier',
+        title: 'Portails web métier',
         description:
-          'Une application accessible via navigateur pour vos equipes, vos partenaires ou vos clients selon le besoin.'
+          'Une application accessible via navigateur pour vos équipes, vos partenaires ou vos clients selon le besoin.'
       },
       {
         title: 'Maintenance logicielle',
         description:
-          'Corrections, evolutions, adaptations a vos nouvelles contraintes et accompagnement dans la duree.'
+          'Corrections, évolutions, adaptations à vos nouvelles contraintes et accompagnement dans la durée.'
       }
     ],
     highlight: {
       title: 'Approche projet',
       paragraphs: [
-        'Le cadrage est essentiel : comprendre les flux, les blocages et les points de decision avant d’ecrire une seule ligne de code.',
-        'La solution est ensuite dimensionnee pour vous faire gagner du temps, pas pour vous imposer un nouvel outil lourd a adopter.'
+        'Le cadrage est essentiel : comprendre les flux, les blocages et les points de décision avant d’écrire une seule ligne de code.',
+        'La solution est ensuite dimensionnée pour vous faire gagner du temps, pas pour vous imposer un nouvel outil lourd à adopter.'
       ]
     },
-    legacyCoverageTitle: 'Capacites historiques en logiciel sur mesure',
+    legacyCoverageTitle: 'Capacités historiques en logiciel sur mesure',
     legacyCoverageIntro:
-      'L offre historique de Logic Web presentait deja un positionnement tres complet : analyse, developpement, hebergement des composants, maintenance et formation. Elle mentionnait aussi un historique de plus de 50 applications realisees.',
+      'L’offre historique de Logic Web présentait déjà un positionnement très complet : analyse, développement, hébergement des composants, maintenance et formation. Elle mentionnait aussi un historique de plus de 50 applications réalisées.',
     legacyCoverageGroups: [
       {
         title: 'Analyse & cadrage',
         items: [
-          'Analyse des besoins et audit conseils',
-          'Solutions adaptees a l environnement reseau ou monoposte',
-          'Modelisation et cadrage projet',
-          'Etude des technologies materielle et logicielle les mieux appropriees'
+          'Analyse des besoins et audit-conseil',
+          'Solutions adaptées à l’environnement réseau ou monoposte',
+          'Modélisation et cadrage projet',
+          'Étude des technologies matérielles et logicielles les mieux appropriées'
         ]
       },
       {
-        title: 'Types d applications',
+        title: 'Types d’applications',
         items: [
-          'Gestion : planning, facturation, reservations, statistiques, immobilier, stocks',
+          'Gestion : planning, facturation, réservations, statistiques, immobilier, stocks',
           'Communication : emailing et prospection',
-          'Echanges d informations entre plusieurs systemes',
+          'Échanges d’informations entre plusieurs systèmes',
           'Applications mobiles selon le contexte'
         ]
       },
       {
-        title: 'Architecture & hebergement',
+        title: 'Architecture & hébergement',
         items: [
-          'Bases de donnees avec sauvegardes externes',
+          'Bases de données avec sauvegardes externes',
           'Couche logique et couche interface utilisateur',
-          'Hebergement des composants logiciels sur serveurs professionnels',
-          'Compatibilite avec l existant et trajectoire evolutive'
+          'Hébergement des composants logiciels sur serveurs professionnels',
+          'Compatibilité avec l’existant et trajectoire évolutive'
         ]
       },
       {
         title: 'Maintenance & transfert',
         items: [
-          'Mises a jour mineures et majeures',
-          'Assistance technique par telephone ou mail',
+          'Mises à jour mineures et majeures',
+          'Assistance technique par téléphone ou mail',
           'Formation au logiciel',
           'Supports techniques PDF, HTML ou papier'
         ]
@@ -235,40 +235,40 @@ export const services = [
     ],
     faq: [
       {
-        question: 'Faut-il repartir de zero ?',
+        question: 'Faut-il repartir de zéro ?',
         answer:
-          'Pas necessairement. Le cadrage sert justement a identifier ce qui peut etre conserve, restructure ou automatise progressivement.'
+          'Pas nécessairement. Le cadrage sert justement à identifier ce qui peut être conservé, restructuré ou automatisé progressivement.'
       },
       {
-        question: 'Peut-on connecter l’outil a l’existant ?',
+        question: 'Peut-on connecter l’outil à l’existant ?',
         answer:
-          'Selon vos outils actuels, oui. L’objectif est de limiter la ressaisie et de ne pas casser ce qui fonctionne deja.'
+          'Selon vos outils actuels, oui. L’objectif est de limiter la ressaisie et de ne pas casser ce qui fonctionne déjà.'
       },
       {
-        question: 'Est-ce reserve aux grandes structures ?',
+        question: 'Est-ce réservé aux grandes structures ?',
         answer:
           'Non. Le besoin est souvent encore plus fort pour les TPE et PME qui veulent gagner du temps sans embaucher un service informatique entier.'
       }
     ],
-    cta: 'Parlons de votre outil metier'
+    cta: 'Parlons de votre outil métier'
   },
   {
     slug: 'support-it-securite',
     path: '/support-it-securite',
     icon: '🔒',
-    title: 'Support IT & securite',
-    shortTitle: 'Support IT & securite',
+    title: 'Support IT & sécurité',
+    shortTitle: 'Support IT & sécurité',
     excerpt:
-      'Maintenance, reseau, sauvegarde et securisation pour rendre votre environnement numerique plus fiable au quotidien.',
+      'Maintenance, réseau, sauvegarde et sécurisation pour rendre votre environnement numérique plus fiable au quotidien.',
     heroTitle: 'Une infrastructure plus fiable pour travailler sereinement',
     heroDescription:
-      'Logic Web intervient sur le support, la maintenance, les reseaux et la protection des donnees pour les petites structures qui ont besoin d’un partenaire accessible.',
+      'Logic Web intervient sur le support, la maintenance, les réseaux et la protection des données pour les petites structures qui ont besoin d’un partenaire accessible.',
     heroImage: brandMedia.pageHeroes.it,
     overview: {
-      title: 'Perimetre d’intervention',
+      title: 'Périmètre d’intervention',
       paragraphs: [
-        'Support utilisateur, maintenance de postes, organisation des sauvegardes, renforcement des acces, audit du parc et conseil sur l’infrastructure.',
-        'L’offre couvre les reseaux, la maintenance et la protection des donnees dans une lecture simple, lisible et adaptee aux petites structures.'
+        'Support utilisateur, maintenance de postes, organisation des sauvegardes, renforcement des accès, audit du parc et conseil sur l’infrastructure.',
+        'L’offre couvre les réseaux, la maintenance et la protection des données dans une lecture simple, lisible et adaptée aux petites structures.'
       ]
     },
     featuresTitle: 'Les sujets pris en charge',
@@ -276,70 +276,70 @@ export const services = [
       {
         title: 'Support & maintenance',
         description:
-          'Depannage, assistance, suivi des incidents et accompagnement pour eviter que les petits blocages ne deviennent des arrets d’activite.'
+          'Dépannage, assistance, suivi des incidents et accompagnement pour éviter que les petits blocages ne deviennent des arrêts d’activité.'
       },
       {
-        title: 'Reseau & connectivite',
+        title: 'Réseau & connectivité',
         description:
-          'Configuration, fiabilisation et diagnostic des reseaux locaux, Wi-Fi, acces distants et besoins de partage.'
+          'Configuration, fiabilisation et diagnostic des réseaux locaux, Wi-Fi, accès distants et besoins de partage.'
       },
       {
         title: 'Sauvegarde & restauration',
         description:
-          'Mise en place d’une logique de sauvegarde plus robuste pour reduire le risque de perte de donnees.'
+          'Mise en place d’une logique de sauvegarde plus robuste pour réduire le risque de perte de données.'
       },
       {
-        title: 'Protection des donnees',
+        title: 'Protection des données',
         description:
-          'Bonnes pratiques, durcissement simple, gestion des acces et sensibilisation aux risques du quotidien.'
+          'Bonnes pratiques, durcissement simple, gestion des accès et sensibilisation aux risques du quotidien.'
       },
       {
         title: 'Audit & conseil',
         description:
-          'Etat des lieux pragmatique de votre environnement pour prioriser les points vraiment critiques.'
+          'État des lieux pragmatique de votre environnement pour prioriser les points vraiment critiques.'
       },
       {
         title: 'Suivi dans le temps',
         description:
-          'Une relation de proximite avec un interlocuteur unique, plutot qu’une simple intervention ponctuelle.'
+          'Une relation de proximité avec un interlocuteur unique, plutôt qu’une simple intervention ponctuelle.'
       }
     ],
     highlight: {
       title: 'Logique d’accompagnement',
       paragraphs: [
-        'L’objectif est de fiabiliser l’existant par etapes, avec des actions compréhensibles et priorisees selon le niveau de risque.',
-        'Le bon support IT n’est pas seulement reactif : il doit aussi reduire la recurrence des incidents et clarifier les decisions a prendre.'
+        'L’objectif est de fiabiliser l’existant par étapes, avec des actions compréhensibles et priorisées selon le niveau de risque.',
+        'Le bon support IT n’est pas seulement réactif : il doit aussi réduire la récurrence des incidents et clarifier les décisions à prendre.'
       ]
     },
-    legacyCoverageTitle: 'Reseau, maintenance et protection : le detail du perimetre',
+    legacyCoverageTitle: 'Réseau, maintenance et protection : le détail du périmètre',
     legacyCoverageIntro:
-      'Le site historique detaillait separement le reseau, la maintenance et la protection des donnees, avec des petits reseaux pouvant aller jusqu a 15 ordinateurs en architecture client serveur. Cette version les regroupe dans une offre support IT unique, tout en conservant le detail des competences mentionnees a l origine.',
+      'Le site historique détaillait séparément le réseau, la maintenance et la protection des données, avec des petits réseaux pouvant aller jusqu’à 15 ordinateurs en architecture client-serveur. Cette version les regroupe dans une offre de support IT unique, tout en conservant le détail des compétences mentionnées à l’origine.',
     legacyCoverageGroups: [
       {
-        title: 'Reseau local',
+        title: 'Réseau local',
         items: [
-          'Reseau cable, Wi-Fi ou Bluetooth',
-          'Routeurs, modems et partage d acces',
-          'Strategie de securite, firewall et chiffrement',
-          'Imprimantes reseau, partage de fichiers et postes clients'
+          'Réseau câblé, Wi-Fi ou Bluetooth',
+          'Routeurs, modems et partage d’accès',
+          'Stratégie de sécurité, firewall et chiffrement',
+          'Imprimantes réseau, partage de fichiers et postes clients'
         ]
       },
       {
-        title: 'Reseau etendu',
+        title: 'Réseau étendu',
         items: [
-          'Acces Internet partage et securise',
-          'Acces distant et teletravail',
+          'Accès Internet partagé et sécurisé',
+          'Accès distant et télétravail',
           'VPN entre sites et utilisateurs nomades',
           'Serveur de messagerie'
         ]
       },
       {
-        title: 'Depannage & assistance',
+        title: 'Dépannage & assistance',
         items: [
-          'Interventions sur materiel et logiciels',
-          'Configuration Windows, Office, messagerie et acces Internet',
-          'Recuperation de donnees effacees ou de bases corrompues',
-          'Eradication de virus et spywares'
+          'Interventions sur matériel et logiciels',
+          'Configuration Windows, Office, messagerie et accès Internet',
+          'Récupération de données effacées ou de bases corrompues',
+          'Éradication de virus et spywares'
         ]
       },
       {
@@ -347,7 +347,7 @@ export const services = [
         items: [
           'Sauvegarde interne, NAS, mirroring et restauration',
           'Sauvegarde distante via Internet, avec la solution historique BakNet',
-          'Cryptage AES et protection des donnees sensibles',
+          'Cryptage AES et protection des données sensibles',
           'Antivirus et anti-spywares professionnels'
         ]
       }
@@ -356,17 +356,17 @@ export const services = [
       {
         question: 'Intervenez-vous uniquement au Havre ?',
         answer:
-          'La proximite reste un point fort au Havre et dans l’agglomeration, mais une partie du support et du conseil peut aussi se faire a distance.'
+          'La proximité reste un point fort au Havre et dans l’agglomération, mais une partie du support et du conseil peut aussi se faire à distance.'
       },
       {
-        question: 'Pouvez-vous reprendre une infrastructure deja en place ?',
+        question: 'Pouvez-vous reprendre une infrastructure déjà en place ?',
         answer:
-          'Oui. Le plus courant est justement de repartir d’un environnement existant, d’en faire l’etat des lieux puis de corriger les points sensibles.'
+          'Oui. Le plus courant est justement de repartir d’un environnement existant, d’en faire l’état des lieux puis de corriger les points sensibles.'
       },
       {
-        question: 'Travaillez-vous aussi sur la sauvegarde et la securite ?',
+        question: 'Travaillez-vous aussi sur la sauvegarde et la sécurité ?',
         answer:
-          'Oui. Ces sujets font partie du perimetre historique de Logic Web et restent centraux dans la nouvelle presentation de l’offre.'
+          'Oui. Ces sujets font partie du périmètre historique de Logic Web et restent centraux dans la nouvelle présentation de l’offre.'
       }
     ],
     cta: 'Demander un diagnostic'
@@ -378,75 +378,75 @@ export const services = [
     title: 'Formation professionnelle',
     shortTitle: 'Formation',
     excerpt:
-      'Formations bureautiques, numeriques et metier adaptees au niveau des equipes et aux situations concretes du quotidien.',
-    heroTitle: 'Des formations pratiques, utiles des la premiere session',
+      'Formations bureautiques, numériques et métier adaptées au niveau des équipes et aux situations concrètes du quotidien.',
+    heroTitle: 'Des formations pratiques, utiles dès la première session',
     heroDescription:
-      'Logic Web accompagne les equipes sur les outils bureautiques, les usages numeriques et la prise en main d’outils plus specifiques.',
+      'Logic Web accompagne les équipes sur les outils bureautiques, les usages numériques et la prise en main d’outils plus spécifiques.',
     heroImage: brandMedia.pageHeroes.training,
     overview: {
-      title: 'A qui s’adressent les formations ?',
+      title: 'À qui s’adressent les formations ?',
       paragraphs: [
-        'Aux independants, collaborateurs, petites equipes et structures qui veulent monter en autonomie sans suivre des contenus trop generiques.',
-        'Excel, Access, VBA et les usages bureautiques avances restent au coeur de l’offre, avec une approche plus actuelle des besoins numeriques des equipes.'
+        'Aux indépendants, collaborateurs, petites équipes et structures qui veulent monter en autonomie sans suivre des contenus trop génériques.',
+        'Excel, Access, VBA et les usages bureautiques avancés restent au cœur de l’offre, avec une approche plus actuelle des besoins numériques des équipes.'
       ]
     },
-    featuresTitle: 'Formats et themes',
+    featuresTitle: 'Formats et thèmes',
     features: [
       {
         title: 'Bureautique',
         description:
-          'Word, Excel, PowerPoint et prise en main progressive selon votre niveau de depart et vos usages reels.'
+          'Word, Excel, PowerPoint et prise en main progressive selon votre niveau de départ et vos usages réels.'
       },
       {
         title: 'Access, VBA, automatisation',
         description:
-          'Pour les structures qui ont besoin d’aller plus loin sur la logique de base de donnees ou d’automatisation.'
+          'Pour les structures qui ont besoin d’aller plus loin sur la logique de base de données ou d’automatisation.'
       },
       {
-        title: 'Usages numeriques',
+        title: 'Usages numériques',
         description:
           'Messagerie, partage de fichiers, organisation de l’information, collaboration et bonnes pratiques au quotidien.'
       },
       {
-        title: 'Prise en main d’outils metier',
+        title: 'Prise en main d’outils métier',
         description:
-          'Formation sur l’outil livre ou sur votre environnement numerique pour faciliter l’adoption.'
+          'Formation sur l’outil livré ou sur votre environnement numérique pour faciliter l’adoption.'
       },
       {
-        title: 'Sessions sur site ou a distance',
+        title: 'Sessions sur site ou à distance',
         description:
           'Organisation souple selon vos contraintes, votre planning et le nombre de participants.'
       },
       {
-        title: 'Programme adapte',
+        title: 'Programme adapté',
         description:
-          'Pas de support standard plaque sur votre contexte : le niveau et le contenu sont ajustes a votre besoin.'
+          'Pas de support standard plaqué sur votre contexte : le niveau et le contenu sont ajustés à votre besoin.'
       }
     ],
     highlight: {
       title: 'Ce qui change',
       paragraphs: [
-        'L’objectif est de faire gagner en autonomie rapidement, avec des exercices proches de vos cas concrets et une pedagogie accessible.',
-        'La formation est pensee comme un prolongement du projet ou du support, pas comme une couche separee de votre realite terrain.'
+        'L’objectif est de faire gagner en autonomie rapidement, avec des exercices proches de vos cas concrets et une pédagogie accessible.',
+        'La formation est pensée comme un prolongement du projet ou du support, pas comme une couche séparée de votre réalité terrain.'
       ]
     },
-    legacyCoverageTitle: 'Ancrage historique de l offre formation',
+    legacyCoverageTitle: 'Ancrage historique de l’offre formation',
     legacyCoverageIntro:
-      'L ancien site presentait Logic Web comme centre de formation agree, avec des formations individuelles ou groupees construites a partir d exercices pratiques et pedagogiques.',
+      'L’ancien site présentait Logic Web comme centre de formation agréé, avec des formations individuelles ou groupées construites à partir d’exercices pratiques et pédagogiques.',
     legacyCoverageGroups: [
       {
         title: 'Formats',
         items: [
-          'Formations individuelles ou groupees',
-          'Evaluation prealable du niveau',
-          'Programme pedagogique et technique ajuste au besoin',
+          'Formations individuelles ou groupées',
+          'Évaluation préalable du niveau',
+          'Programme pédagogique et technique ajusté au besoin',
           'Sessions sur site selon le contexte'
         ]
       },
       {
-        title: 'Themes historiques',
+        title: 'Thèmes historiques',
         items: [
-          'Utilisation d Internet et bureautique',
+          'Utilisation d’Internet et bureautique',
           'Environnement Windows',
           'Microsoft Access et VBA',
           'Microsoft Excel et VBA',
@@ -454,12 +454,12 @@ export const services = [
         ]
       },
       {
-        title: 'Pedagogie & niveaux',
+        title: 'Pédagogie & niveaux',
         items: [
-          'Niveau debutant',
-          'Niveau chevronne ou confirme',
+          'Niveau débutant',
+          'Niveau chevronné ou confirmé',
           'Exercices pratiques',
-          'Stages adaptes au projet professionnel'
+          'Stages adaptés au projet professionnel'
         ]
       }
     ],
@@ -467,17 +467,17 @@ export const services = [
       {
         question: 'Proposez-vous des formations individuelles ?',
         answer:
-          'Oui. Les formats peuvent etre individuels ou collectifs, en fonction du niveau et de la disponibilite des participants.'
+          'Oui. Les formats peuvent être individuels ou collectifs, en fonction du niveau et de la disponibilité des participants.'
       },
       {
-        question: 'Pouvez-vous adapter le contenu a notre activite ?',
+        question: 'Pouvez-vous adapter le contenu à notre activité ?',
         answer:
-          'Oui. Les programmes sont ajustes a vos outils, vos documents et vos priorites operationnelles.'
+          'Oui. Les programmes sont ajustés à vos outils, vos documents et vos priorités opérationnelles.'
       },
       {
         question: 'La formation peut-elle accompagner un nouveau site ou logiciel ?',
         answer:
-          'Oui. C’est meme l’un des cas les plus utiles : la formation facilite l’adoption et rend l’equipe plus autonome des le demarrage.'
+          'Oui. C’est même l’un des cas les plus utiles : la formation facilite l’adoption et rend l’équipe plus autonome dès le démarrage.'
       }
     ],
     cta: 'Construire un programme'

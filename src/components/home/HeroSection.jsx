@@ -123,13 +123,13 @@ export default function HeroSection() {
         <div className="hero-label">{company.location}</div>
         <h1>SOLUTIONS DIGITALES &amp; IT POUR LES ENTREPRISES LOCALES.</h1>
         <p className="hero-sub">
-          Logic Web structure des sites web, des outils metier sur mesure, un support informatique
+          Logic Web structure des sites web, des outils métier sur mesure, un support informatique
           fiable et des formations utiles pour les entreprises du Havre et de Normandie.
         </p>
         <div className="hero-actions">
           <Button to="/contact">Demander un devis <span aria-hidden="true">→</span></Button>
           <Button to="/services" variant="secondary">
-            Decouvrir nos services
+            Découvrir nos services
           </Button>
         </div>
         <div className="hero-divider" />
@@ -166,12 +166,12 @@ export default function HeroSection() {
           />
           <div className="hero-aside-copy">
             <span>Le Havre</span>
-            <strong>Un accompagnement digital et IT ancre localement</strong>
+            <strong>Un accompagnement digital et IT ancré localement</strong>
           </div>
         </div>
       </div>
       <div className="hero-scroll">
-        <span>Decouvrir</span>
+        <span>Découvrir</span>
         <div className="scroll-dot" />
       </div>
     </section>

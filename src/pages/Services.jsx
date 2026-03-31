@@ -11,13 +11,13 @@ export default function Services() {
     <>
       <PageMeta
         title={`Services | ${company.name}`}
-        description="Une offre structuree autour de la creation de sites web, des logiciels sur mesure, du support IT et de la formation."
+        description="Une offre structurée autour de la création de sites web, des logiciels sur mesure, du support IT et de la formation."
         canonicalPath="/services"
       />
       <PageHero
         label="Nos services"
-        title="Des solutions pour chaque dimension de votre activite numerique"
-        description="Web, logiciel, support IT et formation : une offre structuree pour mieux cadrer vos priorites et faire avancer vos projets."
+        title="Des solutions pour chaque dimension de votre activité numérique"
+        description="Web, logiciel, support IT et formation : une offre structurée pour mieux cadrer vos priorités et faire avancer vos projets."
         wide
         image={brandMedia.pageHeroes.services}
       />

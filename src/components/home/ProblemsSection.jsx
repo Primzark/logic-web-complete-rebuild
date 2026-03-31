@@ -6,7 +6,7 @@ export default function ProblemsSection() {
   return (
     <section className="section problems" data-section-name="Vos enjeux">
       <SectionIntro
-        label="Vos enjeux, nos reponses"
+        label="Vos enjeux, nos réponses"
         title="Nous comprenons les contraintes des entreprises locales"
         light
         accent

@@ -46,11 +46,11 @@ export default function Home() {
       <ProblemsSection />
       <ProcessSection />
 
-      <section className="section scope-section page-shell page-shell--simple" data-section-name="Perimetre historique">
+      <section className="section scope-section page-shell page-shell--simple" data-section-name="Périmètre historique">
         <SectionIntro
-          label="Perimetre historique"
-          title="Les six piliers qui ont construit l accompagnement Logic Web"
-          description="Le site legacy separait clairement le web, le logiciel, la formation, le reseau, la maintenance et la protection. La nouvelle version conserve tout ce perimetre, avec une lecture plus nette."
+          label="Périmètre historique"
+          title="Les six piliers qui ont construit l’accompagnement Logic Web"
+          description="Le site historique séparait clairement le web, le logiciel, la formation, le réseau, la maintenance et la protection. La nouvelle version conserve tout ce périmètre, avec une lecture plus nette."
         />
         <div className="scope-grid">
           {legacyScope.map((item, index) => (
@@ -65,17 +65,17 @@ export default function Home() {
       <section className="section brand-gallery page-shell page-shell--simple" data-section-name="Visuels">
         <div className="brand-gallery-grid">
           <Reveal className="brand-gallery-copy">
-            <div className="section-label section-label--accent">Ancrage & execution</div>
+            <div className="section-label section-label--accent">Ancrage & exécution</div>
             <h2 className="section-title">
-              Une relation de terrain, des methodes concretes, une execution propre
+              Une relation de terrain, des méthodes concrètes, une exécution propre
             </h2>
             <p className="section-desc">
-              Les visuels retenus prolongent l identite du site : cadrage, production, support technique et
-              ancrage local au Havre plutot qu une iconographie generique ou decorative.
+              Les visuels retenus prolongent l’identité du site : cadrage, production, support technique et
+              ancrage local au Havre plutôt qu’une iconographie générique ou décorative.
             </p>
           </Reveal>
 
-          <div className="brand-gallery-stage" aria-label="Galerie d ancrage terrain">
+          <div className="brand-gallery-stage" aria-label="Galerie d’ancrage terrain">
             <Reveal
               className="brand-gallery-card brand-gallery-card--large brand-gallery-card--primary"
               delay={1}
@@ -157,11 +157,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section references page-shell page-shell--simple" data-section-name="References">
+      <section className="section references page-shell page-shell--simple" data-section-name="Références">
         <SectionIntro
           label="Exemples d’accompagnement"
-          title="Des missions representant des besoins bien reels de terrain"
-          description="Les references ci-dessous sont presentees de maniere anonymisee tant qu’une validation client n’a pas ete recue pour publication nominative."
+          title="Des missions représentant des besoins bien réels de terrain"
+          description="Les références ci-dessous sont présentées de manière anonymisée tant qu’une validation client n’a pas été reçue pour publication nominative."
         />
         <div className="ref-grid">
           {referenceCases.slice(0, 3).map((reference, index) => (
@@ -173,10 +173,10 @@ export default function Home() {
       <WhyChooseUsSection />
 
       <CTASection
-        title="Pret a remettre de l’ordre et du niveau dans votre presence digitale ?"
-        description="Parlons de votre contexte, de vos contraintes et de la solution la plus utile pour votre activite."
+        title="Prêt à remettre de l’ordre et du niveau dans votre présence digitale ?"
+        description="Parlons de votre contexte, de vos contraintes et de la solution la plus utile pour votre activité."
         primary={{ to: '/contact', label: 'Demander un devis →' }}
-        secondary={{ href: `mailto:${company.email}`, label: 'Nous ecrire' }}
+        secondary={{ href: `mailto:${company.email}`, label: 'Nous écrire' }}
         copy={
           <>
             Ou envoyez un email direct :

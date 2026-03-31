@@ -25,10 +25,10 @@ export default function Footer() {
               <NavLink to="/services">Services</NavLink>
             </li>
             <li>
-              <NavLink to="/references">References</NavLink>
+              <NavLink to="/references">Références</NavLink>
             </li>
             <li>
-              <NavLink to="/a-propos">A propos</NavLink>
+              <NavLink to="/a-propos">À propos</NavLink>
             </li>
             <li>
               <NavLink to="/contact">Contact</NavLink>
@@ -64,7 +64,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <span>© 2026 {company.name}. Tous droits reserves.</span>
+        <span>© 2026 {company.name}. Tous droits réservés.</span>
         <div className="footer-bottom-links">
           {footerLinks.map((link) => (
             <NavLink key={link.path} to={link.path}>

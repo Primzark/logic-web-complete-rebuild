@@ -10,18 +10,18 @@ export default function NotFound() {
     <>
       <PageMeta
         title={`404 | ${company.name}`}
-        description="La page demandee est introuvable."
+        description="La page demandée est introuvable."
         canonicalPath="/404"
       />
       <PageHero
         label="404"
-        title="La page recherchee est introuvable"
-        description="Ce lien est peut-etre incomplet, ancien ou n’est plus disponible. Vous pouvez revenir a l’accueil ou repartir depuis les services."
+        title="La page recherchée est introuvable"
+        description="Ce lien est peut-être incomplet, ancien ou n’est plus disponible. Vous pouvez revenir à l’accueil ou repartir depuis les services."
         image={brandMedia.pageHeroes.notFound}
       />
       <div className="svc-content page-shell page-shell--simple">
         <Reveal className="not-found-actions">
-          <Button to="/">Retour a l’accueil →</Button>
+          <Button to="/">Retour à l’accueil →</Button>
           <Button to="/services" color="olive">
             Voir les services
           </Button>

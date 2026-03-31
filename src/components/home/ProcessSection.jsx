@@ -7,10 +7,10 @@ export default function ProcessSection() {
   const { progress, sectionRef } = useSectionScrollProgress();
 
   return (
-    <section className="section process" data-section-name="Notre methode" ref={sectionRef}>
+    <section className="section process" data-section-name="Notre méthode" ref={sectionRef}>
       <SectionIntro
-        label="Notre methode"
-        title="Un accompagnement clair, du premier cadrage a la mise en oeuvre"
+        label="Notre méthode"
+        title="Un accompagnement clair, du premier cadrage à la mise en œuvre"
       />
       <div className="process-grid" style={{ '--timeline-progress': progress }}>
         {processSteps.map((step, index) => (
