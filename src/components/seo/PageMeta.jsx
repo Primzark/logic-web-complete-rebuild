@@ -33,7 +33,7 @@ export default function PageMeta({
   title,
   description,
   canonicalPath,
-  image = '/branding/logic-web/logos/logic-web-primary-logo.png',
+  image = '/branding/logic-web/logos/logic-web-logo-master.jpg',
   schema
 }) {
   const location = useLocation();

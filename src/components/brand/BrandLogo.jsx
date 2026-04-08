@@ -2,24 +2,22 @@ import { NavLink } from 'react-router-dom';
 
 const LOGO_VARIANTS = {
   header: {
-    src: '/branding/logic-web/logos/logic-web-secondary-logo.png',
-    width: 491,
-    height: 138,
-    compactSrc: '/branding/logic-web/icons/logic-web-icon-monogram.png',
-    compactMedia: '(max-width: 420px)',
+    src: '/branding/logic-web/logos/logic-web-logo-master.jpg',
+    width: 1080,
+    height: 580,
     loading: 'eager',
     fetchPriority: 'high'
   },
   footer: {
-    src: '/branding/logic-web/logos/logic-web-primary-logo.png',
-    width: 794,
-    height: 214,
+    src: '/branding/logic-web/logos/logic-web-logo-master.jpg',
+    width: 1080,
+    height: 580,
     loading: 'lazy'
   },
   menu: {
-    src: '/branding/logic-web/logos/logic-web-secondary-logo.png',
-    width: 491,
-    height: 138,
+    src: '/branding/logic-web/logos/logic-web-logo-master.jpg',
+    width: 1080,
+    height: 580,
     loading: 'eager'
   }
 };
@@ -30,22 +28,17 @@ export default function BrandLogo({ className = '', size = 'header', onClick }) 
   return (
     <NavLink to="/" className={['brand-logo', `brand-logo--${size}`, className].filter(Boolean).join(' ')} onClick={onClick}>
       <span className="brand-logo-frame">
-        <picture className="brand-logo-media">
-          {variant.compactSrc ? (
-            <source media={variant.compactMedia} srcSet={variant.compactSrc} />
-          ) : null}
-          <img
-            className="brand-logo-image"
-            src={variant.src}
-            alt="Logic Web"
-            width={variant.width}
-            height={variant.height}
-            loading={variant.loading}
-            decoding="async"
-            fetchPriority={variant.fetchPriority}
-            draggable="false"
-          />
-        </picture>
+        <img
+          className="brand-logo-image"
+          src={variant.src}
+          alt="Logic Web"
+          width={variant.width}
+          height={variant.height}
+          loading={variant.loading}
+          decoding="async"
+          fetchPriority={variant.fetchPriority}
+          draggable="false"
+        />
       </span>
     </NavLink>
   );
