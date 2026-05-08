@@ -1,23 +1,25 @@
 import { NavLink } from 'react-router-dom';
 
+const LOGO_SRC = '/branding/logic-web/logos/logic-web-logo-master.png';
+
 const LOGO_VARIANTS = {
   header: {
-    src: '/branding/logic-web/logos/logic-web-logo-master.jpg',
-    width: 1080,
-    height: 580,
+    src: LOGO_SRC,
+    width: 760,
+    height: 760,
     loading: 'eager',
     fetchPriority: 'high'
   },
   footer: {
-    src: '/branding/logic-web/logos/logic-web-logo-master.jpg',
-    width: 1080,
-    height: 580,
+    src: LOGO_SRC,
+    width: 760,
+    height: 760,
     loading: 'lazy'
   },
   menu: {
-    src: '/branding/logic-web/logos/logic-web-logo-master.jpg',
-    width: 1080,
-    height: 580,
+    src: LOGO_SRC,
+    width: 760,
+    height: 760,
     loading: 'eager'
   }
 };
