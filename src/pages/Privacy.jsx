@@ -34,7 +34,8 @@ export default function Privacy() {
             <h2>Finalité du traitement</h2>
             <p>
               Ces informations sont utilisées uniquement pour analyser votre demande, vous recontacter et
-              proposer la suite la plus adaptée. Elles ne sont pas vendues ni cédées à des tiers.
+              proposer la suite la plus adaptée. Elles transitent par FormSubmit pour être envoyées par
+              email et ne sont pas vendues.
             </p>
           </Reveal>
         </section>

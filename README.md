@@ -87,7 +87,7 @@ Preview the built site with Vite:
 npm run preview
 ```
 
-Preview the built site with PHP routing and the real PHP contact endpoint:
+Preview the built site with PHP routing:
 
 ```bash
 npm run build
@@ -96,9 +96,8 @@ npm run preview:php
 
 ## Contact handling
 
-`/api/contact.php` receives contact submissions and stores them in `storage/contact-submissions/`.
-
-In Vite development, a dev middleware intercepts the same endpoint and writes JSON submissions locally so the form can be tested without PHP.
+The contact form posts directly to FormSubmit at `https://formsubmit.co/nicolaslivapro@gmail.com`.
+FormSubmit may require confirmation from that recipient email address on the first successful submission.
 
 Optional environment variables:
 
@@ -107,7 +106,6 @@ cp .env.example .env
 ```
 
 - `VITE_SITE_URL`: canonical URL used for metadata
-- `VITE_CONTACT_ENDPOINT`: custom form endpoint if you want to use another backend
 
 ## Notes
 

@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { company, contactDetails, contactProjectOptions } from '../../data/siteContent';
 import Button from '../ui/Button';
@@ -23,7 +23,6 @@ function validate(values) {
 }
 
 export default function ContactFormSection() {
-  const navigate = useNavigate();
   const [values, setValues] = useState({
     name: '',
     company: '',
@@ -31,16 +30,12 @@ export default function ContactFormSection() {
     phone: '',
     projectType: '',
     message: '',
-    website: '',
-    formStartedAt: Date.now()
+    _honey: ''
   });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ state: 'idle', message: '' });
 
-  const endpoint = useMemo(
-    () => import.meta.env.VITE_CONTACT_ENDPOINT || '/api/contact.php',
-    []
-  );
+  const nextUrl = typeof window !== 'undefined' ? `${window.location.origin}/merci` : '/merci';
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -51,13 +46,12 @@ export default function ContactFormSection() {
     }));
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
+  const handleSubmit = (event) => {
     const nextErrors = validate(values);
     setErrors(nextErrors);
 
     if (Object.keys(nextErrors).length > 0) {
+      event.preventDefault();
       setStatus({
         state: 'error',
         message: 'Le formulaire contient des erreurs. Merci de vérifier les champs indiqués.'
@@ -69,43 +63,23 @@ export default function ContactFormSection() {
       state: 'loading',
       message: 'Envoi du message en cours...'
     });
-
-    try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(values)
-      });
-      const payload = await response.json();
-
-      if (!response.ok || !payload.ok) {
-        setErrors(payload.errors || {});
-        setStatus({
-          state: 'error',
-          message: payload.message || 'Une erreur est survenue. Merci de réessayer.'
-        });
-        return;
-      }
-
-      navigate('/merci', {
-        state: {
-          name: values.name,
-          projectType: values.projectType || 'votre projet'
-        }
-      });
-    } catch (error) {
-      setStatus({
-        state: 'error',
-        message: 'Impossible d’envoyer le message pour le moment. Merci d’utiliser l’email direct.'
-      });
-    }
   };
 
   return (
     <div className="contact-grid page-shell page-shell--simple">
-      <form className="contact-form" id="contactForm" onSubmit={handleSubmit} noValidate>
+      <form
+        action="https://formsubmit.co/nicolaslivapro@gmail.com"
+        className="contact-form"
+        id="contactForm"
+        method="POST"
+        onSubmit={handleSubmit}
+        noValidate
+      >
+        <input type="hidden" name="_subject" value="Nouvelle demande depuis le site Logic Web" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value={nextUrl} />
+
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="contact-name">Nom complet</label>
@@ -166,11 +140,11 @@ export default function ContactFormSection() {
           <label htmlFor="contact-website">Site web</label>
           <input
             id="contact-website"
-            name="website"
+            name="_honey"
             type="text"
             tabIndex="-1"
             autoComplete="off"
-            value={values.website}
+            value={values._honey}
             onChange={handleChange}
           />
         </div>
