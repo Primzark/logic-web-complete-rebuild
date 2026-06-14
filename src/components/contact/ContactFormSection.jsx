@@ -1,28 +1,57 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { company, contactDetails, contactProjectOptions } from '../../data/siteContent';
 import Button from '../ui/Button';
 
+const validatedFields = ['name', 'email', 'message'];
+
+function validateField(name, value) {
+  const cleanValue = value.trim();
+
+  if (name === 'name' && !cleanValue) {
+    return 'Indiquez votre nom complet pour que nous sachions qui recontacter.';
+  }
+
+  if (name === 'email') {
+    if (!cleanValue) {
+      return 'Indiquez une adresse email pour recevoir notre réponse.';
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanValue)) {
+      return 'Entrez une adresse email valide, par exemple vous@entreprise.fr.';
+    }
+  }
+
+  if (name === 'message') {
+    if (!cleanValue) {
+      return 'Décrivez votre besoin en quelques phrases pour que nous puissions vous répondre utilement.';
+    }
+
+    if (cleanValue.length < 20) {
+      return 'Ajoutez au moins 20 caractères pour préciser votre contexte.';
+    }
+  }
+
+  return '';
+}
+
 function validate(values) {
   const errors = {};
 
-  if (!values.name.trim()) {
-    errors.name = 'Merci de renseigner votre nom.';
-  }
+  validatedFields.forEach((field) => {
+    const error = validateField(field, values[field] || '');
 
-  if (!values.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
-    errors.email = 'Merci de renseigner une adresse email valide.';
-  }
-
-  if (!values.message.trim() || values.message.trim().length < 20) {
-    errors.message = 'Merci de préciser votre besoin en quelques phrases.';
-  }
+    if (error) {
+      errors[field] = error;
+    }
+  });
 
   return errors;
 }
 
 export default function ContactFormSection() {
+  const statusRef = useRef(null);
   const [values, setValues] = useState({
     name: '',
     company: '',
@@ -32,10 +61,18 @@ export default function ContactFormSection() {
     message: '',
     _honey: ''
   });
+  const [touched, setTouched] = useState({});
+  const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ state: 'idle', message: '' });
 
   const nextUrl = typeof window !== 'undefined' ? `${window.location.origin}/merci` : '/merci';
+
+  useEffect(() => {
+    if (status.state === 'error') {
+      statusRef.current?.focus();
+    }
+  }, [status.state, status.message]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -44,9 +81,58 @@ export default function ContactFormSection() {
       ...current,
       [name]: value
     }));
+
+    if (!validatedFields.includes(name) || (!touched[name] && !submitted)) {
+      return;
+    }
+
+    setErrors((currentErrors) => {
+      const nextErrors = { ...currentErrors };
+      const fieldError = validateField(name, value);
+
+      if (fieldError) {
+        nextErrors[name] = fieldError;
+      } else {
+        delete nextErrors[name];
+      }
+
+      if (status.state === 'error' && Object.keys(nextErrors).length === 0) {
+        setStatus({ state: 'idle', message: '' });
+      }
+
+      return nextErrors;
+    });
+  };
+
+  const handleBlur = (event) => {
+    const { name, value } = event.target;
+
+    if (!validatedFields.includes(name)) {
+      return;
+    }
+
+    setTouched((current) => ({
+      ...current,
+      [name]: true
+    }));
+
+    setErrors((currentErrors) => {
+      const nextErrors = { ...currentErrors };
+      const fieldError = validateField(name, value);
+
+      if (fieldError) {
+        nextErrors[name] = fieldError;
+      } else {
+        delete nextErrors[name];
+      }
+
+      return nextErrors;
+    });
   };
 
   const handleSubmit = (event) => {
+    setSubmitted(true);
+
     const nextErrors = validate(values);
     setErrors(nextErrors);
 
@@ -54,16 +140,29 @@ export default function ContactFormSection() {
       event.preventDefault();
       setStatus({
         state: 'error',
-        message: 'Le formulaire contient des erreurs. Merci de vérifier les champs indiqués.'
+        message: 'Corrigez les champs indiqués, puis envoyez votre demande.'
       });
       return;
     }
 
     setStatus({
       state: 'loading',
-      message: 'Envoi du message en cours...'
+      message: 'Envoi en cours. Vous allez être redirigé vers la page de confirmation.'
     });
   };
+
+  const getFieldError = (field) => (errors[field] && (touched[field] || submitted) ? errors[field] : '');
+
+  const buildDescription = (...ids) => ids.filter(Boolean).join(' ') || undefined;
+
+  const nameError = getFieldError('name');
+  const emailError = getFieldError('email');
+  const messageError = getFieldError('message');
+  const errorSummaryItems = [
+    { label: 'Nom complet', target: 'contact-name', message: nameError },
+    { label: 'Email', target: 'contact-email', message: emailError },
+    { label: 'Message', target: 'contact-message', message: messageError }
+  ].filter((item) => item.message);
 
   return (
     <div className="contact-grid page-shell page-shell--simple">
@@ -82,17 +181,30 @@ export default function ContactFormSection() {
 
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="contact-name">Nom complet</label>
+            <label htmlFor="contact-name">
+              Nom complet <span className="label-required">(obligatoire)</span>
+            </label>
             <input
               id="contact-name"
               name="name"
               type="text"
-              placeholder="Votre nom"
+              placeholder="Ex. Nicolas Martin"
+              autoComplete="name"
               value={values.name}
+              aria-describedby={buildDescription('contact-name-hint', nameError && 'contact-name-error')}
+              aria-invalid={nameError ? 'true' : undefined}
               onChange={handleChange}
+              onBlur={handleBlur}
               required
             />
-            {errors.name ? <span className="field-error">{errors.name}</span> : null}
+            <span className="field-hint" id="contact-name-hint">
+              Prénom et nom de la personne à recontacter.
+            </span>
+            {nameError ? (
+              <span className="field-error" id="contact-name-error" aria-live="polite">
+                {nameError}
+              </span>
+            ) : null}
           </div>
 
           <div className="form-group">
@@ -101,7 +213,8 @@ export default function ContactFormSection() {
               id="contact-company"
               name="company"
               type="text"
-              placeholder="Nom de votre entreprise"
+              placeholder="Ex. Atelier Martin"
+              autoComplete="organization"
               value={values.company}
               onChange={handleChange}
             />
@@ -110,17 +223,30 @@ export default function ContactFormSection() {
 
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="contact-email">Email</label>
+            <label htmlFor="contact-email">
+              Email <span className="label-required">(obligatoire)</span>
+            </label>
             <input
               id="contact-email"
               name="email"
               type="email"
               placeholder="vous@entreprise.fr"
+              autoComplete="email"
               value={values.email}
+              aria-describedby={buildDescription('contact-email-hint', emailError && 'contact-email-error')}
+              aria-invalid={emailError ? 'true' : undefined}
               onChange={handleChange}
+              onBlur={handleBlur}
               required
             />
-            {errors.email ? <span className="field-error">{errors.email}</span> : null}
+            <span className="field-hint" id="contact-email-hint">
+              Nous répondrons uniquement à cette adresse.
+            </span>
+            {emailError ? (
+              <span className="field-error" id="contact-email-error" aria-live="polite">
+                {emailError}
+              </span>
+            ) : null}
           </div>
 
           <div className="form-group">
@@ -129,7 +255,8 @@ export default function ContactFormSection() {
               id="contact-phone"
               name="phone"
               type="tel"
-              placeholder="Votre numéro"
+              placeholder="Ex. 02 35 00 00 00"
+              autoComplete="tel"
               value={values.phone}
               onChange={handleChange}
             />
@@ -167,20 +294,51 @@ export default function ContactFormSection() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="contact-message">Votre message</label>
+          <label htmlFor="contact-message">
+            Votre message <span className="label-required">(obligatoire)</span>
+          </label>
           <textarea
             id="contact-message"
             name="message"
-            placeholder="Décrivez votre besoin, votre contexte et les enjeux du projet..."
+            placeholder="Expliquez votre besoin, votre contexte et la suite attendue..."
             value={values.message}
+            aria-describedby={buildDescription('contact-message-hint', messageError && 'contact-message-error')}
+            aria-invalid={messageError ? 'true' : undefined}
             onChange={handleChange}
+            onBlur={handleBlur}
             required
           />
-          {errors.message ? <span className="field-error">{errors.message}</span> : null}
+          <span className="field-hint" id="contact-message-hint">
+            Quelques phrases suffisent : contexte, objectif, délai ou contrainte utile.
+          </span>
+          {messageError ? (
+            <span className="field-error" id="contact-message-error" aria-live="polite">
+              {messageError}
+            </span>
+          ) : null}
         </div>
 
         {status.message ? (
-          <div className={`form-status form-status--${status.state}`}>{status.message}</div>
+          <div
+            ref={statusRef}
+            className={`form-status form-status--${status.state}`}
+            role={status.state === 'error' ? 'alert' : 'status'}
+            aria-live={status.state === 'error' ? 'assertive' : 'polite'}
+            tabIndex={status.state === 'error' ? -1 : undefined}
+          >
+            <p>{status.message}</p>
+            {status.state === 'error' && errorSummaryItems.length > 0 ? (
+              <ul className="form-error-list">
+                {errorSummaryItems.map((item) => (
+                  <li key={item.target}>
+                    <a href={`#${item.target}`}>
+                      {item.label} : {item.message}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
         ) : null}
 
         <Button

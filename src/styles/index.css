@@ -104,8 +104,37 @@ main {
   color: var(--accent-strong);
 }
 
+.field-hint {
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--text-mid);
+}
+
+.label-required {
+  color: var(--text-mid);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.form-group input[aria-invalid='true'],
+.form-group textarea[aria-invalid='true'] {
+  border-color: var(--accent-strong);
+  box-shadow: 0 0 0 3px rgba(var(--accent-strong-rgb), 0.1);
+}
+
 [data-theme='dark'] .field-error {
   color: var(--accent-light);
+}
+
+[data-theme='dark'] .field-hint,
+[data-theme='dark'] .label-required {
+  color: var(--text-on-dark-muted);
+}
+
+.form-status:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .form-status {
@@ -113,6 +142,21 @@ main {
   padding: 0.85rem 1rem;
   font-size: 0.8rem;
   line-height: 1.5;
+}
+
+.form-status p {
+  margin: 0;
+}
+
+.form-error-list {
+  margin: 0.45rem 0 0;
+  padding-left: 1rem;
+}
+
+.form-error-list a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
 .form-status--loading {
