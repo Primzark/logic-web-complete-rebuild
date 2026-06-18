@@ -1,5 +1,8 @@
+import { useState } from 'react';
+
 import { brandMedia } from '../data/media';
 import { company, legacyScope, referenceCases, trustItems } from '../data/siteContent';
+import DiagnosticExperience from '../components/diagnostic/DiagnosticExperience';
 import HeroSection from '../components/home/HeroSection';
 import ProblemsSection from '../components/home/ProblemsSection';
 import ProcessSection from '../components/home/ProcessSection';
@@ -31,6 +34,8 @@ function createHomeSchema() {
 }
 
 export default function Home() {
+  const [diagnosticOpen, setDiagnosticOpen] = useState(false);
+
   return (
     <>
       <PageMeta
@@ -39,7 +44,8 @@ export default function Home() {
         canonicalPath="/"
         schema={createHomeSchema()}
       />
-      <HeroSection />
+      <HeroSection onOpenDiagnostic={() => setDiagnosticOpen(true)} />
+      <DiagnosticExperience isOpen={diagnosticOpen} onClose={() => setDiagnosticOpen(false)} />
       <TrustStrip items={trustItems} />
       <ServicesShowcase />
 

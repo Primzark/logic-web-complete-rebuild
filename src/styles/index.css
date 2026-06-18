@@ -351,6 +351,729 @@ main {
   background: rgba(var(--off-white-rgb), 0.08);
 }
 
+.diagnostic-launch {
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgba(var(--logic-green-rgb), 0.46);
+  background:
+    linear-gradient(110deg, rgba(var(--logic-green-rgb), 0.18), rgba(var(--accent-rgb), 0.98) 42%, rgba(var(--accent-strong-rgb), 0.98));
+  box-shadow: 0 18px 40px rgba(var(--accent-rgb), 0.28);
+}
+
+.diagnostic-launch::before {
+  content: '';
+  position: absolute;
+  inset: -30% auto -30% -42%;
+  width: 38%;
+  background: linear-gradient(90deg, transparent, rgba(var(--off-white-rgb), 0.55), transparent);
+  transform: skewX(-18deg);
+  transition: left .65s cubic-bezier(.16, 1, .3, 1);
+  z-index: 1;
+}
+
+.diagnostic-launch:hover::before,
+.diagnostic-launch:focus-visible::before {
+  left: 116%;
+}
+
+.diagnostic-open {
+  overflow: hidden;
+}
+
+.diagnostic-open .mobile-sticky-cta,
+.diagnostic-open .back-to-top,
+.diagnostic-open .section-indicator {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.diagnostic-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2200;
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+  background: rgba(var(--space-black-rgb), 0.72);
+  backdrop-filter: blur(18px);
+  animation: diagnosticOverlayIn .3s ease both;
+}
+
+.diagnostic-shell {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(var(--sky-accent-rgb), 0.22);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(var(--space-black-rgb), 0.98), rgba(var(--navy-surface-rgb), 0.96) 58%, rgba(var(--deep-navy-rgb), 0.96));
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.44);
+  color: var(--text-on-dark);
+  isolation: isolate;
+}
+
+.diagnostic-grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.42;
+  background-image:
+    linear-gradient(rgba(var(--sky-accent-rgb), 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--sky-accent-rgb), 0.12) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.3));
+}
+
+.diagnostic-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1rem, 2.6vw, 2rem) clamp(1rem, 3vw, 2.5rem) 0;
+}
+
+.diagnostic-header__label,
+.diagnostic-panel-kicker,
+.diagnostic-result__status {
+  display: inline-flex;
+  margin-bottom: 0.55rem;
+  color: var(--accent-light);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.diagnostic-header h1,
+.diagnostic-step h2,
+.diagnostic-result h2 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0;
+}
+
+.diagnostic-header h1 {
+  font-size: clamp(2rem, 5vw, 4.2rem);
+  line-height: 1;
+}
+
+.diagnostic-header p,
+.diagnostic-step p,
+.diagnostic-result p,
+.diagnostic-roadmap p {
+  color: var(--text-on-dark-soft);
+}
+
+.diagnostic-header p {
+  max-width: 32rem;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.diagnostic-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 1px solid rgba(var(--off-white-rgb), 0.14);
+  border-radius: 50%;
+  background: rgba(var(--off-white-rgb), 0.06);
+  color: var(--text-on-dark);
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: background .25s, border-color .25s, transform .25s;
+}
+
+.diagnostic-close:hover,
+.diagnostic-close:focus-visible {
+  border-color: rgba(var(--sky-accent-rgb), 0.36);
+  background: rgba(var(--sky-accent-rgb), 0.14);
+  transform: translateY(-1px);
+}
+
+.diagnostic-progress {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0 clamp(1rem, 3vw, 2.5rem);
+}
+
+.diagnostic-progress__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--text-on-dark-soft);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.diagnostic-progress__track {
+  height: 0.32rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(var(--off-white-rgb), 0.1);
+}
+
+.diagnostic-progress__track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--logic-green), var(--accent-light), var(--accent));
+  transition: width .42s cubic-bezier(.16, 1, .3, 1);
+}
+
+.diagnostic-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(19rem, 25rem);
+  gap: 1rem;
+  min-height: 0;
+  padding: 0 clamp(1rem, 3vw, 2.5rem);
+  overflow: hidden;
+}
+
+.diagnostic-main,
+.diagnostic-signal-panel {
+  min-height: 0;
+  overflow: auto;
+  border: 1px solid rgba(var(--sky-accent-rgb), 0.16);
+  border-radius: 8px;
+  background: rgba(var(--navy-surface-rgb), 0.62);
+  box-shadow: inset 0 1px 0 rgba(var(--off-white-rgb), 0.04);
+}
+
+.diagnostic-main {
+  padding: clamp(1rem, 2.6vw, 2rem);
+}
+
+.diagnostic-step {
+  animation: diagnosticPanelIn .42s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.diagnostic-step__intro {
+  max-width: 48rem;
+}
+
+.diagnostic-step__intro span {
+  display: inline-flex;
+  margin-bottom: 0.65rem;
+  color: var(--logic-green);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.diagnostic-step h2,
+.diagnostic-result h2 {
+  font-size: clamp(1.75rem, 3.8vw, 3.2rem);
+  line-height: 1.08;
+}
+
+.diagnostic-step p {
+  max-width: 42rem;
+  margin-top: 1rem;
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.diagnostic-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: clamp(1.3rem, 4vh, 2rem);
+}
+
+.diagnostic-card {
+  position: relative;
+  display: grid;
+  gap: 0.55rem;
+  min-height: 9rem;
+  padding: 1.05rem;
+  overflow: hidden;
+  border: 1px solid rgba(var(--sky-accent-rgb), 0.16);
+  border-radius: 8px;
+  background: rgba(var(--space-black-rgb), 0.32);
+  color: var(--text-on-dark);
+  cursor: pointer;
+  text-align: left;
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  animation: diagnosticCardIn .44s cubic-bezier(.16, 1, .3, 1) var(--diagnostic-card-delay, 0ms) forwards;
+  transition: border-color .28s, background .28s, box-shadow .28s, transform .28s, opacity .28s;
+}
+
+.diagnostic-card__scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.diagnostic-card__scan::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -30%;
+  width: 20%;
+  background: linear-gradient(90deg, transparent, rgba(var(--logic-green-rgb), 0.22), transparent);
+  transform: skewX(-16deg);
+  opacity: 0;
+  transition: left .55s cubic-bezier(.16, 1, .3, 1), opacity .25s;
+}
+
+.diagnostic-card:hover,
+.diagnostic-card:focus-visible,
+.diagnostic-card.is-selected {
+  border-color: rgba(var(--logic-green-rgb), 0.46);
+  background: rgba(var(--deep-navy-rgb), 0.74);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.24);
+  transform: translate3d(0, -3px, 0);
+}
+
+.diagnostic-card:hover .diagnostic-card__scan::after,
+.diagnostic-card:focus-visible .diagnostic-card__scan::after,
+.diagnostic-card.is-selected .diagnostic-card__scan::after {
+  left: 112%;
+  opacity: 1;
+}
+
+.diagnostic-card__label {
+  position: relative;
+  z-index: 1;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.diagnostic-card__detail {
+  position: relative;
+  z-index: 1;
+  color: var(--text-on-dark-soft);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.diagnostic-signal-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 1.2rem;
+}
+
+.diagnostic-signal-panel h3 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+}
+
+.diagnostic-signal-panel ul {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.diagnostic-signal-panel li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--text-on-dark-soft);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.diagnostic-signal-panel li::before {
+  content: '';
+  position: absolute;
+  top: 0.58em;
+  left: 0;
+  width: 0.36rem;
+  height: 0.36rem;
+  border-radius: 50%;
+  background: var(--logic-green);
+  box-shadow: 0 0 0 4px rgba(var(--logic-green-rgb), 0.12);
+}
+
+.diagnostic-orientation {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding: 1rem;
+  border: 1px solid rgba(var(--logic-green-rgb), 0.22);
+  border-radius: 8px;
+  background: rgba(var(--logic-green-rgb), 0.08);
+}
+
+.diagnostic-orientation span,
+.diagnostic-service-lock span {
+  color: var(--text-on-dark-faint);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.diagnostic-orientation strong,
+.diagnostic-service-lock strong {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+}
+
+.diagnostic-orientation em,
+.diagnostic-service-lock em {
+  color: var(--logic-green);
+  font-style: normal;
+  font-size: 0.82rem;
+}
+
+.diagnostic-result {
+  display: grid;
+  gap: 1.1rem;
+  animation: diagnosticPanelIn .42s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.diagnostic-result__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.diagnostic-result__header p {
+  max-width: 42rem;
+  margin-top: 0.9rem;
+  line-height: 1.65;
+}
+
+.diagnostic-service-lock {
+  position: relative;
+  display: grid;
+  align-content: center;
+  gap: 0.45rem;
+  padding: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(var(--logic-green-rgb), 0.34);
+  border-radius: 8px;
+  background: rgba(var(--logic-green-rgb), 0.08);
+}
+
+.diagnostic-service-lock::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid rgba(var(--logic-green-rgb), 0.62);
+  animation: diagnosticScanY 1.8s ease-in-out infinite;
+}
+
+.diagnostic-result-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 20rem);
+  gap: 1rem;
+}
+
+.diagnostic-chain,
+.diagnostic-local-map,
+.diagnostic-final-summary {
+  border: 1px solid rgba(var(--sky-accent-rgb), 0.16);
+  border-radius: 8px;
+  background: rgba(var(--space-black-rgb), 0.28);
+}
+
+.diagnostic-chain {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1rem;
+}
+
+.diagnostic-chain__node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 3.25rem;
+  opacity: 0;
+  transform: translateX(-12px);
+  animation: diagnosticNodeIn .42s cubic-bezier(.16, 1, .3, 1) var(--node-delay, 0ms) forwards;
+}
+
+.diagnostic-chain__node:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: calc(50% + 1.1rem);
+  left: 1rem;
+  width: 1px;
+  height: 1.05rem;
+  background: rgba(var(--logic-green-rgb), 0.48);
+}
+
+.diagnostic-chain__node span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgba(var(--logic-green-rgb), 0.12);
+  color: var(--logic-green);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.diagnostic-chain__node strong {
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.diagnostic-local-map {
+  position: relative;
+  min-height: 14rem;
+  overflow: hidden;
+  background-image:
+    linear-gradient(rgba(var(--sky-accent-rgb), 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--sky-accent-rgb), 0.1) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.diagnostic-map-label {
+  position: absolute;
+  color: var(--text-on-dark-faint);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.diagnostic-map-label--top { top: 0.9rem; left: 1rem; }
+.diagnostic-map-label--right { top: 42%; right: 0.85rem; writing-mode: vertical-rl; }
+.diagnostic-map-label--bottom { right: 1rem; bottom: 0.9rem; }
+.diagnostic-map-label--left { bottom: 1rem; left: 1rem; max-width: 8rem; }
+
+.diagnostic-map-core {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: min(70%, 13rem);
+  padding: 0.9rem;
+  border: 1px solid rgba(var(--logic-green-rgb), 0.34);
+  border-radius: 8px;
+  background: rgba(var(--navy-surface-rgb), 0.86);
+  color: var(--text-on-dark);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.diagnostic-roadmap {
+  position: relative;
+  display: grid;
+  gap: 0.8rem;
+  padding-left: 1.05rem;
+}
+
+.diagnostic-roadmap::before {
+  content: '';
+  position: absolute;
+  top: 0.8rem;
+  bottom: 0.8rem;
+  left: 0.32rem;
+  width: 1px;
+  background: linear-gradient(180deg, var(--logic-green), rgba(var(--accent-rgb), 0.18));
+  transform-origin: top;
+  animation: diagnosticTimelineDraw .9s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.diagnostic-roadmap__phase {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.8rem;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: diagnosticCardIn .42s cubic-bezier(.16, 1, .3, 1) var(--phase-delay, 0ms) forwards;
+}
+
+.diagnostic-roadmap__phase > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid rgba(var(--logic-green-rgb), 0.32);
+  border-radius: 50%;
+  background: var(--navy-surface);
+  color: var(--logic-green);
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+
+.diagnostic-roadmap__phase h4 {
+  margin: 0 0 0.25rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+}
+
+.diagnostic-roadmap__phase p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.diagnostic-final-summary {
+  padding: 1rem;
+}
+
+.diagnostic-final-summary h3 {
+  margin: 0 0 0.55rem;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.diagnostic-final-summary p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.diagnostic-final-summary ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.diagnostic-final-summary li {
+  padding: 0.36rem 0.55rem;
+  border: 1px solid rgba(var(--sky-accent-rgb), 0.16);
+  border-radius: 999px;
+  color: var(--text-on-dark-soft);
+  font-size: 0.72rem;
+}
+
+.diagnostic-result__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.diagnostic-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(var(--sky-accent-rgb), 0.22);
+  border-radius: 999px;
+  background: rgba(var(--off-white-rgb), 0.06);
+  color: var(--text-on-dark);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background .25s, border-color .25s, transform .25s, box-shadow .25s;
+}
+
+.diagnostic-action:hover,
+.diagnostic-action:focus-visible {
+  border-color: rgba(var(--logic-green-rgb), 0.42);
+  background: rgba(var(--logic-green-rgb), 0.12);
+  transform: translateY(-2px);
+}
+
+.diagnostic-action--primary {
+  border-color: rgba(var(--logic-green-rgb), 0.5);
+  background: var(--accent-strong);
+  box-shadow: 0 16px 38px rgba(var(--accent-rgb), 0.24);
+}
+
+.diagnostic-action--ghost {
+  color: var(--accent-light);
+}
+
+.diagnostic-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 clamp(1rem, 3vw, 2.5rem) clamp(1rem, 2vw, 1.5rem);
+  color: var(--text-on-dark-faint);
+  font-size: 0.76rem;
+}
+
+.diagnostic-footer__button {
+  min-height: 2.35rem;
+  padding: 0 0.9rem;
+  border: 1px solid rgba(var(--off-white-rgb), 0.12);
+  border-radius: 999px;
+  background: rgba(var(--off-white-rgb), 0.05);
+  color: var(--text-on-dark);
+  cursor: pointer;
+}
+
+.diagnostic-footer__button:disabled {
+  opacity: 0.42;
+  cursor: default;
+}
+
+.diagnostic-contact-note {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(var(--accent-rgb), 0.18);
+  border-radius: 8px;
+  background: rgba(var(--accent-rgb), 0.08);
+}
+
+.diagnostic-contact-note span {
+  color: var(--accent-strong);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.diagnostic-contact-note strong {
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+@keyframes diagnosticOverlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes diagnosticPanelIn {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes diagnosticCardIn {
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes diagnosticNodeIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes diagnosticTimelineDraw {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes diagnosticScanY {
+  0% { transform: translateY(-100%); opacity: 0; }
+  18% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
 .page-shell {
   animation: pageIn 0.6s cubic-bezier(.16, 1, .3, 1) forwards;
 }
@@ -671,6 +1394,89 @@ main {
     flex: 1 1 min(12rem, 100%);
     justify-content: space-between;
   }
+
+  .diagnostic-overlay {
+    padding: 0;
+    background: var(--space-black);
+  }
+
+  .diagnostic-shell {
+    border-radius: 0;
+    border-width: 0;
+    background: var(--space-black);
+  }
+
+  .diagnostic-grid-bg {
+    opacity: 0.26;
+  }
+
+  .diagnostic-header {
+    padding: 1rem 1rem 0;
+  }
+
+  .diagnostic-header h1 {
+    font-size: 2rem;
+  }
+
+  .diagnostic-header p {
+    font-size: 0.84rem;
+  }
+
+  .diagnostic-close {
+    width: 2.45rem;
+    height: 2.45rem;
+    flex-shrink: 0;
+  }
+
+  .diagnostic-progress {
+    padding: 0 1rem;
+  }
+
+  .diagnostic-workspace {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+    overflow: auto;
+  }
+
+  .diagnostic-main,
+  .diagnostic-signal-panel {
+    overflow: visible;
+    background: rgba(var(--navy-surface-rgb), 0.94);
+  }
+
+  .diagnostic-card-grid,
+  .diagnostic-result__header,
+  .diagnostic-result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .diagnostic-card {
+    min-height: 8rem;
+  }
+
+  .diagnostic-signal-panel {
+    order: -1;
+  }
+
+  .diagnostic-signal-panel ul {
+    grid-template-columns: 1fr;
+  }
+
+  .diagnostic-orientation {
+    margin-top: 0;
+  }
+
+  .diagnostic-result__actions {
+    flex-direction: column;
+  }
+
+  .diagnostic-action {
+    width: 100%;
+  }
+
+  .diagnostic-footer {
+    padding: 0 1rem 1rem;
+  }
 }
 
 @media (max-width: 400px) {
@@ -687,6 +1493,36 @@ main {
   .mobile-sticky-cta a {
     font-size: 0.74rem;
   }
+
+  .diagnostic-header__label,
+  .diagnostic-panel-kicker,
+  .diagnostic-result__status {
+    font-size: 0.58rem;
+  }
+
+  .diagnostic-step h2,
+  .diagnostic-result h2 {
+    font-size: 1.5rem;
+  }
+
+  .diagnostic-main,
+  .diagnostic-signal-panel {
+    padding: 0.9rem;
+  }
+
+  .diagnostic-card {
+    min-height: 7.25rem;
+    padding: 0.9rem;
+  }
+
+  .diagnostic-card__label {
+    font-size: 1rem;
+  }
+
+  .diagnostic-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -702,6 +1538,16 @@ main {
   .hero-enter,
   .hero-visual.hero-enter,
   .service-intent,
+  .diagnostic-overlay,
+  .diagnostic-shell,
+  .diagnostic-card,
+  .diagnostic-step,
+  .diagnostic-result,
+  .diagnostic-roadmap,
+  .diagnostic-roadmap::before,
+  .diagnostic-roadmap__phase,
+  .diagnostic-chain__node,
+  .diagnostic-service-lock::before,
   .mobile-menu,
   .mobile-menu .mobile-menu-brand,
   .mobile-menu a,
@@ -726,5 +1572,11 @@ main {
 
   .field-invalid-pulse {
     animation: none !important;
+  }
+
+  .diagnostic-card,
+  .diagnostic-chain__node,
+  .diagnostic-roadmap__phase {
+    opacity: 1 !important;
   }
 }

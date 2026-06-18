@@ -59,7 +59,7 @@ function AnimatedStat({ value, suffix, label, delay, type = 'number' }) {
   );
 }
 
-export default function HeroSection() {
+export default function HeroSection({ onOpenDiagnostic }) {
   const heroRef = useRef(null);
   const glowRef = useRef(null);
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -137,6 +137,9 @@ export default function HeroSection() {
         </p>
         <div className="hero-actions hero-enter hero-enter-4">
           <Button to="/contact">Demander un devis <span aria-hidden="true">→</span></Button>
+          <Button type="button" className="diagnostic-launch" onClick={onOpenDiagnostic}>
+            Lancer le diagnostic digital
+          </Button>
           <Button to="/services" variant="secondary">
             Découvrir nos services
           </Button>

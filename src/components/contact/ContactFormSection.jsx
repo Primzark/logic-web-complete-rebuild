@@ -1,11 +1,50 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { company, contactDetails, contactProjectOptions } from '../../data/siteContent';
+import { DIAGNOSTIC_STORAGE_KEY } from '../diagnostic/diagnosticRules';
 import Button from '../ui/Button';
 
 const validatedFields = ['name', 'email', 'message'];
 const contactStorageKey = 'logicweb-last-contact';
+
+function buildDiagnosticMessage(diagnostic, contactIntent) {
+  if (!diagnostic) {
+    return '';
+  }
+
+  const intro =
+    contactIntent === 'email'
+      ? 'Bonjour, je souhaite recevoir et valider ce diagnostic digital par email.'
+      : 'Bonjour, je souhaite demander un devis à partir de ce diagnostic digital.';
+
+  return [
+    intro,
+    '',
+    `Service recommandé : ${diagnostic.primaryTitle}`,
+    diagnostic.secondaryTitle ? `Appui possible : ${diagnostic.secondaryTitle}` : '',
+    `Résumé : ${diagnostic.explanation}`,
+    '',
+    'Signaux détectés :',
+    ...(diagnostic.signals || []).map((signal) => `- ${signal}`)
+  ]
+    .filter(Boolean)
+    .join('\n');
+}
+
+function readStoredDiagnostic() {
+  try {
+    const rawDiagnostic = window.sessionStorage.getItem(DIAGNOSTIC_STORAGE_KEY);
+
+    if (!rawDiagnostic) {
+      return null;
+    }
+
+    return JSON.parse(rawDiagnostic);
+  } catch {
+    return null;
+  }
+}
 
 function validateField(name, value) {
   const cleanValue = value.trim();
@@ -52,7 +91,9 @@ function validate(values) {
 }
 
 export default function ContactFormSection() {
+  const location = useLocation();
   const statusRef = useRef(null);
+  const diagnosticLoadedRef = useRef(false);
   const [values, setValues] = useState({
     name: '',
     company: '',
@@ -66,8 +107,30 @@ export default function ContactFormSection() {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ state: 'idle', message: '' });
+  const [diagnosticSummary, setDiagnosticSummary] = useState('');
 
   const nextUrl = typeof window !== 'undefined' ? `${window.location.origin}/merci` : '/merci';
+
+  useEffect(() => {
+    if (diagnosticLoadedRef.current) {
+      return;
+    }
+
+    const diagnostic = location.state?.diagnostic || readStoredDiagnostic();
+
+    if (!diagnostic) {
+      return;
+    }
+
+    diagnosticLoadedRef.current = true;
+    setDiagnosticSummary(diagnostic.summary || '');
+
+    setValues((current) => ({
+      ...current,
+      projectType: current.projectType || diagnostic.contactProjectType || '',
+      message: current.message || buildDiagnosticMessage(diagnostic, location.state?.contactIntent || diagnostic.contactIntent)
+    }));
+  }, [location.state]);
 
   useEffect(() => {
     if (status.state === 'error') {
@@ -200,6 +263,14 @@ export default function ContactFormSection() {
         <input type="hidden" name="_template" value="table" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_next" value={nextUrl} />
+        <input type="hidden" name="diagnostic_result" value={diagnosticSummary} />
+
+        {diagnosticSummary ? (
+          <div className="diagnostic-contact-note" role="status">
+            <span>Diagnostic joint</span>
+            <strong>Le formulaire est prérempli avec la trajectoire recommandée.</strong>
+          </div>
+        ) : null}
 
         <div className="form-row">
           <div className="form-group">
