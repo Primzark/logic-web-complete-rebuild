@@ -5,6 +5,7 @@ import { company, contactDetails, contactProjectOptions } from '../../data/siteC
 import Button from '../ui/Button';
 
 const validatedFields = ['name', 'email', 'message'];
+const contactStorageKey = 'logicweb-last-contact';
 
 function validateField(name, value) {
   const cleanValue = value.trim();
@@ -70,7 +71,10 @@ export default function ContactFormSection() {
 
   useEffect(() => {
     if (status.state === 'error') {
-      statusRef.current?.focus();
+      window.requestAnimationFrame(() => {
+        statusRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        statusRef.current?.focus({ preventScroll: true });
+      });
     }
   }, [status.state, status.message]);
 
@@ -145,6 +149,18 @@ export default function ContactFormSection() {
       return;
     }
 
+    try {
+      window.sessionStorage.setItem(
+        contactStorageKey,
+        JSON.stringify({
+          name: values.name.trim(),
+          projectType: values.projectType
+        })
+      );
+    } catch {
+      // Session storage is a progressive enhancement for the thank-you page.
+    }
+
     setStatus({
       state: 'loading',
       message: 'Envoi en cours. Vous allez être redirigé vers la page de confirmation.'
@@ -158,6 +174,12 @@ export default function ContactFormSection() {
   const nameError = getFieldError('name');
   const emailError = getFieldError('email');
   const messageError = getFieldError('message');
+  const completedRequired = [
+    !validateField('name', values.name),
+    !validateField('email', values.email),
+    !validateField('message', values.message)
+  ].filter(Boolean).length;
+  const completionPercent = Math.round((completedRequired / validatedFields.length) * 100);
   const errorSummaryItems = [
     { label: 'Nom complet', target: 'contact-name', message: nameError },
     { label: 'Email', target: 'contact-email', message: emailError },
@@ -187,6 +209,7 @@ export default function ContactFormSection() {
             <input
               id="contact-name"
               name="name"
+              className={nameError ? 'field-invalid-pulse' : undefined}
               type="text"
               placeholder="Ex. Nicolas Martin"
               autoComplete="name"
@@ -229,6 +252,7 @@ export default function ContactFormSection() {
             <input
               id="contact-email"
               name="email"
+              className={emailError ? 'field-invalid-pulse' : undefined}
               type="email"
               placeholder="vous@entreprise.fr"
               autoComplete="email"
@@ -300,6 +324,7 @@ export default function ContactFormSection() {
           <textarea
             id="contact-message"
             name="message"
+            className={messageError ? 'field-invalid-pulse' : undefined}
             placeholder="Expliquez votre besoin, votre contexte et la suite attendue..."
             value={values.message}
             aria-describedby={buildDescription('contact-message-hint', messageError && 'contact-message-error')}
@@ -316,6 +341,16 @@ export default function ContactFormSection() {
               {messageError}
             </span>
           ) : null}
+        </div>
+
+        <div className="form-progress" aria-live="polite">
+          <div className="form-progress-top">
+            <span>{completedRequired}/3 informations obligatoires complétées</span>
+            <strong>{completionPercent}%</strong>
+          </div>
+          <div className="form-progress-track" aria-hidden="true">
+            <span style={{ width: `${completionPercent}%` }} />
+          </div>
         </div>
 
         {status.message ? (
@@ -350,6 +385,11 @@ export default function ContactFormSection() {
         >
           {status.state === 'loading' ? 'Envoi en cours...' : 'Envoyer ma demande →'}
         </Button>
+
+        <p className={`contact-fallback ${status.state === 'loading' ? 'is-visible' : ''}`}>
+          Si l’envoi échoue, écrivez directement à{' '}
+          <a href={`mailto:${company.email}`}>{company.email}</a>.
+        </p>
 
         <p className="contact-policy">
           En envoyant ce formulaire, vous acceptez que vos données soient utilisées uniquement pour traiter

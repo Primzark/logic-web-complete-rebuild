@@ -7,6 +7,8 @@ export const services = [
     icon: '🌐',
     title: 'Création de sites web',
     shortTitle: 'Création de sites web',
+    intentLabel: 'J’ai besoin d’un site',
+    fitSummary: 'Idéal pour clarifier votre offre, rassurer vos prospects et générer des demandes locales.',
     excerpt:
       'Sites vitrines, catalogues et e-commerce conçus pour clarifier votre offre, rassurer vos prospects et soutenir votre référencement local.',
     heroTitle: 'Un site web qui travaille vraiment pour votre entreprise',
@@ -139,6 +141,8 @@ export const services = [
     icon: '⚙️',
     title: 'Logiciels sur mesure',
     shortTitle: 'Logiciels & outils métier',
+    intentLabel: 'J’ai un outil interne',
+    fitSummary: 'Adapté quand les fichiers dispersés, la ressaisie ou les suivis manuels freinent l’équipe.',
     excerpt:
       'Applications web, interfaces internes et automatisations conçues pour remplacer les fichiers dispersés et fluidifier vos opérations.',
     heroTitle: 'Des outils conçus pour votre manière de travailler',
@@ -258,6 +262,8 @@ export const services = [
     icon: '🔒',
     title: 'Support IT & sécurité',
     shortTitle: 'Support IT & sécurité',
+    intentLabel: 'J’ai un problème IT',
+    fitSummary: 'Utile pour fiabiliser les postes, le réseau, les sauvegardes et les accès sensibles.',
     excerpt:
       'Maintenance, réseau, sauvegarde et sécurisation pour rendre votre environnement numérique plus fiable au quotidien.',
     heroTitle: 'Une infrastructure plus fiable pour travailler sereinement',
@@ -377,6 +383,8 @@ export const services = [
     icon: '📚',
     title: 'Formation professionnelle',
     shortTitle: 'Formation',
+    intentLabel: 'Je veux former mon équipe',
+    fitSummary: 'Pensé pour rendre les équipes plus autonomes sur leurs outils et leurs usages numériques.',
     excerpt:
       'Formations bureautiques, numériques et métier adaptées au niveau des équipes et aux situations concrètes du quotidien.',
     heroTitle: 'Des formations pratiques, utiles dès la première session',

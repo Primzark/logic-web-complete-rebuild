@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 
 import Reveal from './Reveal';
 
-export default function ServiceCard({ className = '', delay, reveal = true, service }) {
-  const cardClasses = `service-card ${className}`.trim();
+export default function ServiceCard({ className = '', delay, isActive = false, reveal = true, service }) {
+  const cardClasses = `service-card ${isActive ? 'is-active' : ''} ${className}`.trim();
   const CardWrapper = reveal ? Reveal : 'article';
 
   return (
@@ -21,6 +21,12 @@ export default function ServiceCard({ className = '', delay, reveal = true, serv
       <div className="service-card-body">
         <div className="service-card-copy">
           <h3>{service.shortTitle}</h3>
+          {isActive && service.fitSummary ? (
+            <p className="service-fit">
+              <span>Sélectionné</span>
+              {service.fitSummary}
+            </p>
+          ) : null}
           <p>{service.excerpt}</p>
         </div>
         <div className="service-card-footer">

@@ -7,6 +7,7 @@ import { useTheme } from '../../hooks/useTheme';
 import BackToTopButton from './BackToTopButton';
 import Footer from './Footer';
 import Header from './Header';
+import MobileStickyCTA from './MobileStickyCTA';
 import MobileMenu from './MobileMenu';
 import ScrollChrome from './ScrollChrome';
 import ScrollToTop from './ScrollToTop';
@@ -62,6 +63,7 @@ export default function Layout() {
       <main id="main-content">
         <Outlet />
       </main>
+      <MobileStickyCTA />
       <BackToTopButton visible={showBackToTop} />
       <Footer />
     </>

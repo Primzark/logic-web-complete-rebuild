@@ -50,7 +50,7 @@ export const trustItems = [
 export const heroStats = [
   { value: 4, suffix: '', label: 'Expertises clés' },
   { value: 1, suffix: '', label: 'Interlocuteur unique' },
-  { value: 2017, suffix: '', label: 'Structure immatriculée' }
+  { value: 2017, suffix: '', label: 'Structure immatriculée', type: 'year' }
 ];
 
 export const homeProblems = [

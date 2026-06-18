@@ -5,12 +5,12 @@ import { company, heroStats } from '../../data/siteContent';
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 import Button from '../ui/Button';
 
-function AnimatedStat({ value, suffix, label, delay }) {
+function AnimatedStat({ value, suffix, label, delay, type = 'number' }) {
   const prefersReducedMotion = usePrefersReducedMotion();
   const [displayValue, setDisplayValue] = useState(prefersReducedMotion ? value : 0);
 
   useEffect(() => {
-    if (prefersReducedMotion) {
+    if (type === 'year' || prefersReducedMotion) {
       setDisplayValue(value);
       return undefined;
     }
@@ -37,7 +37,16 @@ function AnimatedStat({ value, suffix, label, delay }) {
       window.clearTimeout(timeoutId);
       window.clearInterval(intervalId);
     };
-  }, [delay, prefersReducedMotion, value]);
+  }, [delay, prefersReducedMotion, type, value]);
+
+  if (type === 'year') {
+    return (
+      <div className="hero-stat hero-stat--text">
+        <div className="hero-stat-num hero-stat-num--text">Depuis {value}</div>
+        <div className="hero-stat-label">{label}</div>
+      </div>
+    );
+  }
 
   return (
     <div className="hero-stat">
@@ -120,32 +129,33 @@ export default function HeroSection() {
     <section className="hero page-shell" ref={heroRef}>
       <div className="hero-glow" ref={glowRef} aria-hidden="true" />
       <div className="hero-content">
-        <div className="hero-label">{company.location}</div>
-        <h1>SOLUTIONS DIGITALES &amp; IT POUR LES ENTREPRISES LOCALES.</h1>
-        <p className="hero-sub">
+        <div className="hero-label hero-enter hero-enter-1">{company.location}</div>
+        <h1 className="hero-enter hero-enter-2">SOLUTIONS DIGITALES &amp; IT POUR LES ENTREPRISES LOCALES.</h1>
+        <p className="hero-sub hero-enter hero-enter-3">
           Logic Web structure des sites web, des outils métier sur mesure, un support informatique
           fiable et des formations utiles pour les entreprises du Havre et de Normandie.
         </p>
-        <div className="hero-actions">
+        <div className="hero-actions hero-enter hero-enter-4">
           <Button to="/contact">Demander un devis <span aria-hidden="true">→</span></Button>
           <Button to="/services" variant="secondary">
             Découvrir nos services
           </Button>
         </div>
-        <div className="hero-divider" />
-        <div className="hero-stats">
+        <div className="hero-divider hero-enter hero-enter-5" />
+        <div className="hero-stats hero-enter hero-enter-5">
           {heroStats.map((stat, index) => (
             <AnimatedStat
               key={stat.label}
               value={stat.value}
               suffix={stat.suffix}
               label={stat.label}
+              type={stat.type}
               delay={index * 180}
             />
           ))}
         </div>
       </div>
-      <div className="hero-visual" aria-hidden="true">
+      <div className="hero-visual hero-enter hero-enter-6" aria-hidden="true">
         <div className="hero-frame" />
         <div className="hero-img-wrapper">
           <img
@@ -170,10 +180,10 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-      <div className="hero-scroll">
+      <a className="hero-scroll" href="#services-preview" aria-label="Découvrir les services Logic Web">
         <span>Découvrir</span>
-        <div className="scroll-dot" />
-      </div>
+        <span className="scroll-dot" aria-hidden="true" />
+      </a>
     </section>
   );
 }

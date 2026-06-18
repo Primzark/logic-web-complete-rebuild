@@ -32,7 +32,11 @@ export default function ServicesShowcase() {
   } = useSnapCarousel({ initialIndex: 1, itemCount: services.length, loop: true });
 
   return (
-    <section className="section services services-showcase page-shell page-shell--simple" data-section-name="Services">
+    <section
+      className="section services services-showcase page-shell page-shell--simple"
+      id="services-preview"
+      data-section-name="Services"
+    >
       <div className="services-showcase-head">
         <SectionIntro
           label="Ce que nous faisons"
@@ -62,6 +66,21 @@ export default function ServicesShowcase() {
             <span aria-hidden="true">→</span>
           </button>
         </div>
+      </div>
+
+      <div className="service-intents" aria-label="Choisir un besoin">
+        {services.map((service, index) => (
+          <button
+            key={service.slug}
+            type="button"
+            className={`service-intent ${index === activeIndex ? 'is-active' : ''}`}
+            onClick={() => scrollToIndex(index)}
+            aria-pressed={index === activeIndex}
+          >
+            <span>{service.intentLabel || service.shortTitle}</span>
+            <span aria-hidden="true">→</span>
+          </button>
+        ))}
       </div>
 
       <div
@@ -95,6 +114,7 @@ export default function ServicesShowcase() {
               >
                 <ServiceCard
                   className="service-card--coverflow"
+                  isActive={index === activeIndex}
                   reveal={false}
                   service={service}
                 />

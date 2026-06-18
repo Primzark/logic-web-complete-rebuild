@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { brandMedia } from '../data/media';
@@ -7,10 +8,36 @@ import CTASection from '../components/ui/CTASection';
 import PageHero from '../components/ui/PageHero';
 import Reveal from '../components/ui/Reveal';
 
+const contactStorageKey = 'logicweb-last-contact';
+
 export default function ThankYou() {
   const location = useLocation();
-  const requesterName = location.state?.name;
-  const projectType = location.state?.projectType;
+  const [contactContext, setContactContext] = useState({
+    name: location.state?.name || '',
+    projectType: location.state?.projectType || ''
+  });
+
+  useEffect(() => {
+    try {
+      const rawContext = window.sessionStorage.getItem(contactStorageKey);
+
+      if (!rawContext) {
+        return;
+      }
+
+      const parsedContext = JSON.parse(rawContext);
+      setContactContext({
+        name: typeof parsedContext.name === 'string' ? parsedContext.name : '',
+        projectType: typeof parsedContext.projectType === 'string' ? parsedContext.projectType : ''
+      });
+      window.sessionStorage.removeItem(contactStorageKey);
+    } catch {
+      window.sessionStorage.removeItem(contactStorageKey);
+    }
+  }, []);
+
+  const requesterName = contactContext.name;
+  const projectType = contactContext.projectType;
 
   return (
     <>
@@ -23,7 +50,7 @@ export default function ThankYou() {
         className="contact-hero"
         label="Message envoyé"
         title="Merci, votre demande a bien été transmise"
-        description="La page de remerciement fait maintenant partie du parcours normal du site, avec un chemin clair après soumission."
+        description="Votre message est arrivé au bon endroit. Logic Web vous répond rapidement pour cadrer la suite."
         image={brandMedia.pageHeroes.thankYou}
       />
       <div className="svc-content page-shell page-shell--simple">
@@ -31,7 +58,7 @@ export default function ThankYou() {
           <p>
             {requesterName ? `${requesterName}, ` : ''}
             nous avons bien reçu votre message
-            {projectType ? ` concernant ${projectType.toLowerCase()}` : ''}.
+            {projectType ? ` concernant votre besoin : ${projectType}` : ''}.
           </p>
           <p>
             Logic Web revient vers vous sous 24 h ouvrées à l’adresse indiquée si des précisions sont
