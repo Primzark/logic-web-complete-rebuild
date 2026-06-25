@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import Reveal from './Reveal';
+import OptimizedImage from './OptimizedImage';
 
 export default function ServiceCard({ className = '', delay, isActive = false, reveal = true, service }) {
   const cardClasses = `service-card ${isActive ? 'is-active' : ''} ${className}`.trim();
@@ -9,7 +10,7 @@ export default function ServiceCard({ className = '', delay, isActive = false, r
   return (
     <CardWrapper as={reveal ? 'article' : undefined} className={cardClasses} delay={reveal ? delay : undefined}>
       <div className="service-media" aria-hidden="true">
-        <img
+        <OptimizedImage
           src={service.heroImage.src}
           alt=""
           draggable="false"

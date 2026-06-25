@@ -45,6 +45,7 @@ export default function ThankYou() {
         title={`Merci | ${company.name}`}
         description="Confirmation d’envoi du formulaire de contact Logic Web."
         canonicalPath="/merci"
+        robots="noindex, nofollow"
       />
       <PageHero
         className="contact-hero"

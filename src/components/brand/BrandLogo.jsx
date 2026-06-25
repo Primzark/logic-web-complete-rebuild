@@ -1,26 +1,29 @@
 import { NavLink } from 'react-router-dom';
 
-const LOGO_SRC = '/branding/logic-web/logos/logic-web-logo-master.png';
+const LOGO_SRC = '/branding/logic-web/logos/logic-web-logo-header.webp';
 
 const LOGO_VARIANTS = {
   header: {
     src: LOGO_SRC,
-    width: 760,
-    height: 760,
+    width: 160,
+    height: 160,
     loading: 'eager',
+    decoding: 'sync',
     fetchPriority: 'high'
   },
   footer: {
     src: LOGO_SRC,
-    width: 760,
-    height: 760,
-    loading: 'lazy'
+    width: 160,
+    height: 160,
+    loading: 'lazy',
+    decoding: 'async'
   },
   menu: {
     src: LOGO_SRC,
-    width: 760,
-    height: 760,
-    loading: 'eager'
+    width: 160,
+    height: 160,
+    loading: 'eager',
+    decoding: 'sync'
   }
 };
 
@@ -37,7 +40,7 @@ export default function BrandLogo({ className = '', size = 'header', onClick }) 
           width={variant.width}
           height={variant.height}
           loading={variant.loading}
-          decoding="async"
+          decoding={variant.decoding}
           fetchPriority={variant.fetchPriority}
           draggable="false"
         />

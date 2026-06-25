@@ -52,7 +52,7 @@ export default function About() {
           <div className="about-values">
             {aboutValues.map((value, index) => (
               <Reveal className="about-value" delay={(index % 4) + 1} key={value.title}>
-                <h4>{value.title}</h4>
+                <h3>{value.title}</h3>
                 <p>{value.text}</p>
               </Reveal>
             ))}

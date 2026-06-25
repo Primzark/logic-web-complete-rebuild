@@ -1,5 +1,6 @@
 import { services } from './services';
 import { brandMedia } from './media';
+import { localLandingPages } from './localLandingPages';
 
 export const company = {
   name: 'Logic Web',
@@ -173,6 +174,24 @@ export const whyChooseUs = [
   }
 ];
 
+export const proofPoints = [
+  {
+    label: 'Réponse attendue',
+    value: '24 h ouvrées',
+    text: 'Un premier retour clair pour confirmer le besoin, les priorités et la suite la plus utile.'
+  },
+  {
+    label: 'Approche',
+    value: 'Audit avant devis',
+    text: 'Chaque demande commence par un cadrage court pour éviter les solutions trop lourdes ou mal orientées.'
+  },
+  {
+    label: 'Exploitation',
+    value: 'Suivi durable',
+    text: 'Le site, l’outil ou l’environnement IT sont pensés pour être maintenus, pas seulement livrés.'
+  }
+];
+
 export const legacyScope = [
   {
     title: 'Site Internet',
@@ -278,6 +297,11 @@ export const contactProjectOptions = [
 export const footerServices = services.map((service) => ({
   label: service.shortTitle,
   path: service.path
+}));
+
+export const footerLocalLinks = localLandingPages.map((page) => ({
+  label: page.label,
+  path: page.path
 }));
 
 export const footerLinks = [

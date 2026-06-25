@@ -1,4 +1,5 @@
 import SectionIntro from './SectionIntro';
+import OptimizedImage from './OptimizedImage';
 
 export default function PageHero({
   label,
@@ -12,7 +13,7 @@ export default function PageHero({
     <section className={[className, 'page-hero-shell', image ? 'page-hero-shell--with-media' : ''].join(' ')}>
       {image ? (
         <div className="page-hero-media" aria-hidden="true">
-          <img src={image.src} alt={image.alt || ''} style={{ objectPosition: image.position || 'center center' }} />
+          <OptimizedImage src={image.src} alt={image.alt || ''} style={{ objectPosition: image.position || 'center center' }} />
         </div>
       ) : null}
       <div className="page-hero-inner">
@@ -20,6 +21,7 @@ export default function PageHero({
           label={label}
           title={title}
           description={description}
+          headingTag="h1"
           light
           pageHero
           wide={wide}

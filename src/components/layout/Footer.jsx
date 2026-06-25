@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 import BrandLogo from '../brand/BrandLogo';
-import { company, footerLinks, footerServices } from '../../data/siteContent';
+import { company, footerLinks, footerLocalLinks, footerServices } from '../../data/siteContent';
 
 export default function Footer() {
   return (
@@ -16,7 +16,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4>Navigation</h4>
+          <h2 className="footer-heading">Navigation</h2>
           <ul className="footer-links">
             <li>
               <NavLink to="/">Accueil</NavLink>
@@ -37,7 +37,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4>Services</h4>
+          <h2 className="footer-heading">Services</h2>
           <ul className="footer-links">
             {footerServices.map((service) => (
               <li key={service.path}>
@@ -48,7 +48,18 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4>Contact</h4>
+          <h2 className="footer-heading">Local</h2>
+          <ul className="footer-links">
+            {footerLocalLinks.map((link) => (
+              <li key={link.path}>
+                <NavLink to={link.path}>{link.label}</NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="footer-heading">Contact</h2>
           <ul className="footer-links">
             <li>
               <a href={`mailto:${company.email}`}>{company.email}</a>

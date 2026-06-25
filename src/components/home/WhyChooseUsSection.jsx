@@ -32,7 +32,7 @@ export default function WhyChooseUsSection() {
           <Reveal className="why-item" delay={index + 1} key={item.title}>
             <div className="why-icon">{icons[index]}</div>
             <div>
-              <h4>{item.title}</h4>
+              <h3>{item.title}</h3>
               <p>{item.text}</p>
             </div>
           </Reveal>

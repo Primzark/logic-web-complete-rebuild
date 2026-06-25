@@ -101,6 +101,8 @@ export default function ServicesShowcase() {
               <div
                 key={service.slug}
                 className={`services-coverflow-item ${index === activeIndex ? 'is-active' : ''}`}
+                aria-hidden={index === activeIndex ? undefined : 'true'}
+                inert={index === activeIndex ? undefined : true}
                 style={{
                   '--coverflow-depth': `${boundedDistance * -120}px`,
                   '--coverflow-opacity': `${1 - boundedDistance * 0.16}`,
@@ -135,6 +137,7 @@ export default function ServicesShowcase() {
               type="button"
               className={`carousel-dot ${index === activeIndex ? 'is-active' : ''}`}
               onClick={() => scrollToIndex(index)}
+              aria-pressed={index === activeIndex}
               aria-label={`Afficher ${service.shortTitle}`}
             />
           ))}

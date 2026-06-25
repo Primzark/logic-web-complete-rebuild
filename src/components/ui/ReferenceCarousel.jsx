@@ -78,6 +78,8 @@ export default function ReferenceCarousel({ references }) {
               <div
                 key={reference.title}
                 className={`reference-carousel-item ${index === activeIndex ? 'is-active' : ''}`}
+                aria-hidden={index === activeIndex ? undefined : 'true'}
+                inert={index === activeIndex ? undefined : true}
                 style={{
                   '--reference-opacity': `${1 - boundedDistance * 0.1}`,
                   '--reference-scale': `${1 - boundedDistance * 0.04}`,
@@ -109,6 +111,7 @@ export default function ReferenceCarousel({ references }) {
               type="button"
               className={`carousel-dot ${index === activeIndex ? 'is-active' : ''}`}
               onClick={() => scrollToIndex(index)}
+              aria-pressed={index === activeIndex}
               aria-label={`Afficher ${reference.title}`}
             />
           ))}

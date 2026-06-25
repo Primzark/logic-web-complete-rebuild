@@ -5,7 +5,7 @@ Production upgrade of the original static prototype into a routed `React + Vite`
 ## Stack
 
 - React 19
-- Vite 5
+- Vite 8
 - React Router
 - Existing premium visual system preserved from the prototype CSS
 - Contact submission flow with:
@@ -20,6 +20,8 @@ Production upgrade of the original static prototype into a routed `React + Vite`
 ```bash
 logic-web/
 ├─ api/
+│  └─ contact.js
+├─ server/
 │  └─ contact.php
 ├─ public/
 │  ├─ branding/
@@ -96,8 +98,11 @@ npm run preview:php
 
 ## Contact handling
 
-The contact form posts directly to FormSubmit at `https://formsubmit.co/nicolaslivapro@gmail.com`.
-FormSubmit may require confirmation from that recipient email address on the first successful submission.
+The contact form posts to the first-party `/api/contact` endpoint.
+
+- On Vercel, `api/contact.js` validates, rate-limits and relays the lead by email.
+- On PHP hosting, `server/contact.php` keeps the same validation contract and stores a local JSON copy.
+- In Vite development, `vite.config.js` provides a matching local `/api/contact` middleware.
 
 Optional environment variables:
 
@@ -106,8 +111,10 @@ cp .env.example .env
 ```
 
 - `VITE_SITE_URL`: canonical URL used for metadata
+- `CONTACT_RECIPIENT_EMAIL`: recipient used by the default Vercel email relay
+- `CONTACT_WEBHOOK_URL`: optional custom relay/webhook endpoint for production lead delivery
 
 ## Notes
 
-- The old prototype CSS is still reused to preserve the current UX direction and visual identity during the migration.
-- The legal page includes the available company data, but the final hosting provider field still needs to be completed before launch if it changes.
+- The build writes route-specific static HTML metadata for SEO and social previews.
+- The legal page uses Vercel hosting details for the current deployment target.

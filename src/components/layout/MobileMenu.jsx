@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 
 import BrandLogo from '../brand/BrandLogo';
 
@@ -16,9 +17,83 @@ function isServicesRoute(pathname) {
 
 export default function MobileMenu({ navigation, isOpen, onClose, onToggleTheme, themeLabel }) {
   const { pathname } = useLocation();
+  const menuRef = useRef(null);
+  const previousFocusRef = useRef(null);
+
+  useEffect(() => {
+    const main = document.querySelector('main');
+    const footer = document.querySelector('footer');
+    const chrome = [...document.querySelectorAll('.mobile-sticky-cta, .back-to-top, .section-indicator')];
+    const inertTargets = [main, footer, ...chrome].filter(Boolean);
+
+    inertTargets.forEach((element) => {
+      if (isOpen) {
+        element.setAttribute('aria-hidden', 'true');
+        element.inert = true;
+      } else {
+        element.removeAttribute('aria-hidden');
+        element.inert = false;
+      }
+    });
+
+    return () => {
+      inertTargets.forEach((element) => {
+        element.removeAttribute('aria-hidden');
+        element.inert = false;
+      });
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen || !menuRef.current) {
+      return undefined;
+    }
+
+    previousFocusRef.current = document.activeElement;
+    const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    const focusable = [...menuRef.current.querySelectorAll(focusableSelector)].filter(
+      (element) => element.offsetParent !== null
+    );
+
+    window.requestAnimationFrame(() => {
+      focusable[0]?.focus();
+    });
+
+    const handleKeyDown = (event) => {
+      if (event.key !== 'Tab') {
+        return;
+      }
+
+      const currentFocusable = [...menuRef.current.querySelectorAll(focusableSelector)].filter(
+        (element) => element.offsetParent !== null
+      );
+
+      if (!currentFocusable.length) {
+        return;
+      }
+
+      const first = currentFocusable[0];
+      const last = currentFocusable[currentFocusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      previousFocusRef.current?.focus?.();
+    };
+  }, [isOpen]);
 
   return (
-    <div className={`mobile-menu ${isOpen ? 'active' : ''}`} id="mobileMenu" aria-hidden={!isOpen}>
+    <div className={`mobile-menu ${isOpen ? 'active' : ''}`} id="mobileMenu" aria-hidden={!isOpen} ref={menuRef}>
       <BrandLogo size="menu" className="mobile-menu-brand" onClick={onClose} />
 
       {navigation.map((item) => (

@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { company, contactDetails, contactProjectOptions } from '../../data/siteContent';
 import { DIAGNOSTIC_STORAGE_KEY } from '../diagnostic/diagnosticRules';
 import Button from '../ui/Button';
 
-const validatedFields = ['name', 'email', 'message'];
+const validatedFields = ['name', 'email', 'message', 'consent'];
 const contactStorageKey = 'logicweb-last-contact';
+const budgetOptions = ['À cadrer', '< 2 000 €', '2 000 € - 5 000 €', '5 000 € - 10 000 €', '> 10 000 €'];
+const timelineOptions = ['Dès que possible', 'Sous 1 mois', '1 à 3 mois', 'Plus tard / cadrage'];
+const preferredContactOptions = ['Email', 'Téléphone', 'Visio', 'Sur site si pertinent'];
 
 function buildDiagnosticMessage(diagnostic, contactIntent) {
   if (!diagnostic) {
@@ -47,7 +50,7 @@ function readStoredDiagnostic() {
 }
 
 function validateField(name, value) {
-  const cleanValue = value.trim();
+  const cleanValue = typeof value === 'string' ? value.trim() : value;
 
   if (name === 'name' && !cleanValue) {
     return 'Indiquez votre nom complet pour que nous sachions qui recontacter.';
@@ -73,6 +76,10 @@ function validateField(name, value) {
     }
   }
 
+  if (name === 'consent' && !value) {
+    return 'Confirmez que Logic Web peut utiliser ces informations pour vous recontacter.';
+  }
+
   return '';
 }
 
@@ -92,24 +99,28 @@ function validate(values) {
 
 export default function ContactFormSection() {
   const location = useLocation();
+  const navigate = useNavigate();
   const statusRef = useRef(null);
   const diagnosticLoadedRef = useRef(false);
+  const formStartedAtRef = useRef(Date.now());
   const [values, setValues] = useState({
     name: '',
     company: '',
     email: '',
     phone: '',
     projectType: '',
+    budget: '',
+    timeline: '',
+    preferredContact: '',
     message: '',
-    _honey: ''
+    website: '',
+    consent: false
   });
   const [touched, setTouched] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ state: 'idle', message: '' });
   const [diagnosticSummary, setDiagnosticSummary] = useState('');
-
-  const nextUrl = typeof window !== 'undefined' ? `${window.location.origin}/merci` : '/merci';
 
   useEffect(() => {
     if (diagnosticLoadedRef.current) {
@@ -142,11 +153,12 @@ export default function ContactFormSection() {
   }, [status.state, status.message]);
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { checked, name, type, value } = event.target;
+    const nextValue = type === 'checkbox' ? checked : value;
 
     setValues((current) => ({
       ...current,
-      [name]: value
+      [name]: nextValue
     }));
 
     if (!validatedFields.includes(name) || (!touched[name] && !submitted)) {
@@ -155,7 +167,7 @@ export default function ContactFormSection() {
 
     setErrors((currentErrors) => {
       const nextErrors = { ...currentErrors };
-      const fieldError = validateField(name, value);
+      const fieldError = validateField(name, nextValue);
 
       if (fieldError) {
         nextErrors[name] = fieldError;
@@ -172,7 +184,8 @@ export default function ContactFormSection() {
   };
 
   const handleBlur = (event) => {
-    const { name, value } = event.target;
+    const { checked, name, type, value } = event.target;
+    const nextValue = type === 'checkbox' ? checked : value;
 
     if (!validatedFields.includes(name)) {
       return;
@@ -185,7 +198,7 @@ export default function ContactFormSection() {
 
     setErrors((currentErrors) => {
       const nextErrors = { ...currentErrors };
-      const fieldError = validateField(name, value);
+      const fieldError = validateField(name, nextValue);
 
       if (fieldError) {
         nextErrors[name] = fieldError;
@@ -197,14 +210,14 @@ export default function ContactFormSection() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     setSubmitted(true);
 
     const nextErrors = validate(values);
     setErrors(nextErrors);
 
     if (Object.keys(nextErrors).length > 0) {
-      event.preventDefault();
       setStatus({
         state: 'error',
         message: 'Corrigez les champs indiqués, puis envoyez votre demande.'
@@ -212,22 +225,66 @@ export default function ContactFormSection() {
       return;
     }
 
-    try {
-      window.sessionStorage.setItem(
-        contactStorageKey,
-        JSON.stringify({
-          name: values.name.trim(),
-          projectType: values.projectType
-        })
-      );
-    } catch {
-      // Session storage is a progressive enhancement for the thank-you page.
-    }
-
     setStatus({
       state: 'loading',
       message: 'Envoi en cours. Vous allez être redirigé vers la page de confirmation.'
     });
+
+    const payload = {
+      ...values,
+      formStartedAt: formStartedAtRef.current,
+      diagnosticResult: diagnosticSummary
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || result.ok === false) {
+        const serverErrors = result.errors || {};
+
+        setErrors((currentErrors) => ({
+          ...currentErrors,
+          ...serverErrors
+        }));
+        setStatus({
+          state: 'error',
+          message: result.message || 'Impossible d’envoyer votre demande pour le moment. Vous pouvez écrire directement par email.'
+        });
+        return;
+      }
+
+      try {
+        window.sessionStorage.setItem(
+          contactStorageKey,
+          JSON.stringify({
+            name: values.name.trim(),
+            projectType: values.projectType
+          })
+        );
+      } catch {
+        // Session storage is a progressive enhancement for the thank-you page.
+      }
+
+      navigate('/merci', {
+        state: {
+          name: values.name.trim(),
+          projectType: values.projectType
+        }
+      });
+    } catch {
+      setStatus({
+        state: 'error',
+        message: 'L’envoi a échoué. Écrivez directement à contact@logic-web.net pour éviter toute perte de message.'
+      });
+    }
   };
 
   const getFieldError = (field) => (errors[field] && (touched[field] || submitted) ? errors[field] : '');
@@ -237,33 +294,33 @@ export default function ContactFormSection() {
   const nameError = getFieldError('name');
   const emailError = getFieldError('email');
   const messageError = getFieldError('message');
+  const consentError = getFieldError('consent');
   const completedRequired = [
     !validateField('name', values.name),
     !validateField('email', values.email),
-    !validateField('message', values.message)
+    !validateField('message', values.message),
+    !validateField('consent', values.consent)
   ].filter(Boolean).length;
   const completionPercent = Math.round((completedRequired / validatedFields.length) * 100);
   const errorSummaryItems = [
     { label: 'Nom complet', target: 'contact-name', message: nameError },
     { label: 'Email', target: 'contact-email', message: emailError },
-    { label: 'Message', target: 'contact-message', message: messageError }
+    { label: 'Message', target: 'contact-message', message: messageError },
+    { label: 'Consentement', target: 'contact-consent', message: consentError }
   ].filter((item) => item.message);
 
   return (
     <div className="contact-grid page-shell page-shell--simple">
       <form
-        action="https://formsubmit.co/nicolaslivapro@gmail.com"
+        action="/api/contact"
         className="contact-form"
         id="contactForm"
         method="POST"
         onSubmit={handleSubmit}
         noValidate
       >
-        <input type="hidden" name="_subject" value="Nouvelle demande depuis le site Logic Web" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value={nextUrl} />
         <input type="hidden" name="diagnostic_result" value={diagnosticSummary} />
+        <input type="hidden" name="formStartedAt" value={formStartedAtRef.current} />
 
         {diagnosticSummary ? (
           <div className="diagnostic-contact-note" role="status">
@@ -362,11 +419,11 @@ export default function ContactFormSection() {
           <label htmlFor="contact-website">Site web</label>
           <input
             id="contact-website"
-            name="_honey"
+            name="website"
             type="text"
             tabIndex="-1"
             autoComplete="off"
-            value={values._honey}
+            value={values.website}
             onChange={handleChange}
           />
         </div>
@@ -381,6 +438,59 @@ export default function ContactFormSection() {
           >
             <option value="">Sélectionnez un service</option>
             {contactProjectOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="contact-budget">Budget estimé</label>
+            <select
+              id="contact-budget"
+              name="budget"
+              value={values.budget}
+              onChange={handleChange}
+            >
+              <option value="">Sélectionnez une fourchette</option>
+              {budgetOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="contact-timeline">Échéance souhaitée</label>
+            <select
+              id="contact-timeline"
+              name="timeline"
+              value={values.timeline}
+              onChange={handleChange}
+            >
+              <option value="">Sélectionnez un délai</option>
+              {timelineOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="contact-preferred-contact">Mode de contact préféré</label>
+          <select
+            id="contact-preferred-contact"
+            name="preferredContact"
+            value={values.preferredContact}
+            onChange={handleChange}
+          >
+            <option value="">Aucune préférence</option>
+            {preferredContactOptions.map((option) => (
               <option key={option} value={option}>
                 {option}
               </option>
@@ -416,7 +526,7 @@ export default function ContactFormSection() {
 
         <div className="form-progress" aria-live="polite">
           <div className="form-progress-top">
-            <span>{completedRequired}/3 informations obligatoires complétées</span>
+            <span>{completedRequired}/4 informations obligatoires complétées</span>
             <strong>{completionPercent}%</strong>
           </div>
           <div className="form-progress-track" aria-hidden="true">
@@ -447,6 +557,29 @@ export default function ContactFormSection() {
           </div>
         ) : null}
 
+        <div className="consent-check">
+          <input
+            id="contact-consent"
+            name="consent"
+            type="checkbox"
+            checked={values.consent}
+            aria-describedby={buildDescription(consentError && 'contact-consent-error')}
+            aria-invalid={consentError ? 'true' : undefined}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            required
+          />
+          <label htmlFor="contact-consent">
+            J’accepte que Logic Web utilise ces informations uniquement pour analyser ma demande et me
+            recontacter.
+          </label>
+        </div>
+        {consentError ? (
+          <span className="field-error" id="contact-consent-error" aria-live="polite">
+            {consentError}
+          </span>
+        ) : null}
+
         <Button
           type="submit"
           color="olive"
@@ -469,7 +602,7 @@ export default function ContactFormSection() {
       </form>
 
       <div className="contact-info">
-        <h3>Coordonnées directes</h3>
+        <h2>Coordonnées directes</h2>
         <p>
           Vous préférez un premier échange par email ? Logic Web revient vers vous rapidement avec un cadre
           clair, sans pression commerciale inutile.
@@ -502,7 +635,7 @@ export default function ContactFormSection() {
               </svg>
             </div>
             <div>
-              <h4>{detail.title}</h4>
+              <h3>{detail.title}</h3>
               <p>
                 {detail.href ? (
                   <a href={detail.href} className="contact-inline-link">
@@ -517,7 +650,7 @@ export default function ContactFormSection() {
         ))}
 
         <div className="what-next">
-          <h4>Que se passe-t-il après votre message ?</h4>
+          <h3>Que se passe-t-il après votre message ?</h3>
           <div className="what-next-steps">
             <div className="what-next-step">
               <span>1</span> Analyse rapide de votre demande sous 24 h ouvrées.

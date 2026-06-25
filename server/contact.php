@@ -51,9 +51,14 @@ $clean = [
     'email' => mb_strtolower(sanitize_text((string) ($payload['email'] ?? ''), 160)),
     'phone' => sanitize_text((string) ($payload['phone'] ?? ''), 40),
     'projectType' => sanitize_text((string) ($payload['projectType'] ?? ($payload['project_type'] ?? '')), 120),
+    'budget' => sanitize_text((string) ($payload['budget'] ?? ''), 80),
+    'timeline' => sanitize_text((string) ($payload['timeline'] ?? ''), 80),
+    'preferredContact' => sanitize_text((string) ($payload['preferredContact'] ?? ($payload['preferred_contact'] ?? '')), 80),
     'message' => sanitize_text((string) ($payload['message'] ?? ''), 4000),
-    'website' => sanitize_text((string) ($payload['website'] ?? ''), 120),
-    'formStartedAt' => (int) ($payload['formStartedAt'] ?? 0)
+    'diagnosticResult' => sanitize_text((string) ($payload['diagnosticResult'] ?? ($payload['diagnostic_result'] ?? '')), 6000),
+    'website' => sanitize_text((string) ($payload['website'] ?? ($payload['_honey'] ?? '')), 120),
+    'formStartedAt' => (int) ($payload['formStartedAt'] ?? 0),
+    'consent' => filter_var($payload['consent'] ?? false, FILTER_VALIDATE_BOOLEAN)
 ];
 
 $errors = [];
@@ -68,6 +73,10 @@ if ($clean['email'] === '' || !filter_var($clean['email'], FILTER_VALIDATE_EMAIL
 
 if ($clean['message'] === '' || mb_strlen($clean['message']) < 20) {
     $errors['message'] = 'Merci de préciser votre besoin en quelques phrases.';
+}
+
+if (!$clean['consent']) {
+    $errors['consent'] = 'Merci de confirmer le consentement de contact.';
 }
 
 if ($clean['website'] !== '') {
@@ -133,7 +142,12 @@ $submission = [
     'email' => $clean['email'],
     'phone' => $clean['phone'],
     'projectType' => $clean['projectType'],
-    'message' => $clean['message']
+    'budget' => $clean['budget'],
+    'timeline' => $clean['timeline'],
+    'preferredContact' => $clean['preferredContact'],
+    'message' => $clean['message'],
+    'diagnosticResult' => $clean['diagnosticResult'],
+    'consent' => $clean['consent']
 ];
 
 $fileName = str_replace([':', '.'], '-', gmdate('c')) . '-' . bin2hex(random_bytes(4)) . '.json';

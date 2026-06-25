@@ -1,4 +1,5 @@
 import Reveal from './Reveal';
+import OptimizedImage from './OptimizedImage';
 
 export default function ReferenceCard({ className = '', delay, reveal = true, reference }) {
   const cardClasses = `ref-card ${className}`.trim();
@@ -7,7 +8,7 @@ export default function ReferenceCard({ className = '', delay, reveal = true, re
   return (
     <CardWrapper as={reveal ? 'article' : undefined} className={cardClasses} delay={reveal ? delay : undefined}>
       <div className="ref-img">
-        <img
+        <OptimizedImage
           src={reference.image.src}
           alt={reference.image.alt}
           draggable="false"

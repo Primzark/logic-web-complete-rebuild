@@ -12,6 +12,11 @@ if (str_starts_with($requestPath, '/api/') && is_file($apiFile)) {
     return false;
 }
 
+if ($requestPath === '/api/contact') {
+    require $rootDir . '/server/contact.php';
+    return true;
+}
+
 $distFile = realpath($distDir . $requestPath);
 $distRoot = realpath($distDir);
 

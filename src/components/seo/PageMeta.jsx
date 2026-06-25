@@ -34,6 +34,7 @@ export default function PageMeta({
   description,
   canonicalPath,
   image = '/branding/logic-web/logos/logic-web-logo-master.png',
+  robots = 'index, follow',
   schema
 }) {
   const location = useLocation();
@@ -50,6 +51,10 @@ export default function PageMeta({
     upsertMeta('meta[name="description"]', {
       name: 'description',
       content: description
+    });
+    upsertMeta('meta[name="robots"]', {
+      name: 'robots',
+      content: robots
     });
     upsertMeta('meta[property="og:title"]', {
       property: 'og:title',
@@ -113,7 +118,7 @@ export default function PageMeta({
 
       element.textContent = JSON.stringify(schema);
     }
-  }, [canonicalPath, description, image, location.pathname, schema, title]);
+  }, [canonicalPath, description, image, location.pathname, robots, schema, title]);
 
   return null;
 }

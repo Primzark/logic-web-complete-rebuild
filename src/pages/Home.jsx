@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { brandMedia } from '../data/media';
-import { company, legacyScope, referenceCases, trustItems } from '../data/siteContent';
+import { company, legacyScope, proofPoints, referenceCases, trustItems } from '../data/siteContent';
 import DiagnosticExperience from '../components/diagnostic/DiagnosticExperience';
 import HeroSection from '../components/home/HeroSection';
 import ProblemsSection from '../components/home/ProblemsSection';
@@ -14,6 +14,7 @@ import ReferenceCard from '../components/ui/ReferenceCard';
 import Reveal from '../components/ui/Reveal';
 import SectionIntro from '../components/ui/SectionIntro';
 import TrustStrip from '../components/ui/TrustStrip';
+import OptimizedImage from '../components/ui/OptimizedImage';
 
 function createHomeSchema() {
   const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.logic-web.net';
@@ -50,6 +51,29 @@ export default function Home() {
       <ServicesShowcase />
 
       <ProblemsSection />
+
+      <section className="section proof-band page-shell page-shell--simple" data-section-name="Preuves">
+        <div className="proof-layout">
+          <Reveal className="proof-copy">
+            <div className="section-label section-label--accent">Signaux de confiance</div>
+            <h2 className="section-title">Un cadre clair avant de parler technique ou budget</h2>
+            <p className="section-desc">
+              Un projet digital sérieux commence par une décision lisible : comprendre le besoin, repérer les
+              risques, prioriser ce qui aura le plus d’impact et garder une trace de la recommandation.
+            </p>
+          </Reveal>
+          <div className="proof-grid">
+            {proofPoints.map((item, index) => (
+              <Reveal className="proof-item" delay={(index % 3) + 1} key={item.label}>
+                <span>{item.label}</span>
+                <strong>{item.value}</strong>
+                <p>{item.text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <ProcessSection />
 
       <section className="section scope-section page-shell page-shell--simple" data-section-name="Périmètre historique">
@@ -95,7 +119,7 @@ export default function Home() {
             >
               <div className="brand-gallery-card-shell">
                 <div className="brand-gallery-card-surface">
-                  <img
+                  <OptimizedImage
                     src={brandMedia.gallery[0].src}
                     alt={brandMedia.gallery[0].alt}
                     loading="lazy"
@@ -121,7 +145,7 @@ export default function Home() {
             >
               <div className="brand-gallery-card-shell">
                 <div className="brand-gallery-card-surface">
-                  <img
+                  <OptimizedImage
                     src={brandMedia.gallery[1].src}
                     alt={brandMedia.gallery[1].alt}
                     loading="lazy"
@@ -147,7 +171,7 @@ export default function Home() {
             >
               <div className="brand-gallery-card-shell">
                 <div className="brand-gallery-card-surface">
-                  <img
+                  <OptimizedImage
                     src={brandMedia.gallery[2].src}
                     alt={brandMedia.gallery[2].alt}
                     loading="lazy"
@@ -179,9 +203,9 @@ export default function Home() {
       <WhyChooseUsSection />
 
       <CTASection
-        title="Prêt à remettre de l’ordre et du niveau dans votre présence digitale ?"
-        description="Parlons de votre contexte, de vos contraintes et de la solution la plus utile pour votre activité."
-        primary={{ to: '/contact', label: 'Demander un devis →' }}
+        title="Prêt à transformer un besoin flou en plan d’action clair ?"
+        description="Décrivez votre contexte et recevez une première lecture utile avant de vous engager."
+        primary={{ to: '/contact', label: 'Demander un audit gratuit →' }}
         secondary={{ href: `mailto:${company.email}`, label: 'Nous écrire' }}
         copy={
           <>

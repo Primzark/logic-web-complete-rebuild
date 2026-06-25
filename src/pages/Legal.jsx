@@ -77,10 +77,20 @@ export default function Legal() {
         <section className="svc-section" data-section-name="Hébergement">
           <Reveal>
             <h2>Hébergement</h2>
-            <p>
-              Les informations d’hébergement définitives du site doivent être complétées avant mise en ligne si
-              l’hébergeur retenu diffère de l’infrastructure actuellement utilisée.
-            </p>
+            <div className="legal-grid">
+              <div className="legal-item">
+                <span>Hébergeur</span>
+                <strong>Vercel Inc.</strong>
+              </div>
+              <div className="legal-item">
+                <span>Adresse</span>
+                <strong>440 N Barranca Ave #4133, Covina, CA 91723, États-Unis</strong>
+              </div>
+              <div className="legal-item">
+                <span>Site</span>
+                <strong>vercel.com</strong>
+              </div>
+            </div>
           </Reveal>
         </section>
 

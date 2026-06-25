@@ -4,6 +4,7 @@ export default function SectionIntro({
   label,
   title,
   description,
+  headingTag: HeadingTag = 'h2',
   light = false,
   centered = false,
   accent = false,
@@ -23,7 +24,7 @@ export default function SectionIntro({
       >
         {label}
       </div>
-      <div
+      <HeadingTag
         className={[
           'section-title',
           light ? 'light' : '',
@@ -35,7 +36,7 @@ export default function SectionIntro({
           .join(' ')}
       >
         {title}
-      </div>
+      </HeadingTag>
       {description ? (
         <p
           className={[

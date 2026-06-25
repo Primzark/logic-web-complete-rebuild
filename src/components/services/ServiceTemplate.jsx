@@ -13,6 +13,24 @@ function createServiceSchema(service) {
   return [
     {
       '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: service.shortTitle,
+      description: service.excerpt,
+      provider: {
+        '@type': 'LocalBusiness',
+        name: company.name,
+        email: company.email,
+        telephone: company.phone,
+        address: {
+          '@type': 'PostalAddress',
+          ...company.address
+        }
+      },
+      areaServed: company.areaServed,
+      url: `${siteUrl}${service.path}`
+    },
+    {
+      '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
         {
@@ -34,8 +52,44 @@ function createServiceSchema(service) {
           item: `${siteUrl}${service.path}`
         }
       ]
-    }
+    },
+    ...(service.faq?.length
+      ? [
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: service.faq.map((item) => ({
+              '@type': 'Question',
+              name: item.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.answer
+              }
+            }))
+          }
+        ]
+      : [])
   ];
+}
+
+function serviceCtaLabel(service) {
+  if (service.slug === 'creation-sites-web') {
+    return 'Demander un audit site gratuit →';
+  }
+
+  if (service.slug === 'logiciels-sur-mesure') {
+    return 'Cadrer votre outil métier →';
+  }
+
+  if (service.slug === 'support-it-securite') {
+    return 'Planifier un audit IT →';
+  }
+
+  if (service.slug === 'formation') {
+    return 'Évaluer le besoin formation →';
+  }
+
+  return 'Prendre contact →';
 }
 
 export default function ServiceTemplate({ service }) {
@@ -78,7 +132,7 @@ export default function ServiceTemplate({ service }) {
           <div className="svc-features">
             {service.features.map((feature, index) => (
               <Reveal className="svc-feature" delay={(index % 4) + 1} key={feature.title}>
-                <h4>{feature.title}</h4>
+                <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
               </Reveal>
             ))}
@@ -103,7 +157,7 @@ export default function ServiceTemplate({ service }) {
             <div className="svc-capability-groups">
               {service.legacyCoverageGroups.map((group, index) => (
                 <Reveal className="svc-capability-group" delay={(index % 4) + 1} key={group.title}>
-                  <h4>{group.title}</h4>
+                  <h3>{group.title}</h3>
                   <ul>
                     {group.items.map((item) => (
                       <li key={item}>{item}</li>
@@ -127,7 +181,7 @@ export default function ServiceTemplate({ service }) {
         <CTASection
           mode="compact"
           copy={service.cta}
-          primary={{ to: '/contact', label: 'Prendre contact →' }}
+          primary={{ to: '/contact', label: serviceCtaLabel(service) }}
         />
       </div>
     </>

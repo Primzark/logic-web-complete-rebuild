@@ -5,7 +5,7 @@ export default function DiagnosticRoadmap({ roadmap }) {
         <article className="diagnostic-roadmap__phase" key={title} style={{ '--phase-delay': `${index * 90}ms` }}>
           <span>{String(index + 1).padStart(2, '0')}</span>
           <div>
-            <h4>{title}</h4>
+            <h3>{title}</h3>
             <p>{description}</p>
           </div>
         </article>

@@ -4,6 +4,7 @@ import { brandMedia } from '../../data/media';
 import { company, heroStats } from '../../data/siteContent';
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 import Button from '../ui/Button';
+import OptimizedImage from '../ui/OptimizedImage';
 
 function AnimatedStat({ value, suffix, label, delay, type = 'number' }) {
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -161,7 +162,7 @@ export default function HeroSection({ onOpenDiagnostic }) {
       <div className="hero-visual hero-enter hero-enter-6" aria-hidden="true">
         <div className="hero-frame" />
         <div className="hero-img-wrapper">
-          <img
+          <OptimizedImage
             className="hero-img"
             src={brandMedia.homeHero.src}
             alt=""
@@ -170,7 +171,7 @@ export default function HeroSection({ onOpenDiagnostic }) {
           />
         </div>
         <div className="hero-aside-card">
-          <img
+          <OptimizedImage
             className="hero-aside-img"
             src={brandMedia.homeAside.src}
             alt=""
